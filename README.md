@@ -5,11 +5,11 @@ A bot which enhances a project's development lifecycle by allowing automation of
 Course : **CSC510**
 
 Team Members:
-* Yash Vora - yvora
-* Nupur Pradeep Sakhalkar - nsakhal
-* Mitkumar Pandya - mhpandya
-* Neha Sakhalkar - nsakhal2
-* Durgesh Kumar Gupta - dgupta9
+* Yash Vora - [yvora](https://github.ncsu.edu/yvora/)
+* Nupur Pradeep Sakhalkar - [nsakhal](https://github.ncsu.edu/nsakhal/)
+* Mitkumar Pandya - [mhpandya](https://github.ncsu.edu/mhpandya/)
+* Neha Sakhalkar - [nsakhal2](https://github.ncsu.edu/nsakhal2/)
+* Durgesh Kumar Gupta - [dgupta9](https://github.ncsu.edu/dgupta9/)
 
 ## Milestones
 1.  Design - [Link](./DESIGN.md)
