@@ -66,8 +66,6 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
             - ProManBot compiles the result from each task and give completed percentage.
 ```
 
-
-```
 Not Doing for now...!!!
 5.  Creation of regular team meetings
 ```
