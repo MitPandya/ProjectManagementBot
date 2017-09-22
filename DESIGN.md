@@ -11,18 +11,23 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
 
 ### Use Cases
 
-1.  Project Manager wants to distribute tasks among team members
+1.  Project Manager asks the bot to create a new Agile Sprint for the next 2 weeks
 ```
-=> Pre-requisite: - Tasks exist in the ProManBot's activity engine
-                  - Team members enter their skills into ProManBot's database system
-=> Flow:    - Manager asks the bot for unassigned tasks
-            - A list of tasks are returned by the bot
-            - Manager either assigns task to specific team member by name or asks for suggestions
-                + Bot suggests names based on skills if manager asked for suggestion
-                + Manager assigns task to any one of the names suggested
+=> Pre-requisite: - Another Sprint does not exist already for that project in that time frame
+=> Flow:    - Manager asks the bot to create a Agile Sprint specifying dates for the time period
+            - Bot confirms if any other Sprint does not exist for that time period, else notifies manager about it
+            - If Sprint already present, manager reconsiders dates and starts creation process again, else the  bot creates               the sprint and notifies the manager
 ```
 
-2.  Project Manager creates tasks for a project
+2.  Team Members interact with the Bot to update their details in the system such as their personal details, skills,             availability, or updates on story points for the particular sprint.
+```
+=> Pre-requisite: - Team Member's profile is already present in the database
+                  - Tasks are already assigned to the Team Member with story points on each task
+=> Flow:    - Team Member asks the bot to bring up their profile and once returned, asks the bot to update changes if                     required
+            - Team Member asks the bot to update their story points for a particular task
+```
+
+3.  Project Manager creates tasks for a project
 ```
 => Pre-requisite: - Project manager know various tasks associated with a project
 => Flow:    - Manager inform bot to add new task for a project
@@ -32,23 +37,38 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
             - Manager decides if the task needs to be assigned now or later
 ```
 
-3.  Checking the overall and per team member status of project
+4.  Project Manager wants to distribute tasks among team members
 ```
-=> Pre-requisite: - Tasks regarding a project exist in the ProManBot's activity engine
-                  - Team members have updated their status of tasks
-=> Flow:    - Manager asks bot for overall project status
-            - ProManBot compiles the result from each task and give completed percentage.
+=> Pre-requisite: - Tasks exist in the ProManBot's activity engine
+                  - Team members already entered their skills into ProManBot's database system
+=> Flow:    - Manager asks the bot for unassigned tasks
+            - A list of tasks are returned by the bot
+            - Manager either assigns task to specific team member by name or asks for suggestions
+                + Bot suggests names based on skills or availability of the team member, if manager asked for suggestion
+                + Manager may ask the bot for the current workload on the team member and the bot brings up the member's                       schedule
+                + Manager assigns task to that team member or any one of the names suggested in the earlier step
 ```
 
-4.  Team member reporting progress and raising issues.
+5.  Team member reporting progress and raising issues.
 ```
 => Pre-requisite: - Tasks exist in the ProManBot's activity engine and is assigned to a member
-=> Flow:    - Developer asks bot for the list of tasks assigned to him/her.
-            - Developer informs bot to mark a task as completed.
+=> Flow:    - Team Member asks bot for the list of tasks assigned to him/her.
+            - Team Member informs the bot to mark a task as completed.
             - If the task doesn't exist, bot informs user about it.
             - Else, the task gets updated and user is informed about it.
 ```
 
+6.  Checking the overall and per team member status of current sprint
+```
+=> Pre-requisite: - Tasks regarding a project exist in the ProManBot's activity engine
+                  - Team members have updated their status of tasks
+=> Flow:    - Manager asks bot for overall sprint status
+            - ProManBot compiles the result from each task and give completed percentage.
+```
+
+
+```
+Not Doing for now...!!!
 5.  Creation of regular team meetings
 ```
 => Pre-requisite: - Manager wants to create a meeting regarding projects such as demo, issues etc.
