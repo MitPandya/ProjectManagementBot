@@ -67,16 +67,6 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
             - ProManBot compiles the result from each task and give completed percentage.
 ```
 
-Not Doing for now...!!!
-5.  Creation of regular team meetings
-```
-=> Pre-requisite: - Manager wants to create a meeting regarding projects such as demo, issues etc.
-                  - Manager and Team members have allowed access to their google calendar
-=> Flow:    - Manager asks the bot to setup a meeting in a given time range and invitees
-            - Bot checks availability of each user and selects the time slot which covers maximum participants and must    include manager.
-            - Each user is sent a notification about their meeting and asked to confirm their participation.
-```
-
 ### Design Sketches
 
 * Wireframe mockup
