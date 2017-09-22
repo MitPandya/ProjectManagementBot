@@ -12,7 +12,7 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
 
 ### Use Cases
 
-1.  Project Manager asks the bot to create a new Agile Sprint for the next 2 weeks
+1.  Project Manager asks the bot to create a new Agile Sprint for the next 2 weeks.
 ```
 => Pre-requisite: - Another Sprint does not exist already for that project in that time frame
 => Flow:    - Manager asks the bot to create a Agile Sprint specifying dates for the time period
@@ -20,18 +20,18 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
             - If Sprint already present, manager reconsiders dates and starts creation process again, else the  bot creates               the sprint and notifies the manager
 ```
 
-2.  Team Members interact with the Bot to update their details in the system such as their personal details, skills,             availability, or updates on story points for the particular sprint.
+2.  Team Members interact with the Bot to update their details in the system such as their personal details, skills,             availability, or updates on the story points for the particular sprint.
 ```
 => Pre-requisite: - Team Member's profile is already present in the database
                   - Tasks are already assigned to the Team Member with story points on each task
 => Flow:    - Team Member asks the bot to bring up their profile and once returned, asks the bot to update changes if                     required
-            - Team Member asks the bot to update their story points for a particular task
+            - Team Member asks the bot to update their story points for a particular task or mark the task as completed, pending etc.
 ```
 
-3.  Project Manager creates tasks for a project
+3.  Project Manager creates tasks for a project.
 ```
-=> Pre-requisite: - Project manager know various tasks associated with a project
-=> Flow:    - Manager inform bot to add new task for a project
+=> Pre-requisite: - Project manager knows various tasks associated with the project and wants to create tasks in the dashboard.
+=> Flow:    - Manager informs bot to add new task for a project and assigns skill-sets and story points associated with the project
             - Bot compares the task with any existing item and warns if duplicates are found
                  + If duplicates are desired, manager has to confirm it.
             - Bot asks if the task needs to be assigned
