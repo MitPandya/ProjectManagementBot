@@ -84,4 +84,5 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 #### Constraints
 
-1. A team member cannot ask the bot to assign him/her a task. This feature is only available to the project manager
+1. A team member cannot ask the bot to assign him/her a task. This privilege is only available to the project manager.
+2. A team member can not ask the bot for status and assigned tasks of other team members or can not modify them.
