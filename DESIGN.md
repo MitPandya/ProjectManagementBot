@@ -1,8 +1,7 @@
 ## Problem Statement
-Effective Project Management and it's timely completion requires a lot of complicated and manual efforts by the Project Managers to identify tasks and assign them to appropriate team members. One of the responsibilities of the project manager 
-is to maintain several sprints in the entire Project LifeCycle keeping track of the progress of that particular sprint. Developer and testers being expected to keep of track of their respective task's schedule often use some basic tools such as sticky notes to keep track.
+Effective Project Management and its timely completion require a lot of complicated and manual efforts by the Project Managers to identify tasks and assign them to appropriate team members. One of the responsibilities of the project manager is to maintain several sprints in the Agile Project LifeCycle keeping track of the progress of those particular sprints. Developer and testers being expected to keep track of their respective task's schedule often use some basic tools such as sticky notes to keep track.
 
-Since humans are prone to errors, there is a high probability that issues will arise in the above discussed situations. One such example could be, the project manager assigns a task to a team member without knowing their current workload or, if their skills are a fit for the task which could have been avoided with a simple automation.
+Since humans are prone to errors, there is a high probability that issues will arise in the situations.  discussed above. One such example could be, the project manager assigns a task to a team member without knowing their current workload or, if their skills are a fit for the task which could have been avoided with a simple automation.
 
 ## Bot Description
 
