@@ -80,7 +80,7 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 ## Architecture Design
 
-**Architecture Design Pattern**: Data centered Pattern
+#### Architecture Design Pattern(_Data centered Pattern_)  
 The bot will store all the information regarding story points, skills etc in a central database system and as there is a centralized data store in this project, the project follows a data-centered pattern. In addition to this, the information regarding task progress and story points of individual team members is updated dynamically. Moreover, all the team members can independently update this information in the centralized datastore. Thus, due to all the above mentioned reasons,this project follows a blackboard data-centered pattern.
 
 ![SE-Wireframe](./SE-Architecture.png)
@@ -105,3 +105,9 @@ The bot will store all the information regarding story points, skills etc in a c
 
 1. A team member cannot ask the bot to assign him/her a task. This privilege is only available to the project manager.
 2. A team member cannot ask the bot for status and assigned tasks of other team members or can not modify them.
+
+#### Additional Patterns
+
+#### Data Flow Pattern (_Batch Sequential flow_)  
+In order to assign tasks to individual team members, the bot can suggest a list of team members to the manager who has the required skillset needed for the task in that particular sprint. But before the bot can provide this suggestion to the manager, the bot has to collect story points and skills information from all the team members and then segregate the team members depending on the skill required for that particular task. Only after this segregation is completed, suggestion can take place. Thus, this project can also resemble batch sequential data flow pattern. 
+
