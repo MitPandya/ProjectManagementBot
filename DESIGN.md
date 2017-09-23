@@ -72,6 +72,7 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
 * Wireframe mockup
 
 ![SE-Wireframe](./SE-Wireframe-1.png)
+![Story board for use case 4](./SE-StoryBoard-2.png)
 
 ## Architecture Design
 
