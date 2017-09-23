@@ -1,6 +1,6 @@
 # ProManBot - Project Management Bot
 
-A bot which enhances a project's development lifecycle by allowing automation of certain crucial steps such as task distributions, project status, handling meeting schedules etc. This project will have 2 interface, first being slack where users interact with bot, and second being a webpage to handle complex tasks.
+A bot which enhances a project's development lifecycle by providing automation for certain crucial steps such as sprint management, task assignment and its distribution among different team members, individual team member's task status maintenance etc. The project will comprise of single slack interface; where user and bot interaction will take place.  
 
 Course : **CSC510**
 
