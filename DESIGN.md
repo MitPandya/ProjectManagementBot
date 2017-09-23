@@ -9,7 +9,7 @@ ProManBot is a DevOps bot which is designed to handle several problems related t
 
 ProManBot can be considered as a Personal Assistant bot which is based on Space Reactors and Responders design patterns that interacts with the users and adapts its response based on each user type viz. manager, or team member. The bot responds to each user after fetching data from the activity engine(a component responsible for storing and processing information).
 
-### Use Cases
+## Use Cases
 
 1.  Project Manager asks the bot to create a new Agile Sprint for the next 2 weeks.
 ```
@@ -66,7 +66,7 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
             - ProManBot compiles the result from each task and give completed percentage.
 ```
 
-### Design Sketches
+## Design Sketches
 
 #### Wireframe mockup
 
@@ -79,6 +79,9 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 ![Story board for use case 4](./SE-StoryBoard-2.png)
 
 ## Architecture Design
+
+**Architecture Design Pattern**: Data centered Pattern
+The bot will store all the information regarding story points, skills etc in a central database system and as there is a centralized data store in this project, the project follows a data-centered pattern. In addition to this, the information regarding task progress and story points of individual team members is updated dynamically. Moreover, all the team members can independently update this information in the centralized datastore. Thus, due to all the above mentioned reasons,this project follows a blackboard data-centered pattern.
 
 ![SE-Wireframe](./SE-Architecture.png)
 
