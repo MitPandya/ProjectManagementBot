@@ -63,7 +63,7 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 => Pre-requisite: - Tasks regarding a project exist in the ProManBot's activity engine
                   - Team members have updated their status of tasks
 => Flow:    - Manager asks bot for overall sprint status
-            - ProManBot compiles the result from each task and give completed percentage.
+            - ProManBot compiles the results based on completed story points from each team-members and returns computed stats.
 ```
 
 ## Design Sketches
