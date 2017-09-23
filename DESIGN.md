@@ -17,7 +17,7 @@ ProManBot can be considered as a Personal Assistant bot which adapts its respons
 => Pre-requisite: - Another Sprint does not exist already for that project in that time frame
 => Flow:    - Manager asks the bot to create a Agile Sprint specifying dates for the time period
             - Bot confirms if any other Sprint does not exist for that time period, else notifies manager about it
-            - If Sprint already present, manager reconsiders dates and starts creation process again, else the  bot creates               the sprint and notifies the manager
+            - Bot creates the sprint and notifies the manager with the assigned dates
 ```
 
 2.  Team Members interact with the Bot to update their details in the system such as their personal details, skills,             availability, or updates on the story points for the particular sprint.
