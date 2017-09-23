@@ -5,7 +5,7 @@ Since humans are prone to errors, there is a high probability that issues will a
 
 ## Bot Description
 
-ProManBot is a smart bot designed to handle several problems related to one project sprint. Managers can use this bot to easily know what each team member is working on and what percentage of the sprint has been completed using simple chat commands. Engineers can talk to the bot to know their task related details such as any urgent issues or any upcoming close deadlines or they can also know their domain fit based on their technical skills. Since, the bot tackles several Project Management related issues, it is directly related to the topic of Agile Development Technique discussed in class.
+ProManBot is a support bot which is designed to handle several problems related to one project sprint. Managers can use this bot to easily know what each team member is working on and what percentage of the sprint has been completed using simple chat commands. Engineers can talk to the bot to know their task related details such as any urgent issues or any upcoming close deadlines or they can also know their domain fit based on their technical skills. Since, the bot tackles several Project Management related issues, it is directly related to the topic of Agile Development Technique discussed in class.
 
 ProManBot can be considered as a Personal Assistant bot which is based on Space Reactors and Responders design patterns that interacts with the users and adapts its response based on each user type viz. manager, or team member. The bot responds to each user after fetching data from the activity engine(a component responsible for storing and processing information).
 
