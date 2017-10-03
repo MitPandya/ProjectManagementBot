@@ -14,12 +14,12 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 1.  Team Members interact with the Bot to update their details (such as bio, email etc) in the Trello
 ```
 => Prerequisite: - Team Member's profile is available in Trello, board already exists.
-=> Flow:  - Team Member asks the bot to update their profile, bot invokes Trello’s REST API and updates the member profile               of the user.
+=> Flow:  - Team Member asks the bot to update their profile, bot invokes Trello’s REST API and updates the member profile of the user.
 ```
 
 2.  Project Manager creates new cards with details such as name, desc, due date, id of the board etc.
 ```
-=> Prerequisite: - Board already exists and Project manager knows about various tasks(cards) that needs to be associated                        with the board.
+=> Prerequisite: - Board already exists and Project manager knows about various tasks(cards) that needs to be associated with the board.
 => Flow:    - Manager informs bot to create a new card for the board 
             - Manager decides whether to attach the card to a team member at that time or some time later
 ```
@@ -36,7 +36,7 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 4.  Reminding user through Notifications.
 ```
-=> Prerequisite: - Cards exist in the Trello board and is already attached to a team member but the card is still in the                        todo list of the team member
+=> Prerequisite: - Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member
 => Flow: - Manager asks the bot to remind a member about certain card
 ```
 
