@@ -31,7 +31,7 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 => Flow:    - Manager asks the bot to give information about the cards which are not yet attached to any team members
             - Bot returns a list of cards to the project manager
             - Manager then either attaches the card to a specific team member by name or asks for suggestions
-                + If manager has asked for suggestions, Bot suggests the team member names based on their skills and then                     manager attaches the card to a particular team member based on the suggestions given by the bot
+                + If manager has asked for suggestions, Bot suggests the team member names based on their skills and then manager attaches the card to a particular team member based on the suggestions given by the bot
 ```
 
 4.  Reminding user through Notifications.
