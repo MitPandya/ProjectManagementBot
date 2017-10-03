@@ -53,11 +53,11 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 ![SE-Wireframe](./SE-Wireframe-1.png)
 
-#### Story Board for Use Case 3
-![Story board for use case 3](./SE-StoryBoard-1.png)
+#### Story Board for Use Case 2
+![Story board for use case 2](./SE-StoryBoard-1.png)
 
-#### Story Board for Use Case 4
-![Story board for use case 4](./SE-StoryBoard-2.png)
+#### Story Board for Use Case 3
+![Story board for use case 3](./SE-StoryBoard-2.png)
 
 ## Architecture Design
 
