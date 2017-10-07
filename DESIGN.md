@@ -35,7 +35,8 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 => Prerequisite:
 - Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member.
 
-=> Flow: - Manager asks the bot to remind a member about certain card or event etc. and specifies type of notification e.g. card due soon or added to card etc.
+=> Main Flow:
+- Manager asks the bot to remind a member about certain card or event etc. and specifies type of notification e.g. card due soon or added to card etc.
 
 => Sub Flows:   
 - [S1] If there exists multiple cards, then bot shall ask manager about which story does the card belong to. 
@@ -55,7 +56,8 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 - Cards regarding a board exist in the Trello.
 - Team members have updated statuses of their cards.
                  
-=> Main Flow: - Manager asks the bot to create a weekly summary of completed and incomplete cards.
+=> Main Flow:
+- Manager asks the bot to create a weekly summary of completed and incomplete cards.
 
 => Sub Flows:   
 - [S1] By default bot will start creating summary for current week and ask manager if they want to create summary of current week or any other week.
