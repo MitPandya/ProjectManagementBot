@@ -15,11 +15,11 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 ```
 => Prerequisite: 
 - Different storyboards along with their respective todo lists already exists in Trello. 
-- Three types of lists (todo, doing and done) are already created for each story board
+- Three types of lists (todo, doing and done) are already created for each story board.
 
 => Main Flow:   
 - Manager asks the bot to add a new Card in the todo list of a specific StoryBoard
-- A User(project manager or a team member) asks the Bot to remove the Card, say 'Remove ssh key' from the ‘todo’ list of a particular StoryBoard when the task related to that card is finished
+- A User(project manager or a team member) asks the Bot to remove the Card, say 'Remove ssh key' from the ‘todo’ list of a particular StoryBoard when the task related to that card is finished.
 
 => Sub Flows:   
 - [S1] There can exist multiple cards with the same name, say “Remove ssh key”  under different StoryBoards (Story 1, Story 2,..) on Trello. Thus, the bot prompts the user to specify the name of the StoryBoard too to which the card, that needs to be removed, belongs to. 
@@ -32,7 +32,8 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 2.  Reminding user through Notifications.
 ```
-=> Prerequisite: - Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member
+=> Prerequisite:
+- Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member.
 
 => Flow: - Manager asks the bot to remind a member about certain card or event etc. and specifies type of notification e.g. card due soon or added to card etc.
 
@@ -50,10 +51,11 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 3.  Creating a weekly summary of pending and completed cards
 ```
-=> Prerequisite: - Cards regarding a board exist in the Trello
-                 - Team members have updated statuses of their cards
+=> Prerequisite:
+- Cards regarding a board exist in the Trello.
+- Team members have updated statuses of their cards.
                  
-=> Main Flow: - Manager asks the bot to create a weekly summary of completed and incomplete cards
+=> Main Flow: - Manager asks the bot to create a weekly summary of completed and incomplete cards.
 
 => Sub Flows:   
 - [S1] By default bot will start creating summary for current week and ask manager if they want to create summary of current week or any other week.
