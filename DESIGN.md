@@ -33,7 +33,19 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 2.  Reminding user through Notifications.
 ```
 => Prerequisite: - Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member
-=> Flow: - Manager asks the bot to remind a member about certain card
+
+=> Flow: - Manager asks the bot to remind a member about certain card or event etc. and specifies type of notification e.g. card due soon or added to card etc.
+
+=> Sub Flows:   
+- [S1] If there exists multiple cards, then bot shall ask manager about which story does the card belong to. 
+- [S2] If the same notiification has been sent to a team member within 4-5 hours, bot shall halt the notification and remind manager asking for further confirmation.
+
+=> Alternative Flows:   
+- [E1] If no such card exists bot shall print relative error message. 
+- [E2] In case of team member name typos bot shall print an error message saying no such member found and shall also display suggestion of a member or members who's name closely match to the typo string.
+- [E3] Bot should also check whether the specified team member is attached to that card otherwise bot should halt the notification and display an error message saying this member is not attached to this card.
+
+
 ```
 
 3.  Creating a weekly summary of pending and completed cards
