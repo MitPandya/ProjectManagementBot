@@ -13,7 +13,7 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 UC1: Flow of events to interact with a todo item on an existing card.
 ```
-=> Prerequisite: None
+=> Prerequisite: User has already created cards on a Trello Storyboard either using Trello website or an external application.
 
 => Main Flow: User asks the bot to open a card by providing card name[E1][E2]. User is shown all the matching cards along with descriptions and asked to select any one card. User selects the desired card [E2].
 
