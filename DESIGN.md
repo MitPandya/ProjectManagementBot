@@ -13,12 +13,21 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 1. Interaction with Trello Cards and their Assigned lists
 ```
-=> Prerequisite: - Cards exist in the Trello board
-                 - Team members are already assigned the Cards into the Trello board
-=> Flow:    - Manager asks the bot to add a Card to a particular StoryBoard
-            - A User may ask the Bot to Mark a Card 'Remove ssh key' as 'Done' or 'Doing'
-                + There are multiple 'Remove ssh key' cards present in multiple Story-Boards: [Story 1, Story 2], which                       Story-Board are you referring to.
-            - Remove card 'Remove ssh key' from Story-Board 'Story 1'.
+=> Prerequisite: 
+- Different storyboards along with their respective todo lists already exists in Trello. 
+- Three types of lists (todo, doing and done) are already created for each story board
+
+=> Main Flow:   
+- Manager asks the bot to add a new Card in the todo list of a specific StoryBoard
+- A User(project manager or a team member) asks the Bot to remove the Card, say 'Remove ssh key' from the ‘todo’ list of a particular StoryBoard when the task related to that card is finished
+
+=> Sub Flows:   
+- [S1] There can exist multiple cards with the same name, say “Remove ssh key”  under different StoryBoards (Story 1, Story 2,..) on Trello. Thus, the bot prompts the user to specify the name of the StoryBoard too to which the card, that needs to be removed, belongs to. 
+- [S2] The bot moves the card from the todo list of the user specified StoryBoard to the ‘done’ list, thereby denoting that the task related to that card is completed. 
+
+=> Alternative Flows:   
+- [E1] A new card can only be added in the todo list of a StoryBoard. If the user asks the bot to create a new card in any list other than the todo list, that card will not be created. An error message is printed stating that “Card can only be added in the todo list of the StoryBoard” 
+- [E2] User asks for removal of a card which does not exist in the todo list of that Story Board. An error message is printed asking the User to check the StoryBoard name associated with the card that needs to be removed.
 ```
 
 2.  Reminding user through Notifications.
