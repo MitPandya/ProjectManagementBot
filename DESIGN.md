@@ -40,7 +40,9 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 ```
 => Prerequisite: - Cards regarding a board exist in the Trello
                  - Team members have updated statuses of their cards
+                 
 => Main Flow: - Manager asks the bot to create a weekly summary of completed and incomplete cards
+
 => Sub Flows:   
 - [S1] By default bot will start creating summary for current week and ask manager if they want to create summary of current week or any other week.
 - [S2] If manager responds with any other week, bot will start preparing summary of the dates or week specified by manager and display it else bot will show the summary of current week.
