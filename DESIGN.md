@@ -13,11 +13,11 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 
 UC1: Flow of events to interact with a todo item on an existing card.
 ```
-=> Preconditions: None
+=> Prerequisite: None
 
 => Main Flow: User asks the bot to open a card by providing card name[E1][E2]. User is shown all the matching cards along with descriptions and asked to select any one card. User selects the desired card [E2].
 
-=> Subflows:
+=> Sub Flows:
  - [S1] User asks the bot to add todo item on the card and provides an item text[E2]. Bot adds a new checklist item to the card on Trello.
  - [S2] User asks to list all the todo items. Bot lists all the todo items (checklist items) attached to the card and closes the conversation.
  - [S3] User asks the bot to mark a todo item as completed, after performing [S2], by providing todo item name[E2][E3]. Bot inform the user about the update and closes the conversation.
@@ -27,19 +27,48 @@ UC1: Flow of events to interact with a todo item on an existing card.
  - [E1] If no card exists matching the name, the user is shown the error message "No such card exists" and the bot asks the user to either re-enter card name and on second attempt bot informs the user that he has exceeded maximum attempts and closes the conversation.
  - [E2] If no input is provided, a prompt is displayed asking the user to enter input. If the user enters empty card name again, bot informs the user that he has exceeded maximum attempts and closes the conversation.
  - [E3] If no todo item with such name exists, the user is shown the error message "No such todo items exist" and the bot asks the user to either re-enter todo item name and on second attempt bot informs the user that he has exceeded maximum attempts and closes the conversation.
+
 ```
 
 2.  Reminding user through Notifications.
 ```
-=> Prerequisite: - Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member
-=> Flow: - Manager asks the bot to remind a member about certain card
+=> Prerequisite:
+- Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member.
+
+=> Main Flow:
+- Manager asks the bot to remind a member about certain card or event etc. and specifies type of notification e.g. card due soon or added to card etc.
+
+=> Sub Flows:   
+- [S1] If there exists multiple cards, then bot shall ask manager about which story does the card belong to. 
+- [S2] If the same notiification has been sent to a team member within 4-5 hours, bot shall halt the notification and remind manager asking for further confirmation.
+
+=> Alternative Flows:   
+- [E1] If no such card exists bot shall print relative error message. 
+- [E2] In case of team member name typos bot shall print an error message saying no such member found and shall also display suggestion of a member or members who's name closely match to the typo string.
+- [E3] Bot should also check whether the specified team member is attached to that card otherwise bot should halt the notification and display an error message saying this member is not attached to this card.
+
+
 ```
 
 3.  Creating a weekly summary of pending and completed cards
 ```
-=> Prerequisite: - Cards regarding a board exist in the Trello
-                 - Team members have updated status of their cards
-=> Flow: - Manager asks the bot to create a weekly summary of completed and incomplete cards
+=> Prerequisite:
+- Cards regarding a board exist in the Trello.
+- Team members have updated statuses of their cards.
+                 
+=> Main Flow:
+- Manager asks the bot to create a weekly summary of completed and incomplete cards.
+
+=> Sub Flows:   
+- [S1] By default bot will start creating summary for current week and ask manager if they want to create summary of current week or any other week.
+- [S2] If manager responds with any other week, bot will start preparing summary of the dates or week specified by manager and display it else bot will show the summary of current week.
+
+=> Alternative Flows:   
+- [E1] If team members have not updated status of any of the task for that week, bot will display all the tasks as incomplete even if the due date has passed. 
+- [E2] If no card is available for the week or date duration mentioned by the manager, an error is printed saying no cards found for the specified duration.
+- [E3] The dates specified by the manager must be in correct format e.g. 'mm/dd/yyyy', 'mm/dd/yy', 'mm/dd'. For invalid values error message should be printed saying please enter correct date format e.g. 'mm/dd/yyyy', 'mm/dd/yy', 'mm/dd'.
+
+
 ```
 
 ## Design Sketches
