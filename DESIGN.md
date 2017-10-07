@@ -46,8 +46,6 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 - [E1] If no such card exists bot shall print relative error message. 
 - [E2] In case of team member name typos bot shall print an error message saying no such member found and shall also display suggestion of a member or members who's name closely match to the typo string.
 - [E3] Bot should also check whether the specified team member is attached to that card otherwise bot should halt the notification and display an error message saying this member is not attached to this card.
-
-
 ```
 
 3.  Creating a weekly summary of pending and completed cards
@@ -67,8 +65,6 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 - [E1] If team members have not updated status of any of the task for that week, bot will display all the tasks as incomplete even if the due date has passed. 
 - [E2] If no card is available for the week or date duration mentioned by the manager, an error is printed saying no cards found for the specified duration.
 - [E3] The dates specified by the manager must be in correct format e.g. 'mm/dd/yyyy', 'mm/dd/yy', 'mm/dd'. For invalid values error message should be printed saying please enter correct date format e.g. 'mm/dd/yyyy', 'mm/dd/yy', 'mm/dd'.
-
-
 ```
 
 ## Design Sketches
