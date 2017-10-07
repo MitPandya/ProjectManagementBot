@@ -39,8 +39,18 @@ ProManBot can be considered as a Personal Assistant bot which is based on Space 
 3.  Creating a weekly summary of pending and completed cards
 ```
 => Prerequisite: - Cards regarding a board exist in the Trello
-                 - Team members have updated status of their cards
-=> Flow: - Manager asks the bot to create a weekly summary of completed and incomplete cards
+                 - Team members have updated statuses of their cards
+=> Main Flow: - Manager asks the bot to create a weekly summary of completed and incomplete cards
+=> Sub Flows:   
+- [S1] By default bot will start creating summary for current week and ask manager if they want to create summary of current week or any other week.
+- [S2] If manager responds with any other week, bot will start preparing summary of the dates or week specified by manager and display it else bot will show the summary of current week.
+
+=> Alternative Flows:   
+- [E1] If team members have not updated status of any of the task for that week, bot will display all the tasks as incomplete even if the due date has passed. 
+- [E2] If no card is available for the week or date duration mentioned by the manager, an error is printed saying no cards found for the specified duration.
+- [E3] The dates specified by the manager must be in correct format e.g. 'mm/dd/yyyy', 'mm/dd/yy', 'mm/dd'. For invalid values error message should be printed saying please enter correct date format e.g. 'mm/dd/yyyy', 'mm/dd/yy', 'mm/dd'.
+
+
 ```
 
 ## Design Sketches
