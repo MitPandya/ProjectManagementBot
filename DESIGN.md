@@ -33,10 +33,10 @@ UC1: Flow of events to interact with a todo item on an existing card.
 2.  Reminding user through Notifications.
 ```
 => Prerequisite:
-- Cards exist in the Trello board and is already attached to a team member but the card is still in the todo list of the team member.
+- Cards exist in the Trello board and is already attached to a team member.
 
 => Main Flow:
-- Manager asks the bot to remind a member about certain card or event etc. and specifies type of notification e.g. card due soon or added to card etc.
+- Manager asks the bot to remind a member about certain card and specifies type of notification e.g. card due soon or added to card etc.
 
 => Sub Flows:   
 - [S1] If there exists multiple cards, then bot shall ask manager about which story does the card belong to. 
