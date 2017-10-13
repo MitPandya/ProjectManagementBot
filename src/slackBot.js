@@ -1,3 +1,6 @@
+// Use the following Slack Token : "xoxb-255805314709-WUuIiDe5rWUedZ28tYK5fqQq" 
+// and set it as an Environment Variable with name : PROMANTOKEN in your respective OS
+
 // Importing the 'botkit' library
 var Botkit = require('botkit');
 var controller = Botkit.slackbot({
