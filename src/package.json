@@ -4,7 +4,7 @@
   "description": "Bot to interact with Trello and handle operations such as manage todo list, generate report.",
   "main": "slackBot.js",
   "scripts": {
-    "start": "node slackBot.js",
+    "start": "node ./slackBot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,7 +12,6 @@
   "dependencies": {
     "botkit": "^0.5.8",
     "slackbots": "^0.5.1",
-    "pg": "^7.3.0",
-    "http":"^0.0.5"
+    "pg": "^7.3.0"
   }
 }
