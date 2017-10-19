@@ -1,6 +1,7 @@
 // Importing the 'botkit' library
 var Botkit = require('botkit');
 var dbHelper = require('./databaseHelper.js');
+var botInteractions = require('./botInteractions.js')
 
 var controller = Botkit.slackbot({
   debug: false  
@@ -51,6 +52,10 @@ function startMainThread(bot, message){
     convo.say('Good to see you.');
     convo.ask('How can I help you?', [
      // Please add the bot interaction code snippets here for your Use case
+      {
+        pattern: 'Open a card',
+        callback: botInteractions.handleOpenCard
+      }
     ]);
     convo.next();
   });
