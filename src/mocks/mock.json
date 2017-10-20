@@ -96,31 +96,86 @@
     "url": "https://trello.com/c/7t9l0YKc/3-card2"
   }
 ],
-"checkListItems" :
+
+"ListChecklistsOfACard":
+[
+  {
+    "id": "123chcklst1",
+    "name": "Checklist1",
+    "idBoard": "123brd",
+    "idCard": "123crd1",
+    "pos": 16384,
+    "checkItems": [
+      {
+        "state": "incomplete",
+        "idChecklist": "123chcklst1",
+        "id": "123c1itm1",
+        "name": "C1_item1",
+        "nameData": null,
+        "pos": 66408
+      },
+      {
+        "state": "incomplete",
+        "idChecklist": "123chcklst1",
+        "id": "123c1itm2",
+        "name": "C1_item2",
+        "nameData": null,
+        "pos": 83129
+      },
+      {
+        "state": "incomplete",
+        "idChecklist": "123chcklst1",
+        "id": "123c1itm3",
+        "name": "C1_item3",
+        "nameData": null,
+        "pos": 100475
+      }
+    ]
+  },
+  {
+    "id": "123chcklst2",
+    "name": "Checklist2",
+    "idBoard": "123brd",
+    "idCard": "123crd1",
+    "pos": 32768,
+    "checkItems": [
+      {
+        "state": "incomplete",
+        "idChecklist": "123chcklst2",
+        "id": "123c2itm1",
+        "name": "C2_item1",
+        "nameData": null,
+        "pos": 17216
+      }
+    ]
+  }
+],
+
+"checkListItems":
 [
   {
     "state": "incomplete",
     "idChecklist": "123chcklst1",
-    "id": "123chcklst1item1",
-    "name": "item1",
+    "id": "123c1itm1",
+    "name": "C1_item1",
     "nameData": null,
-    "pos": 16797
+    "pos": 66408
   },
   {
     "state": "incomplete",
     "idChecklist": "123chcklst1",
-    "id": "123chcklst1item2",
-    "name": "item2",
+    "id": "123c1itm2",
+    "name": "C1_item2",
     "nameData": null,
-    "pos": 33616
+    "pos": 83129
   },
   {
     "state": "incomplete",
     "idChecklist": "123chcklst1",
-    "id": "123chcklst1item3",
-    "name": "item3",
+    "id": "123c1itm3",
+    "name": "C1_item3",
     "nameData": null,
-    "pos": 50000
+    "pos": 100475
   }
 ],
 "RemoveChecklistItem":
