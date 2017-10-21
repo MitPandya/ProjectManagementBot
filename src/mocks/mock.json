@@ -1,217 +1,459 @@
 {
-    "cardList":
-[
-  {
-    "id": "123crd1",
-    "checkItemStates": null,
-    "closed": false,
-    "dateLastActivity": "2017-10-19T12:20:06.831Z",
-    "desc": "This is the first card in a list called 'todo'",
-    "descData": {
-      "emoji": {}
+  "MeBoards":
+  [
+    {
+        "name": "AgileTeam",
+        "desc": "",
+        "descData": null,
+        "closed": false,
+        "idOrganization": null,
+        "limits": null,
+        "pinned": null,
+        "invitations": null,
+        "shortLink": "7wVOkfnW",
+        "powerUps":
+        [
+        ],
+        "dateLastActivity": "2017-10-20T21:05:51.492Z",
+        "idTags":
+        [
+        ],
+        "datePluginDisable": null,
+        "id": "59dea8e32c8a0d56a4e945a9",
+        "invited": false,
+        "starred": false,
+        "url": "https://trello.com/b/7wVOkfnW/agileteam",
+        "prefs":
+        {
+            "permissionLevel": "private",
+            "voting": "disabled",
+            "comments": "members",
+            "invitations": "members",
+            "selfJoin": false,
+            "cardCovers": true,
+            "cardAging": "regular",
+            "calendarFeedEnabled": false,
+            "background": "blue",
+            "backgroundImage": null,
+            "backgroundImageScaled": null,
+            "backgroundTile": false,
+            "backgroundBrightness": "dark",
+            "backgroundColor": "#0079BF",
+            "backgroundBottomColor": "#0079BF",
+            "backgroundTopColor": "#0079BF",
+            "canBePublic": true,
+            "canBeOrg": true,
+            "canBePrivate": true,
+            "canInvite": true
+        },
+        "subscribed": false,
+        "labelNames":
+        {
+            "green": "",
+            "yellow": "",
+            "orange": "",
+            "red": "",
+            "purple": "",
+            "blue": "",
+            "sky": "",
+            "lime": "",
+            "pink": "",
+            "black": ""
+        },
+        "dateLastView": "2017-10-21T19:00:31.732Z",
+        "shortUrl": "https://trello.com/b/7wVOkfnW",
+        "memberships":
+        [
+            {
+                "id": "59dea8e32c8a0d56a4e945ad",
+                "idMember": "59dea86a01f84f1bcc8c820f",
+                "memberType": "admin",
+                "unconfirmed": false,
+                "deactivated": false
+            }
+        ]
     },
-    "idBoard": "123brd",
-    "idList": "123lst",
-    "idMembersVoted": [],
-    "idShort": 1,
-    "idAttachmentCover": null,
-    "idLabels": [],
-    "manualCoverAttachment": false,
-    "name": "Card1",
-    "pos": 65535,
-    "shortLink": "pNex77lp",
-    "badges": {
-      "votes": 0,
-      "attachmentsByType": {
-        "trello": {
-          "board": 0,
-          "card": 0
-        }
-      },
-      "viewingMemberVoted": false,
-      "subscribed": false,
-      "fogbugz": "",
-      "checkItems": 2,
-      "checkItemsChecked": 0,
-      "comments": 0,
-      "attachments": 0,
-      "description": true,
-      "due": null,
-      "dueComplete": false
-    },
-    "dueComplete": false,
-    "due": null,
-    "idChecklists": [
-      "123chcklst"
-    ],
-    "idMembers": [],
-    "labels": [],
-    "shortUrl": "https://trello.com/c/pNex77lp",
-    "subscribed": false,
-    "url": "https://trello.com/c/pNex77lp/1-card1"
-  },
-  {
-    "id": "123crd2",
-    "checkItemStates": null,
-    "closed": false,
-    "dateLastActivity": "2017-10-19T18:50:00.418Z",
-    "desc": "This is the second card in a list called 'todo'",
-    "descData": null,
-    "idBoard": "123brd",
-    "idList": "123lst",
-    "idMembersVoted": [],
-    "idShort": 3,
-    "idAttachmentCover": null,
-    "idLabels": [],
-    "manualCoverAttachment": false,
-    "name": "Card2",
-    "pos": 131071,
-    "shortLink": "7t9l0YKc",
-    "badges": {
-      "votes": 0,
-      "attachmentsByType": {
-        "trello": {
-          "board": 0,
-          "card": 0
-        }
-      },
-      "viewingMemberVoted": false,
-      "subscribed": false,
-      "fogbugz": "",
-      "checkItems": 0,
-      "checkItemsChecked": 0,
-      "comments": 0,
-      "attachments": 0,
-      "description": false,
-      "due": null,
-      "dueComplete": false
-    },
-    "dueComplete": false,
-    "due": null,
-    "idChecklists": [],
-    "idMembers": [],
-    "labels": [],
-    "shortUrl": "https://trello.com/c/7t9l0YKc",
-    "subscribed": false,
-    "url": "https://trello.com/c/7t9l0YKc/3-card2"
-  }
-],
+    {
+        "name": "Welcome Board",
+        "desc": "",
+        "descData": null,
+        "closed": false,
+        "idOrganization": null,
+        "limits": null,
+        "pinned": null,
+        "invitations": null,
+        "shortLink": "c0ie1UQJ",
+        "powerUps":
+        [
+        ],
+        "dateLastActivity": "2017-10-11T23:25:31.145Z",
+        "idTags":
+        [
+        ],
+        "datePluginDisable": null,
+        "id": "59dea86b01f84f1bcc8c8214",
+        "invited": false,
+        "starred": false,
+        "url": "https://trello.com/b/c0ie1UQJ/welcome-board",
+        "prefs":
+        {
+            "permissionLevel": "private",
+            "voting": "disabled",
+            "comments": "members",
+            "invitations": "members",
+            "selfJoin": true,
+            "cardCovers": true,
+            "calendarFeedEnabled": false,
+            "background": "lime",
+            "backgroundImage": null,
+            "backgroundImageScaled": null,
+            "backgroundTile": false,
+            "backgroundBrightness": "dark",
+            "backgroundColor": "#4BBF6B",
+            "backgroundBottomColor": "#4BBF6B",
+            "backgroundTopColor": "#4BBF6B",
+            "canBePublic": true,
+            "canBeOrg": true,
+            "canBePrivate": true,
+            "canInvite": true
+        },
+        "subscribed": false,
+        "labelNames":
+        {
+            "green": "",
+            "yellow": "",
+            "orange": "",
+            "red": "",
+            "purple": "",
+            "blue": "",
+            "sky": "",
+            "lime": "",
+            "pink": "",
+            "black": ""
+        },
+        "dateLastView": "2017-10-15T20:21:02.307Z",
+        "shortUrl": "https://trello.com/b/c0ie1UQJ",
+        "memberships":
+        [
+            {
+                "id": "59dea86b01f84f1bcc8c8217",
+                "idMember": "4e6a7fad05d98b02ba00845c",
+                "memberType": "normal",
+                "unconfirmed": false,
+                "deactivated": false
+            },
+            {
+                "id": "59dea86b01f84f1bcc8c8218",
+                "idMember": "59dea86a01f84f1bcc8c820f",
+                "memberType": "admin",
+                "unconfirmed": false,
+                "deactivated": false
+            }
+        ]
+    }
+  ],
 
-"ListChecklistsOfACard":
-[
-  {
-    "id": "123chcklst1",
-    "name": "Checklist1",
-    "idBoard": "123brd",
-    "idCard": "123crd1",
-    "pos": 16384,
-    "checkItems": [
-      {
-        "state": "incomplete",
-        "idChecklist": "123chcklst1",
-        "id": "123c1itm1",
-        "name": "C1_item1",
-        "nameData": null,
-        "pos": 66408
-      },
-      {
-        "state": "incomplete",
-        "idChecklist": "123chcklst1",
-        "id": "123c1itm2",
-        "name": "C1_item2",
-        "nameData": null,
-        "pos": 83129
-      },
-      {
-        "state": "incomplete",
-        "idChecklist": "123chcklst1",
-        "id": "123c1itm3",
-        "name": "C1_item3",
-        "nameData": null,
-        "pos": 100475
-      }
-    ]
-  },
-  {
-    "id": "123chcklst2",
-    "name": "Checklist2",
-    "idBoard": "123brd",
-    "idCard": "123crd1",
-    "pos": 32768,
-    "checkItems": [
-      {
-        "state": "incomplete",
-        "idChecklist": "123chcklst2",
-        "id": "123c2itm1",
-        "name": "C2_item1",
-        "nameData": null,
-        "pos": 17216
-      }
-    ]
-  }
-],
+  "boardLists":
+  [
+    {
+        "id": "59dea8e32c8a0d56a4e945aa",
+        "name": "To Do",
+        "closed": false,
+        "idBoard": "59dea8e32c8a0d56a4e945a9",
+        "pos": 16384,
+        "subscribed": false
+    },
+    {
+        "id": "59dea8e32c8a0d56a4e945ab",
+        "name": "Doing",
+        "closed": false,
+        "idBoard": "59dea8e32c8a0d56a4e945a9",
+        "pos": 32768,
+        "subscribed": false
+    },
+    {
+        "id": "59dea8e32c8a0d56a4e945ac",
+        "name": "Done",
+        "closed": false,
+        "idBoard": "59dea8e32c8a0d56a4e945a9",
+        "pos": 49152,
+        "subscribed": false
+    }
+  ],
 
-"checkListItems":
-[
-  {
-    "state": "incomplete",
+  "cardChecklistItems":
+  [
+    {
+      "id": "59e81d28e76ede1acd51264e",
+      "name": "Checklist1",
+      "idBoard": "59dea8e32c8a0d56a4e945a9",
+      "idCard": "59e43422ad1c0bf719512db5",
+      "pos": 16384,
+      "checkItems": [
+        {
+          "state": "incomplete",
+          "idChecklist": "59e81d28e76ede1acd51264e",
+          "id": "59ea4b1608582ffdc6db4a2c",
+          "name": "C1_item1",
+          "nameData": null,
+          "pos": 66408
+        },
+        {
+          "state": "incomplete",
+          "idChecklist": "59e81d28e76ede1acd51264e",
+          "id": "59ea5f107781150f24d26a35",
+          "name": "C1_item2",
+          "nameData": null,
+          "pos": 83129
+        },
+        {
+          "state": "incomplete",
+          "idChecklist": "59e81d28e76ede1acd51264e",
+          "id": "59ea5f170dd75602f9cd256f",
+          "name": "C1_item3",
+          "nameData": null,
+          "pos": 100475
+        }
+      ]
+    },
+    {
+      "id": "59ea4481d9816047562dc5a4",
+      "name": "Checklist2",
+      "idBoard": "59dea8e32c8a0d56a4e945a9",
+      "idCard": "59e43422ad1c0bf719512db5",
+      "pos": 32768,
+      "checkItems": [
+        {
+          "state": "incomplete",
+          "idChecklist": "59ea4481d9816047562dc5a4",
+          "id": "59ea44a19d43f2a95edd0bdc",
+          "name": "C2_item1",
+          "nameData": null,
+          "pos": 17216
+        }
+      ]
+    }
+  ],
+
+  "cardList":
+  [
+    {
+        "200":
+        [
+            {
+                "id": "59e43422ad1c0bf719512db5",
+                "checkItemStates": null,
+                "closed": false,
+                "dateLastActivity": "2017-10-20T21:05:51.492Z",
+                "desc": "This is the first card in a list called 'todo'",
+                "descData":
+                {
+                    "emoji":
+                    {
+                    }
+                },
+                "idBoard": "59dea8e32c8a0d56a4e945a9",
+                "idList": "59dea8e32c8a0d56a4e945aa",
+                "idMembersVoted":
+                [
+                ],
+                "idShort": 1,
+                "idAttachmentCover": null,
+                "idLabels":
+                [
+                ],
+                "manualCoverAttachment": false,
+                "name": "Card1_NEW",
+                "pos": 65535,
+                "shortLink": "pNex77lp",
+                "badges":
+                {
+                    "votes": 0,
+                    "attachmentsByType":
+                    {
+                        "trello":
+                        {
+                            "board": 0,
+                            "card": 0
+                        }
+                    },
+                    "viewingMemberVoted": false,
+                    "subscribed": false,
+                    "fogbugz": "",
+                    "checkItems": 4,
+                    "checkItemsChecked": 0,
+                    "comments": 0,
+                    "attachments": 0,
+                    "description": true,
+                    "due": null,
+                    "dueComplete": false
+                },
+                "dueComplete": false,
+                "due": null,
+                "idChecklists":
+                [
+                    "59e81d28e76ede1acd51264e",
+                    "59ea4481d9816047562dc5a4"
+                ],
+                "idMembers":
+                [
+                ],
+                "labels":
+                [
+                ],
+                "shortUrl": "https://trello.com/c/pNex77lp",
+                "subscribed": false,
+                "url": "https://trello.com/c/pNex77lp/1-card1"
+            },
+            {
+                "id": "59e43431326e149519df2564",
+                "checkItemStates": null,
+                "closed": false,
+                "dateLastActivity": "2017-10-19T17:52:00.418Z",
+                "desc": "",
+                "descData": null,
+                "idBoard": "59dea8e32c8a0d56a4e945a9",
+                "idList": "59dea8e32c8a0d56a4e945aa",
+                "idMembersVoted":
+                [
+                ],
+                "idShort": 3,
+                "idAttachmentCover": null,
+                "idLabels":
+                [
+                ],
+                "manualCoverAttachment": false,
+                "name": "Card2",
+                "pos": 131071,
+                "shortLink": "7t9l0YKc",
+                "badges":
+                {
+                    "votes": 0,
+                    "attachmentsByType":
+                    {
+                        "trello":
+                        {
+                            "board": 0,
+                            "card": 0
+                        }
+                    },
+                    "viewingMemberVoted": false,
+                    "subscribed": false,
+                    "fogbugz": "",
+                    "checkItems": 0,
+                    "checkItemsChecked": 0,
+                    "comments": 0,
+                    "attachments": 0,
+                    "description": false,
+                    "due": null,
+                    "dueComplete": false
+                },
+                "dueComplete": false,
+                "due": null,
+                "idChecklists":
+                [
+                ],
+                "idMembers":
+                [
+                ],
+                "labels":
+                [
+                ],
+                "shortUrl": "https://trello.com/c/7t9l0YKc",
+                "subscribed": false,
+                "url": "https://trello.com/c/7t9l0YKc/3-card2"
+            }
+        ]
+    }
+  ],
+
+  "ListChecklistsOfACard":
+  [
+    {
+      "id": "123chcklst1",
+      "name": "Checklist1",
+      "idBoard": "123brd",
+      "idCard": "123crd1",
+      "pos": 16384,
+      "checkItems": [
+        {
+          "state": "incomplete",
+          "idChecklist": "123chcklst1",
+          "id": "123c1itm1",
+          "name": "C1_item1",
+          "nameData": null,
+          "pos": 66408
+        },
+        {
+          "state": "incomplete",
+          "idChecklist": "123chcklst1",
+          "id": "123c1itm2",
+          "name": "C1_item2",
+          "nameData": null,
+          "pos": 83129
+        },
+        {
+          "state": "incomplete",
+          "idChecklist": "123chcklst1",
+          "id": "123c1itm3",
+          "name": "C1_item3",
+          "nameData": null,
+          "pos": 100475
+        }
+      ]
+    },
+    {
+      "id": "123chcklst2",
+      "name": "Checklist2",
+      "idBoard": "123brd",
+      "idCard": "123crd1",
+      "pos": 32768,
+      "checkItems": [
+        {
+          "state": "incomplete",
+          "idChecklist": "123chcklst2",
+          "id": "123c2itm1",
+          "name": "C2_item1",
+          "nameData": null,
+          "pos": 17216
+        }
+      ]
+    }
+  ],
+
+  "MarkListItem":
+  [
+    {
     "idChecklist": "123chcklst1",
-    "id": "123c1itm1",
+    "id": "123c1itm2",
     "name": "C1_item1",
     "nameData": null,
-    "pos": 66408
-  },
-  {
-    "state": "incomplete",
+    "type": null,
+    "pos": 66408,
+    "state": "complete"
+    },
+    {
     "idChecklist": "123chcklst1",
     "id": "123c1itm2",
     "name": "C1_item2",
     "nameData": null,
-    "pos": 83129
-  },
-  {
-    "state": "incomplete",
+    "type": null,
+    "pos": 83129,
+    "state": "complete"
+    },
+    {
     "idChecklist": "123chcklst1",
     "id": "123c1itm3",
     "name": "C1_item3",
     "nameData": null,
-    "pos": 100475
-  }
-],
+    "type": null,
+    "pos": 100475,
+    "state": "complete"
+    }
+  ],
 
-"MarkListItem":
-[
+  "RemoveChecklistItem":
   {
-  "idChecklist": "123chcklst1",
-  "id": "123c1itm2",
-  "name": "C1_item1",
-  "nameData": null,
-  "type": null,
-  "pos": 66408,
-  "state": "complete"
-  },
-  {
-  "idChecklist": "123chcklst1",
-  "id": "123c1itm2",
-  "name": "C1_item2",
-  "nameData": null,
-  "type": null,
-  "pos": 83129,
-  "state": "complete"
-  },
-  {
-  "idChecklist": "123chcklst1",
-  "id": "123c1itm3",
-  "name": "C1_item3",
-  "nameData": null,
-  "type": null,
-  "pos": 100475,
-  "state": "complete"
+    "_value": null
   }
-],
-
-"RemoveChecklistItem":
-{
-  "_value": null
-}
 }
