@@ -31,4 +31,12 @@ module.exports.startMock = function(){
 	.get(pathRegex)
 	.reply(200, JSON.stringify(data.checkListItems) );
 
+	// Mock to add checklist items
+	pathRegex = /\/1\/checklists\/.*\/checkItems/;
+	nock("https://api.trello.com")
+	.persist()
+	.post(pathRegex)
+	.reply(200, JSON.stringify(data.checkListItems) );
+
+
 };

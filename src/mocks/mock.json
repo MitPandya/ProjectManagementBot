@@ -455,5 +455,17 @@
   "RemoveChecklistItem":
   {
     "_value": null
+  },
+
+  "AddChecklistItem":
+  {
+    "state": "incomplete",
+    "idChecklist": "59e81d28e76ede1acd51264e",
+    "id": "59ebc47b195d8af518a8aebe",
+    "name": "item_new",
+    "nameData": {
+      "emoji": {}
+    },
+    "pos": 116859
   }
 }

@@ -4,14 +4,15 @@ var request = require('request');
 var api_fetch_story_board = "https://api.trello.com/1/members/me/boards?key={APP_KEY}&token={TOKEN_VALUE}";
 var api_fetch_lists = "https://api.trello.com/1/boards/{BOARD_ID}/lists?key={APP_KEY}&token={TOKEN_VALUE}";
 var api_fetch_cards = "https://api.trello.com/1/batch/?urls={LISTS_IDS}&key={APP_KEY}&token={TOKEN_VALUE}";
+var api_add_checklistitem = "https://api.trello.com/1/checklists/{CHECKLIST_ID}/checkItems?name={CHECKLIST_ITEM_NAME}&key={APP_KEY}&token={TOKEN_VALUE}";
 
 // Wrapper to hide underlying callbacks
 module.exports.openCard = function(userID, cardName, convo, callback){
     loadStoryBoard(userID,cardName, convo,callback);
 }
 
-module.exports.addTodoItem = function(userID, cardID, todoItemName, callback){
-    
+module.exports.addTodoItem = function(userID, checkListID, todoItemName, callback){
+    addCheckListItem(userID, checkListID, todoItemName, callback);
 }
 
 function loadStoryBoard(userID, cardName, convo, callback){
@@ -86,4 +87,19 @@ function loadCards(userID, listArray,cardName, convo,callback){
         callback(convo,cardName, cardList);
     }); 
 
+}
+
+function addCheckListItem(userID, checkListID, itemName, callback){
+    var urlCards= api_add_checklistitem.replace("{CHECKLIST_ID}",checkListID).replace("{CHECKLIST_ITEM_NAME}",itemName).replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
+    var options = { 
+        method: 'POST',
+        url: urlCards  };
+        request(options, function (error, response, body) {
+            if(error){
+                console.log(error);
+                callback(false);
+            }else{
+                callback(true);
+            }
+        });
 }
