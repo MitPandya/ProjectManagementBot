@@ -1,4 +1,4 @@
-//var restHelper = require('./restAPIHelper.js');
+var restHelper = require('./restAPIHelper.js');
 
 module.exports.handleOpenCard = function(response,convo){
   convo.ask('What is the card name?',[
@@ -7,7 +7,7 @@ module.exports.handleOpenCard = function(response,convo){
       callback:function(response,convo){
         
         cardName = response.text;
-        //restHelper.openCard(response.user, cardName, convo, fetchCardHandler);
+        restHelper.openCard(response.user, cardName, convo, fetchCardHandler);
         convo.next();
       }
     }
