@@ -178,6 +178,38 @@
     "pos": 100475
   }
 ],
+
+"MarkListItem":
+[
+  {
+  "idChecklist": "123chcklst1",
+  "id": "123c1itm2",
+  "name": "C1_item1",
+  "nameData": null,
+  "type": null,
+  "pos": 66408,
+  "state": "complete"
+  },
+  {
+  "idChecklist": "123chcklst1",
+  "id": "123c1itm2",
+  "name": "C1_item2",
+  "nameData": null,
+  "type": null,
+  "pos": 83129,
+  "state": "complete"
+  },
+  {
+  "idChecklist": "123chcklst1",
+  "id": "123c1itm3",
+  "name": "C1_item3",
+  "nameData": null,
+  "type": null,
+  "pos": 100475,
+  "state": "complete"
+  }
+],
+
 "RemoveChecklistItem":
 {
   "_value": null
