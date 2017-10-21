@@ -2,6 +2,7 @@
 var Botkit = require('botkit');
 var dbHelper = require('./databaseHelper.js');
 var botInteractions = require('./botInteractions.js')
+var mock = require('./mock.js');
 
 var controller = Botkit.slackbot({
   debug: false  
@@ -28,6 +29,15 @@ controller.hears(['Hey','hi','hey promanbot'],['mention', 'direct_message'], fun
 {
   //console.log("#SLACK USER ID: "+message.user);
   // check for user trello account link
+
+  /*mock.getCheckListItems(function(err, result, body)  {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(body);
+    }
+  });*/
+
   if(typeof global.TRELLO_TOKEN_MAP[message.user] != 'undefined'){
     // ALL Good
     startMainThread(bot,message);
