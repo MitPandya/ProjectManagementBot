@@ -1,4 +1,5 @@
 var restHelper = require('./restAPIHelper.js');
+var mock = require('./mock.js');
 
 module.exports.handleOpenCard = function(response,convo){
   convo.ask('What is the card name?',[
@@ -26,8 +27,8 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: function(){}// Function to handle add todo item
               },
               {
-                  pattern: "List todo items",
-                  callback: function(){}// Function to handle add todo item
+                  pattern: /List checklist items/i,
+                  callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle add todo item
               },
               {
                   pattern: "Mark a todo item",
@@ -42,6 +43,20 @@ var fetchCardHandler=function(convo, cardName, cardList){
         }
     }
     convo.say("I couldn't find the card name '"+cardName+"' in your storyboard");
+}
+
+function getListChecklistItemsHandler(cardName, checkListID){
+  var listChecklistItems = function(response, convo){
+    mock.getCheckListItems(checkListID,function(err, result, body)  {
+      if (err) {
+          convo.say(err);
+      } else {
+          convo.say(body);
+      }
+      convo.next();
+    });
+  };
+  return listChecklistItems;
 }
 
 // method to call rest api to get cards for weekly summary

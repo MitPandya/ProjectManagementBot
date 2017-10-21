@@ -25,18 +25,10 @@ dbHelper.setupTrelloAppKey(function(appkey){
 });
 
 // Default Bot Invocation
-controller.hears(['Hey','hi','hey promanbot'],['mention', 'direct_message'], function(bot,message) 
+controller.hears([/hey/i,/hi/i,/hey promanbot/i],['mention', 'direct_message'], function(bot,message) 
 {
   //console.log("#SLACK USER ID: "+message.user);
   // check for user trello account link
-
-  /*mock.getCheckListItems(function(err, result, body)  {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(body);
-    }
-  });*/
 
   if(typeof global.TRELLO_TOKEN_MAP[message.user] != 'undefined'){
     // ALL Good
@@ -63,11 +55,11 @@ function startMainThread(bot, message){
     convo.ask('How can I help you?', [
      // Please add the bot interaction code snippets here for your Use case
       {
-        pattern: 'Open a card',
+        pattern: /Open a card/i,
         callback: botInteractions.handleOpenCard
       },
       {
-        pattern: 'Create a weekly summary for completed and incompleted tasks',
+        pattern: /Create a weekly summary for completed and incompleted tasks/i,
         callback: botInteractions.getCardsForWeeklySUmmary
       }
     ]);
