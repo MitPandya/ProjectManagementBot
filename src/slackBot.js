@@ -66,8 +66,12 @@ function startMainThread(bot, message){
       },
       {
         pattern: /Create weekly summary for completed and incompleted tasks/i,
-        callback: botInteractions.getCardsForWeeklySummary
-      }
+        callback: botInteractions.getCardsForWeeklySUmmary
+      },
+      {
+        pattern: /Send notification to members of card/i,
+        callback: botInteractions.handleNotifyUser
+      },
     ]);
     convo.next();
   });

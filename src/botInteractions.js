@@ -40,6 +40,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle remove todo item
               }
           ]);
+          convo.next();
           return;
         }
     }
@@ -225,4 +226,66 @@ module.exports.getCardsForWeeklySummary = function(response,convo){
   ])
   convo.next();
   
+}
+
+
+// method to handle conversation regarding notification to user about a card
+module.exports.handleNotifyUser = function(response,convo){
+    getNotifyCardInput(response,convo);
+}
+
+function getNotifyCardInput(response,convo){
+    convo.ask("Can you provide the card name?",[
+        {
+            pattern: '.*',
+            callback:getNotifyMemo
+        }
+    ]);
+    convo.next();
+}
+
+function getNotifyMemo(response,convo){
+    var cardName = response.text;
+    // call rest api to list all the 
+    restHelper.openCard(response.user, cardName, convo, getCardNotifyMessage);
+}
+
+function getCardNotifyMessage(convo, cardName, cardList){
+    var count = cardList.length;
+    for(var i=0;i<count;i++){
+        if(cardName == cardList[i].name){
+          convo.say("Here is the card "+cardName+" with description : "+cardList[i].desc);
+          convo.ask("Enter the message",[
+              {
+                  pattern: ".*",
+                  callback: getCardCommentHandler(cardList[i].id)// Function to handle add todo item
+              }
+          ]);
+          convo.next()
+          return;
+        }
+    }
+    convo.say("I couldn't find the card name '"+cardName+"' in your storyboard");
+    convo.next();
+}
+
+function getCardCommentHandler(cardID){
+    var temp = function(response,convo){
+        var message = response.text;
+        message = "@card "+message;
+        
+        var sendFeedback = function(done){
+            if(!done){
+                convo.say("I'm sorry as I wasn't able to send your notification.");
+            }else{
+                convo.say("I have sent your message to all members of this card.");
+            }
+            convo.next();
+        }
+
+        sendFeedback(true);
+        // call rest api method to add comments
+        // restHelper.sendCommentRequest(response.user,cardID,message);
+    }
+    return temp;
 }
