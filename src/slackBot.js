@@ -15,6 +15,12 @@ dbHelper.setupTrelloAppKey(function(appkey){
     global.APP_KEY = appkey;
     global.TRELLO_TOKEN_MAP = {}; // initialize the map
 
+    console.log(process.env.MOCKON);
+    // initialize mocking
+    if(process.env.MOCKON=="true"){
+      mock.startMock();
+    }
+
     // connect the bot to a stream of messages
     controller.spawn({
       token: process.env.PROMANTOKEN,

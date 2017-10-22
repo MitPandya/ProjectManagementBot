@@ -166,7 +166,7 @@ function RemoveChecklistItem(ChecklistID){
         var ChecklistItemName = response.text;
 
         var checklistItems = [] ;
-        restHelper.getCheckListItems(response.user, ChecklistID, function(e,r,b){
+        restHelper.getListCheckListItems(response.user, ChecklistID, function(e,r,b){
             checklistItems  = JSON.parse(b);
 
             for(var i=0;i<checklistItems.length;i++){
