@@ -165,8 +165,10 @@ module.exports.getCardsForWeeklySummary = function(response,convo){
       pattern: ".*",
       callback:function(response,convo){
         
-        cardName = response.text;
+        // parse dates from response
+        var res = response.text.match(/\d{2}(\D)\d{2}\1\d{4}/g);
         // rest api handler
+        
         convo.next();
       }
     }
