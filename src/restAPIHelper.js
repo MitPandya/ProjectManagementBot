@@ -8,6 +8,7 @@ var api_add_checklistitem = "https://api.trello.com/1/checklists/{CHECKLIST_ID}/
 var api_mark_item = "https://api.trello.com/1/cards/{CARD_ID}/checkItem/{ITEM_ID}?state=complete&key={APP_KEY}&token={TOKEN_VALUE}";
 var api_remove_checklistitem = "https://api.trello.com/1/checklists/{CHECKLIST_ID}/checkItems/{ITEM_ID}?key={APP_KEY}&token={TOKEN_VALUE}";
 var api_list_checklistitems = "https://api.trello.com/1/checklists/{CHECKLIST_ID}/checkItems?key={APP_KEY}&token={TOKEN_VALUE}";
+var api_add_comment = "https://api.trello.com/1/cards/{CARD_ID}/actions/comments?text={COMMENT_VALUE}&key={APP_KEY}&token={TOKEN_VALUE}"
 
 // Wrapper to hide underlying callbacks
 module.exports.openCard = function(userID, cardName, convo, callback){
@@ -28,6 +29,10 @@ module.exports.removeChecklistitem = function(userID, checkListID, todoItemID, c
 
 module.exports.getListCheckListItems = function(userID, checkListID, callback){
     listChecklistItems(userID, checkListID, callback);
+}
+
+module.exports.addCommentOnCard = function(userID, cardID, comment, callback){
+    addCommentOnCard(userID, cardID, comment, callback);
 }
 
 function loadStoryBoard(userID, cardName, convo, callback){
@@ -119,6 +124,7 @@ function listChecklistItems(userID, checkListID, callback){
 
 
 function addCheckListItem(userID, checkListID, itemName, callback){
+    itemName = encodeURIComponent(itemName)
     var urlCards= api_add_checklistitem.replace("{CHECKLIST_ID}",checkListID).replace("{CHECKLIST_ITEM_NAME}",itemName).replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
     var options = { 
         method: 'POST',
@@ -162,3 +168,20 @@ function RemoveChecklistItem(userID, checkListID, itemID, callback){
             }
         });
 }
+
+// REST API call to add comments to a card
+function addCommentOnCard(userID, cardID, comment, callback){
+    comment = encodeURIComponent(comment)
+    var urlCards= api_add_comment.replace("{CARD_ID}",cardID).replace("{COMMENT_VALUE}",comment).replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
+    var options = { 
+        method: 'POST',
+        url: urlCards  };
+        request(options, function (error, response, body) {
+            if(error){
+                console.log(error);
+                callback(false);
+            }else{
+                callback(true);
+            }
+        });
+}        

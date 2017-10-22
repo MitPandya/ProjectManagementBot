@@ -283,8 +283,7 @@ function getCardCommentHandler(cardID){
         }
 
         sendFeedback(true);
-        // call rest api method to add comments
-        // restHelper.sendCommentRequest(response.user,cardID,message);
+        restHelper.addCommentOnCard(response.user,cardID,message,sendFeedback);
     }
     return temp;
 }
