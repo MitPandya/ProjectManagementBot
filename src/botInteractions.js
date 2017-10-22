@@ -63,7 +63,7 @@ function getAddChecklistItemHandler(ChecklistID){
 
 function getListChecklistItemsHandler(cardName, checkListID){
   var listChecklistItems = function(response, convo){
-    mock.getCheckListItems(checkListID,function(err, result, body)  {
+    restHelper.getListCheckListItems(response.user, checkListID,function(err, result, body)  {
       if (err) {
           convo.say(err);
       } else {
@@ -132,7 +132,7 @@ function markChecklistItem(cardID, ChecklistID){
         var ChecklistItemName = response.text;
 
         var checklistItems = [] ;
-        restHelper.getCheckListItems(response.user, ChecklistID, function(e,r,b){
+        restHelper.getListCheckListItems(response.user, ChecklistID, function(e,r,b){
             checklistItems  = JSON.parse(b);
 
             for(var i=0;i<checklistItems.length;i++){

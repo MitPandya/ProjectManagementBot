@@ -181,6 +181,34 @@
     }
   ],
 
+  "checkListItems":
+  [
+    {
+          "state": "incomplete",
+          "idChecklist": "59e81d28e76ede1acd51264e",
+          "id": "59ea4b1608582ffdc6db4a2c",
+          "name": "C1_item1",
+          "nameData": null,
+          "pos": 66408
+        },
+        {
+          "state": "incomplete",
+          "idChecklist": "59e81d28e76ede1acd51264e",
+          "id": "59ea5f107781150f24d26a35",
+          "name": "C1_item2",
+          "nameData": null,
+          "pos": 83129
+        },
+        {
+          "state": "incomplete",
+          "idChecklist": "59e81d28e76ede1acd51264e",
+          "id": "59ea5f170dd75602f9cd256f",
+          "name": "C1_item3",
+          "nameData": null,
+          "pos": 100475
+        }
+  ],
+
   "cardChecklistItems":
   [
     {
