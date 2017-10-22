@@ -316,8 +316,8 @@
                     "due": null,
                     "dueComplete": false
                 },
-                "dueComplete": false,
-                "due": null,
+                "dueComplete": true,
+                "due": "10-18-2017",
                 "idChecklists":
                 [
                     "59e81d28e76ede1acd51264e",
@@ -377,7 +377,7 @@
                     "dueComplete": false
                 },
                 "dueComplete": false,
-                "due": null,
+                "due": "10-21-2017",
                 "idChecklists":
                 [
                 ],

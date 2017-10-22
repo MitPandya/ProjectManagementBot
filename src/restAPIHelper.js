@@ -100,6 +100,8 @@ function loadCards(userID, listArray,cardName, convo,callback){
                     'name':respCardList[j].name,
                     'desc':respCardList[j].desc,
                     'idChecklists':respCardList[j].idChecklists[0],
+                    'due':respCardList[j].due,
+                    'dueComplete':respCardList[j].dueComplete,
                 });
             }
         }

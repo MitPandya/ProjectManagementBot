@@ -15,7 +15,7 @@ dbHelper.setupTrelloAppKey(function(appkey){
     global.APP_KEY = appkey;
     global.TRELLO_TOKEN_MAP = {}; // initialize the map
 
-    console.log(process.env.MOCKON);
+    console.log("Mocking flag is : "+process.env.MOCKON);
     // initialize mocking
     if(process.env.MOCKON=="true"){
       mock.startMock();
@@ -66,7 +66,7 @@ function startMainThread(bot, message){
       },
       {
         pattern: /Create weekly summary for completed and incompleted tasks/i,
-        callback: botInteractions.getCardsForWeeklySUmmary
+        callback: botInteractions.getCardsForWeeklySummary
       },
       {
         pattern: /Send notification to members of card/i,

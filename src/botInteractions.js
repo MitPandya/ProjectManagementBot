@@ -208,6 +208,7 @@ module.exports.getCardsForWeeklySummary = function(response,convo){
         
         cardName = response.text;
         // rest api handler
+        restHelper.openCard(response.user, "", convo, generateCardSummary(startOfWeek, endOfWeek));
         convo.next();
       }
     },
@@ -218,7 +219,7 @@ module.exports.getCardsForWeeklySummary = function(response,convo){
         // parse dates from response
         var res = response.text.match(/\d{2}(\D)\d{2}\1\d{4}/g);
         // rest api handler
-        
+        restHelper.openCard(response.user, "", convo, generateCardSummary(res[0], res[1]));
         convo.next();
       }
     }
@@ -227,6 +228,34 @@ module.exports.getCardsForWeeklySummary = function(response,convo){
   
 }
 
+
+function generateCardSummary(startDate, endDate){
+  var parseCardsAndCreateSummary = function(convo, cardName, cardList){
+    var dueCards = [];
+    var completedCards = [];
+
+    for(var i=0;i<cardList.length;i++){
+          var isValid = moment(cardList[i].due,["MM-DD-YYYY"]).isBetween(startDate, endDate);
+          if(isValid){
+            if(cardList[i].dueComplete == true){
+              completedCards.push(cardList[i]);
+            }
+            else{
+              dueCards.push(cardList[i]);
+            }
+          }
+    }
+    if(dueCards.length > 0 || completedCards.length > 0){
+      convo.say("Here is the list of completed cards");
+      convo.say("Completed cards "+JSON.stringify(completedCards));
+      convo.say("Due cards "+JSON.stringify(dueCards));
+    }
+    else {
+      convo.say("No cards found for the given date range!");
+    }
+  }
+  return parseCardsAndCreateSummary;
+}
 
 // method to handle conversation regarding notification to user about a card
 module.exports.handleNotifyUser = function(response,convo){
