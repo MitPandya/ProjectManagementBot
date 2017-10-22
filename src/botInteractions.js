@@ -24,7 +24,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
           convo.say("Here is the card "+cardName+" with description : "+cardList[i].desc);
           convo.ask("What do you want to do ? Below are the available options:\n1) Add todo item\n2) Mark a todo item\n3) Remove a todo item",[
               {
-                  pattern: "Add todo item",
+                  pattern: /Add todo item/i,
                   callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle add todo item
               },
               {
@@ -32,11 +32,11 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle add todo item
               },
               {
-                  pattern: "Mark a todo item",
+                  pattern: /Mark a todo item/i,
                   callback: function(){}// Function to mark a todo item
               },
               {
-                  pattern: "Remove a todo item",
+                  pattern: /Remove a todo item/i,
                   callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle remove todo item
               }
           ]);
@@ -94,6 +94,8 @@ function AddChecklistItem(ChecklistID){
         
         var ChecklistItemName = response.text;
         //Call RestAPI for adding the checklist Item over here
+        restHelper.addCheckListItem(response.user, ChecklistID, ChecklistItemName, convo, sendFeedback);
+        
         var sendFeedback = function(done){
             if (done == true){
                 convo.say("I have added your checklist item "+ ChecklistItemName);
@@ -111,17 +113,17 @@ function AddChecklistItem(ChecklistID){
 
 function RemoveChecklistItem(ChecklistID){
     var temp = function(response,convo){
-        var success = 0; 
+        var findItem = 0; 
         var ChecklistItemName = response.text;
 
         var checklistItems = [] ;
-        mock.getCheckListItems(function(e,r,b){
+        restHelper.getCheckListItems(response.user, ChecklistID, function(e,r,b){
             checklistItems  = JSON.parse(b);
 
             for(var i=0;i<checklistItems.length;i++){
                 if(ChecklistItemName == checklistItems[i].name){
-                    success = 1;
-                    //Call RestAPI for deleting the checklist Item over here
+                    findItem = 1;
+                    restHelper.removeChecklistitem(response.user, ChecklistID, checklistItems[i].id, convo, sendFeedback);
                     var sendFeedback = function(done){
                         if(done == true){
                             convo.say("I have deleted the checklist item "+ ChecklistItemName);
@@ -132,7 +134,7 @@ function RemoveChecklistItem(ChecklistID){
                     }
                 } 
             }
-            if(success == 0){
+            if(findItem == 0){
                 convo.say("Item "+ ChecklistItemName + " is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the above mentioned card.");
             }
             convo.next();

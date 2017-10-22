@@ -29,14 +29,21 @@ module.exports.startMock = function(){
 	nock("https://api.trello.com")
 	.persist()
 	.get(pathRegex)
-	.reply(200, JSON.stringify(data.checkListItems) );
+	.reply(200, JSON.stringify(data.cardChecklistItems) );
 
 	// Mock to add checklist items
 	pathRegex = /\/1\/checklists\/.*\/checkItems/;
 	nock("https://api.trello.com")
 	.persist()
 	.post(pathRegex)
-	.reply(200, JSON.stringify(data.checkListItems) );
+	.reply(200, JSON.stringify(data.AddChecklistItem) );
+
+	//Mock to remove a checklist item
+	pathRegex = /\/1\/checklists\/.*\/checkItems\/.*/;
+	nock("https://api.trello.com")
+	.persist()
+	.post(pathRegex)
+	.reply(200, JSON.stringify(data.RemoveChecklistItem) );
 
 	// Mock for marking an item present in the checklist of a card
 	pathRegex = /\/1\/cards\/.*\/checkItem\/.*/;
