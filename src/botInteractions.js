@@ -22,7 +22,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
     for(var i=0;i<count;i++){
         if(cardName == cardList[i].name){
           convo.say("Here is the card "+cardName+" with description : "+cardList[i].desc);
-          convo.ask("What do you want to do ? Below are the available options:\n1) Add todo item\n2) Mark a todo item\n3) Remove a todo item",[
+          convo.ask("What do you want to do ? Below are the available options:\n1) Add todo item\n2) Mark a todo item\n3) Remove a todo item\n4) List checklist items",[
               {
                   pattern: /Add todo item/i,
                   callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle add todo item
