@@ -33,7 +33,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
               },
               {
                   pattern: /Mark a todo item/i,
-                  callback: function(){}// Function to mark a todo item
+                  callback: getMarkChecklistItemHandler(cardList[i].id, cardList[i].idChecklists)// Function to mark a checklist item of a card
               },
               {
                   pattern: /Remove a todo item/i,
@@ -75,6 +75,20 @@ function getListChecklistItemsHandler(cardName, checkListID){
   return listChecklistItems;
 }
 
+function getMarkChecklistItemHandler(cardID, ChecklistID){
+    var temp = function(response,convo){
+        convo.ask("Enter the name of the checklist item you want to mark: ",[
+            {
+                pattern: ".*",
+                callback: markChecklistItem(cardID, ChecklistID)
+            }
+        ]);
+        convo.next();
+    }
+    return temp;
+}
+
+
 function getRemoveChecklistItemHandler(ChecklistID){
     var temp = function(response,convo){
         convo.ask("Enter the name of the checklist item you want to delete: ",[
@@ -111,6 +125,41 @@ function AddChecklistItem(ChecklistID){
     return temp;
 }
 
+//Function to mark an item present inside the checklist of a card
+function markChecklistItem(cardID, ChecklistID){
+    var temp = function(response,convo){
+        var findItem = 0; 
+        var ChecklistItemName = response.text;
+
+        var checklistItems = [] ;
+        restHelper.getCheckListItems(response.user, ChecklistID, function(e,r,b){
+            checklistItems  = JSON.parse(b);
+
+            for(var i=0;i<checklistItems.length;i++){
+                if(ChecklistItemName == checklistItems[i].name){
+                    findItem = 1;
+                    restHelper.markListItem(response.user, cardID, checklistItems[i].id, convo, sendFeedback);
+                    var sendFeedback = function(done){
+                        if(done == true){
+                            convo.say("I have marked the checklist item "+ ChecklistItemName);
+                        }
+                        else{
+                            convo.say("Error occurred while marking the checklist item "+ ChecklistItemName + ". Please try again.");
+                        }    
+                    }
+                } 
+            }
+            //When checklist Item to be marked is not found
+            if(findItem == 0){
+                convo.say("Item "+ ChecklistItemName + " is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.");
+            }
+            convo.next();
+        });  
+    };
+    return temp;    
+}
+
+
 function RemoveChecklistItem(ChecklistID){
     var temp = function(response,convo){
         var findItem = 0; 
@@ -134,8 +183,9 @@ function RemoveChecklistItem(ChecklistID){
                     }
                 } 
             }
+            //When checklist Item to be removed is not found
             if(findItem == 0){
-                convo.say("Item "+ ChecklistItemName + " is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the above mentioned card.");
+                convo.say("Item "+ ChecklistItemName + " is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.");
             }
             convo.next();
         });  
