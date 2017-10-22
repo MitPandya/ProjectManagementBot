@@ -1,4 +1,95 @@
 {
+  "AddCommentOnCard":
+  [
+    {
+      "id": "59ecff14b51a016a061d8bd0",
+      "idMemberCreator": "59dea86a01f84f1bcc8c820f",
+      "data": {
+        "text": "Please complete",
+        "textData": {
+          "emoji": {}
+        },
+        "card": {
+          "id": "59e43422ad1c0bf719512db5",
+          "name": "Card1",
+          "idShort": 1,
+          "shortLink": "pNex77lp"
+        },
+        "board": {
+          "id": "59dea8e32c8a0d56a4e945a9",
+          "name": "AgileTeam",
+          "shortLink": "7wVOkfnW"
+        },
+        "list": {
+          "id": "59dea8e32c8a0d56a4e945aa",
+          "name": "To Do"
+        }
+      },
+      "type": "commentCard",
+      "date": "2017-10-22T20:27:00.235Z",
+      "memberCreator": {
+        "id": "59dea86a01f84f1bcc8c820f",
+        "avatarHash": null,
+        "fullName": "SeProject",
+        "initials": "S",
+        "username": "seproject16"
+      },
+      "entities": [
+        {
+          "type": "member",
+          "id": "59dea86a01f84f1bcc8c820f",
+          "username": "seproject16",
+          "text": "SeProject"
+        },
+        {
+          "type": "text",
+          "text": "on",
+          "hideIfContext": true,
+          "idContext": "59e43422ad1c0bf719512db5"
+        },
+        {
+          "type": "card",
+          "hideIfContext": true,
+          "shortLink": "pNex77lp",
+          "id": "59e43422ad1c0bf719512db5",
+          "text": "Card1"
+        },
+        {
+          "type": "comment",
+          "text": "Please complete"
+        }
+      ],
+      "display": {
+        "translationKey": "action_comment_on_card",
+        "entities": {
+          "contextOn": {
+            "type": "translatable",
+            "translationKey": "action_on",
+            "hideIfContext": true,
+            "idContext": "59e43422ad1c0bf719512db5"
+          },
+          "card": {
+            "type": "card",
+            "hideIfContext": true,
+            "shortLink": "pNex77lp",
+            "id": "59e43422ad1c0bf719512db5",
+            "text": "Card1"
+          },
+          "comment": {
+            "type": "comment",
+            "text": "Please complete"
+          },
+          "memberCreator": {
+            "type": "member",
+            "id": "59dea86a01f84f1bcc8c820f",
+            "username": "seproject16",
+            "text": "SeProject"
+          }
+        }
+      }
+    }
+  ],
+
   "MeBoards":
   [
     {

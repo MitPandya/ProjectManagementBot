@@ -52,4 +52,11 @@ module.exports.startMock = function(){
 	.put(pathRegex)
 	.reply(200, JSON.stringify(data.MarkListItem[0]) );
 
+	// Mock for adding a comment to a card
+	pathRegex = /\/1\/cards\/.*\/actions\/comments.*/;
+	nock("https://api.trello.com")
+	.persist()
+	.post(pathRegex)
+	.reply(200, JSON.stringify(data.AddCommentOnCard) );	
+
 };
