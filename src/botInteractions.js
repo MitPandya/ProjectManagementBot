@@ -109,7 +109,6 @@ function AddChecklistItem(ChecklistID){
         
         var ChecklistItemName = response.text;
         //Call RestAPI for adding the checklist Item over here
-        restHelper.addCheckListItem(response.user, ChecklistID, ChecklistItemName, convo, sendFeedback);
         
         var sendFeedback = function(done){
             if (done == true){
@@ -117,10 +116,10 @@ function AddChecklistItem(ChecklistID){
             }
             else{
                 convo.say("Error happened while adding the checklist item "+ ChecklistItemName + ". Please try again.");
-            }
-            
+            }    
             
         }
+        restHelper.addTodoItem(response.user, ChecklistID, ChecklistItemName, sendFeedback);
         convo.next();
     }
     return temp;
@@ -139,7 +138,6 @@ function markChecklistItem(cardID, ChecklistID){
             for(var i=0;i<checklistItems.length;i++){
                 if(ChecklistItemName == checklistItems[i].name){
                     findItem = 1;
-                    restHelper.markListItem(response.user, cardID, checklistItems[i].id, convo, sendFeedback);
                     var sendFeedback = function(done){
                         if(done == true){
                             convo.say("I have marked the checklist item "+ ChecklistItemName);
@@ -148,6 +146,7 @@ function markChecklistItem(cardID, ChecklistID){
                             convo.say("Error occurred while marking the checklist item "+ ChecklistItemName + ". Please try again.");
                         }    
                     }
+                    restHelper.markListItem(response.user, cardID, checklistItems[i].id, sendFeedback);
                 } 
             }
             //When checklist Item to be marked is not found
@@ -173,15 +172,15 @@ function RemoveChecklistItem(ChecklistID){
             for(var i=0;i<checklistItems.length;i++){
                 if(ChecklistItemName == checklistItems[i].name){
                     findItem = 1;
-                    restHelper.removeChecklistitem(response.user, ChecklistID, checklistItems[i].id, convo, sendFeedback);
                     var sendFeedback = function(done){
                         if(done == true){
                             convo.say("I have deleted the checklist item "+ ChecklistItemName);
                         }
                         else{
                             convo.say("Error occurred while deleting the checklist item "+ ChecklistItemName + ". Please try again.");
-                        }    
+                        }        
                     }
+                    restHelper.removeChecklistitem(response.user, ChecklistID, checklistItems[i].id, sendFeedback);
                 } 
             }
             //When checklist Item to be removed is not found
