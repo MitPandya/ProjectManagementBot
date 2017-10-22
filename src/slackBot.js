@@ -59,8 +59,8 @@ function startMainThread(bot, message){
         callback: botInteractions.handleOpenCard
       },
       {
-        pattern: /Create a weekly summary for completed and incompleted tasks/i,
-        callback: botInteractions.getCardsForWeeklySUmmary
+        pattern: /Create weekly summary for completed and incompleted tasks/i,
+        callback: botInteractions.getCardsForWeeklySummary
       }
     ]);
     convo.next();

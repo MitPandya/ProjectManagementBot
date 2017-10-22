@@ -1,5 +1,6 @@
 var restHelper = require('./restAPIHelper.js');
 var mock = require('./mock.js');
+var moment = require('moment');
 
 module.exports.handleOpenCard = function(response,convo){
   convo.ask('What is the card name?',[
@@ -142,5 +143,32 @@ function RemoveChecklistItem(ChecklistID){
 
 // method to call rest api to get cards for weekly summary
 module.exports.getCardsForWeeklySummary = function(response,convo){
+
+  // start of the week is Monday and end of the week is Sunday.
+  var startOfWeek = moment().startOf('isoWeek').format("MM/DD/YYYY");
+  var endOfWeek   = moment().endOf('isoweek').format("MM/DD/YYYY");
+  //console.log(startOfWeek);
+  //console.log(endOfWeek);
+  convo.ask('Creating weekly summary from '+startOfWeek+' to '+endOfWeek+' , would you like to change dates?',[
+    {
+      pattern: /no/i,
+      callback:function(response,convo){
+        
+        cardName = response.text;
+        // rest api handler
+        convo.next();
+      }
+    },
+    {
+      pattern: ".*",
+      callback:function(response,convo){
+        
+        cardName = response.text;
+        // rest api handler
+        convo.next();
+      }
+    }
+  ])
+  convo.next();
   
 }
