@@ -59,7 +59,7 @@ function startMainThread(bot, message){
   bot.startConversation(message,function(err,convo) {
     convo.say('Good to see you.');
     convo.ask('How can I help you?', [
-     // Please add the bot interaction code snippets here for your Use case
+     
       {
         pattern: /Open a card/i,
         callback: botInteractions.handleOpenCard
@@ -72,6 +72,35 @@ function startMainThread(bot, message){
         pattern: /Send notification to members of card/i,
         callback: botInteractions.handleNotifyUser
       },
+      {
+        pattern: '.*',
+        callback: function(response, convo){
+          convo.say('ERROR occurred while performing the specified operation on the card.\nThe operations which can be performed on the card are:\n1)Open a card \n2)Create weekly summary for completed and incompleted tasks \n3)Send notification to members of card.');
+          convo.ask('Type the operation to be performed on the card EXACTLY as it appears in the above given options',[
+            
+             {
+               pattern: /Open a card/i,
+               callback: botInteractions.handleOpenCard
+             },
+             {
+               pattern: /Create weekly summary for completed and incompleted tasks/i,
+               callback: botInteractions.getCardsForWeeklySummary
+             },
+             {
+               pattern: /Send notification to members of card/i,
+               callback: botInteractions.handleNotifyUser
+             },
+             {
+               pattern: '.*',
+               callback: function(response, convo){
+                 convo.say('Sorry, the operation specified by you didn\'t match any of the above given options');
+                 convo.next();
+                }
+             }
+            ]); 
+          convo.next();
+        }
+      }
     ]);
     convo.next();
   });

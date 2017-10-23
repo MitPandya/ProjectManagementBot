@@ -44,7 +44,32 @@ var fetchCardHandler=function(convo, cardName, cardList){
               {
                   pattern: '.*',
                   callback: function(response,convo){
-                      convo.say("Error while selecting the option available for checklist items of a card. Type the operation to be performed exactly as it appears in the above given options.")
+                      convo.say("ERROR occurred while selecting the option available for checklist items of a card.");
+                      convo.ask("Type the operation to be performed EXACTLY as it appears in the above given options.",[
+                        {
+                            pattern: /Add todo item/i,
+                            callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'add checklist item'
+                        },
+                        {
+                            pattern: /List checklist items/i,
+                            callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle 'list checklist items'
+                        },
+                        {
+                            pattern: /Mark a todo item/i,
+                            callback: getMarkChecklistItemHandler(cardList[i].id, cardList[i].idChecklists)// Function to handle 'mark a checklist item of a card'
+                        },
+                        {
+                            pattern: /Remove a todo item/i,
+                            callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'remove checklist item'
+                        },
+                        {
+                            pattern: '.*',
+                            callback: function(response,convo){
+                                convo.say("Sorry, the operation specified by you didn't match any of the above given options");
+                                convo.next();   
+                            }
+                        }   
+                      ]);
                       convo.next();
                   }
               }
@@ -127,10 +152,10 @@ function AddChecklistItem(ChecklistID){
         var ChecklistItemName = response.text;
         var sendFeedback = function(done){
             if (done == true){
-                convo.say("I have added your checklist item "+ ChecklistItemName);
+                convo.say("I have added the checklist item "+ ChecklistItemName);
             }
             else{
-                convo.say("Error happened while adding the checklist item "+ ChecklistItemName + ". Please try again.");
+                convo.say("ERROR occurred while adding the checklist item "+ ChecklistItemName + ". Please try again.");
             }    
             
         }
@@ -159,7 +184,7 @@ function markChecklistItem(cardID, ChecklistID){
                             convo.say("I have marked the checklist item "+ ChecklistItemName);
                         }
                         else{
-                            convo.say("Error occurred while marking the checklist item "+ ChecklistItemName + ". Please try again.");
+                            convo.say("ERROR occurred while marking the checklist item "+ ChecklistItemName + ". Please try again.");
                         }    
                     }
                     restHelper.markListItem(response.user, cardID, checklistItems[i].id, sendFeedback);
@@ -195,7 +220,7 @@ function RemoveChecklistItem(ChecklistID){
                             convo.say("I have deleted the checklist item "+ ChecklistItemName);
                         }
                         else{
-                            convo.say("Error occurred while deleting the checklist item "+ ChecklistItemName + ". Please try again.");
+                            convo.say("ERROR occurred while deleting the checklist item "+ ChecklistItemName + ". Please try again.");
                         }        
                     }
                     restHelper.removeChecklistitem(response.user, ChecklistID, checklistItems[i].id, sendFeedback);
@@ -292,7 +317,7 @@ function getNotifyCardInput(response,convo){
 
 function getNotifyMemo(response,convo){
     var cardName = response.text;
-    // call rest api to list all the 
+    
     restHelper.openCard(response.user, cardName, convo, getCardNotifyMessage);
 }
 
