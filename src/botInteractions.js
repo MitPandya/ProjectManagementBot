@@ -17,6 +17,8 @@ module.exports.handleOpenCard = function(response,convo){
   convo.next();
 }
 
+//User-bot interaction to fetch Card info and then display the operations available to the user for this card
+
 var fetchCardHandler=function(convo, cardName, cardList){
     var count = cardList.length;
     for(var i=0;i<count;i++){
@@ -25,19 +27,19 @@ var fetchCardHandler=function(convo, cardName, cardList){
           convo.ask("What do you want to do ? Below are the available options:\n1) Add todo item\n2) Mark a todo item\n3) Remove a todo item\n4) List checklist items",[
               {
                   pattern: /Add todo item/i,
-                  callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle add todo item
+                  callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'add checklist item'
               },
               {
                   pattern: /List checklist items/i,
-                  callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle add todo item
+                  callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle 'list checklist items'
               },
               {
                   pattern: /Mark a todo item/i,
-                  callback: getMarkChecklistItemHandler(cardList[i].id, cardList[i].idChecklists)// Function to mark a checklist item of a card
+                  callback: getMarkChecklistItemHandler(cardList[i].id, cardList[i].idChecklists)// Function to handle 'mark a checklist item of a card'
               },
               {
                   pattern: /Remove a todo item/i,
-                  callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle remove todo item
+                  callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'remove checklist item'
               }
           ]);
           convo.next();
@@ -46,6 +48,8 @@ var fetchCardHandler=function(convo, cardName, cardList){
     }
     convo.say("I couldn't find the card name '"+cardName+"' in your storyboard");
 }
+
+//User-bot interaction to add a checklist item in a card
 
 function getAddChecklistItemHandler(ChecklistID){
     var temp = function(response,convo){
@@ -62,6 +66,8 @@ function getAddChecklistItemHandler(ChecklistID){
     return temp;
 }
 
+//User-bot interaction to list all checklist items present in a card
+
 function getListChecklistItemsHandler(cardName, checkListID){
   var listChecklistItems = function(response, convo){
     restHelper.getListCheckListItems(response.user, checkListID,function(err, result, body)  {
@@ -76,6 +82,8 @@ function getListChecklistItemsHandler(cardName, checkListID){
   return listChecklistItems;
 }
 
+//User-bot interaction to mark a checklist item of a card
+
 function getMarkChecklistItemHandler(cardID, ChecklistID){
     var temp = function(response,convo){
         convo.ask("Enter the name of the checklist item you want to mark: ",[
@@ -89,6 +97,7 @@ function getMarkChecklistItemHandler(cardID, ChecklistID){
     return temp;
 }
 
+//User-bot interaction to remove a checklist item of a card
 
 function getRemoveChecklistItemHandler(ChecklistID){
     var temp = function(response,convo){
@@ -103,13 +112,12 @@ function getRemoveChecklistItemHandler(ChecklistID){
     return temp;
 }
 
+//Bot interaction with the user regarding addition of the new checklist item in a card
 
 function AddChecklistItem(ChecklistID){
     var temp = function(response,convo){
         
         var ChecklistItemName = response.text;
-        //Call RestAPI for adding the checklist Item over here
-        
         var sendFeedback = function(done){
             if (done == true){
                 convo.say("I have added your checklist item "+ ChecklistItemName);
@@ -125,7 +133,8 @@ function AddChecklistItem(ChecklistID){
     return temp;
 }
 
-//Function to mark an item present inside the checklist of a card
+//Bot interaction with the user regarding marking of the specified checklist item of a card
+
 function markChecklistItem(cardID, ChecklistID){
     var temp = function(response,convo){
         var findItem = 0; 
@@ -159,6 +168,8 @@ function markChecklistItem(cardID, ChecklistID){
     return temp;    
 }
 
+
+//Bot interaction with the user regarding removal of the specified checklist item from the card
 
 function RemoveChecklistItem(ChecklistID){
     var temp = function(response,convo){

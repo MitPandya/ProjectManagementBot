@@ -19,8 +19,8 @@ module.exports.addTodoItem = function(userID, checkListID, todoItemName, callbac
     addCheckListItem(userID, checkListID, todoItemName, callback);
 }
 
-module.exports.markListItem = function(userID, cardID, checklistID, callback){
-    MarkCheckListItem(userID, cardID, checkListID, callback);
+module.exports.markListItem = function(userID, cardID, todoItemID, callback){
+    MarkCheckListItem(userID, cardID, todoItemID, callback);
 }
 
 module.exports.removeChecklistitem = function(userID, checkListID, todoItemID, callback){
@@ -35,6 +35,8 @@ module.exports.addCommentOnCard = function(userID, cardID, comment, callback){
     addCommentOnCard(userID, cardID, comment, callback);
 }
 
+// Function to load a story board associated with the current user
+
 function loadStoryBoard(userID, cardName, convo, callback){
     var urlBoard = api_fetch_story_board.replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
     var options = { 
@@ -48,6 +50,9 @@ function loadStoryBoard(userID, cardName, convo, callback){
         loadBoardList(userID,body[0].id,cardName, convo,callback);
     });
 }
+
+
+//Function to load all the lists present in the storyboard
 
 function loadBoardList(userID, boardID,cardName, convo, callback){
     // load all cards in this board
@@ -66,6 +71,8 @@ function loadBoardList(userID, boardID,cardName, convo, callback){
 
     });
 }
+
+//Function to load all the cards present in the To Do List
 
 function loadCards(userID, listArray,cardName, convo,callback){
     // consider only only first story board
@@ -111,6 +118,8 @@ function loadCards(userID, listArray,cardName, convo,callback){
 
 }
 
+//Function to list all the checklist items present in the card
+
 function listChecklistItems(userID, checkListID, callback){
     var urlBoard = api_list_checklistitems.replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
     var options = { 
@@ -124,6 +133,7 @@ function listChecklistItems(userID, checkListID, callback){
 }
 
 
+//Function to add the user-specified checklist item in a card
 
 function addCheckListItem(userID, checkListID, itemName, callback){
     itemName = encodeURIComponent(itemName)
@@ -141,8 +151,11 @@ function addCheckListItem(userID, checkListID, itemName, callback){
         });
 }        
 
-function MarkCheckListItem(userID, cardID, checkListID,  callback){
-    var urlCards= api_mark_item.replace("{CARD_ID}",cardID).replace("{ITEM_ID}",checkListID).replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
+
+//Function to mark the user-specified checklist item of a card
+
+function MarkCheckListItem(userID, cardID, itemID,  callback){
+    var urlCards= api_mark_item.replace("{CARD_ID}",cardID).replace("{ITEM_ID}",itemID).replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
     var options = { 
         method: 'PUT',
         url: urlCards  };
@@ -155,6 +168,8 @@ function MarkCheckListItem(userID, cardID, checkListID,  callback){
             }
         });
 }
+
+//Function to remove the user-specified checklist item from a card
 
 function RemoveChecklistItem(userID, checkListID, itemID, callback){
     var urlCards= api_remove_checklistitem.replace("{CHECKLIST_ID}",checkListID).replace("{ITEM_ID}",itemID).replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
