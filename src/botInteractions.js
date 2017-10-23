@@ -40,6 +40,13 @@ var fetchCardHandler=function(convo, cardName, cardList){
               {
                   pattern: /Remove a todo item/i,
                   callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'remove checklist item'
+              },
+              {
+                  pattern: '.*',
+                  callback: function(response,convo){
+                      convo.say("Error while selecting the option available for checklist items of a card. Type the operation to be performed exactly as it appears in the above given options.")
+                      convo.next();
+                  }
               }
           ]);
           convo.next();
