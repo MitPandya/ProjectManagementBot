@@ -28,7 +28,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
-public class SlackTest {
+public class SlackTestUseCase3 {
 
 	private static WebDriver driver;
 	
@@ -107,30 +107,6 @@ public class SlackTest {
 	@Test
 	public void useCase3AlternativePath() throws InterruptedException
 	{
-		/*driver.get("https://seproject-workspace.slack.com/");
-		// Wait until page loads and we can see a sign in button.
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("signin_btn")));
-
-		// Find email and password fields.
-		WebElement email = driver.findElement(By.id("email"));
-		WebElement pw = driver.findElement(By.id("password"));
-
-		// Enter our email and password
-		// If running this from Eclipse, you should specify these variables in the run configurations.
-		email.sendKeys("se.project@mail.com");
-		pw.sendKeys("promanbot");
-
-		// Click
-		WebElement signin = driver.findElement(By.id("signin_btn"));
-		signin.click();
-
-		// Wait until we go to general channel.
-		wait.until(ExpectedConditions.titleContains("general"));
-
-		// Switch to #selenium-bot channel and wait for it to load.
-		driver.get("https://seproject-workspace.slack.com" + "/messages/trellobot");
-		wait.until(ExpectedConditions.titleContains("trellobot"));*/
 
 		// Type something
 		WebElement messageBot = driver.findElement(By.id("msg_input"));
