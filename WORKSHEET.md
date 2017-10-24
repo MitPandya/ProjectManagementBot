@@ -5,7 +5,7 @@
 | Deliverable   | Item/Status   |  Issues/Tasks
 | ------------- | ------------  |  ------------
 | Use Case      | Interact with a todo item on an Existing Card          | &nbsp;
-| Prerequisite      | Incomplete          |  #7, #8, #9, #10, #11
+| Prerequisite      | Incomplete          |  #7 , #8, #9, #10, #11
 | Subflow      | 1             |  #14
 | Subflow      | 2             |  #12, #13
 | Subflow      | 3             |  [Trello Card] (https://trello.com/c/pNex77lp/1-card1)
