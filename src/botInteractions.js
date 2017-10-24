@@ -290,8 +290,14 @@ function generateCardSummary(startDate, endDate){
     }
     if(dueCards.length > 0 || completedCards.length > 0){
       convo.say("Here is the list of completed cards");
-      convo.say("Completed cards "+JSON.stringify(completedCards));
-      convo.say("Due cards "+JSON.stringify(dueCards));
+      convo.say("Completed cards : ");
+      for(var i=0;i<completedCards.length;i++){
+        convo.say(completedCards[i].name+" | "+completedCards[i].desc+" | "+completedCards[i].due);
+      }
+      convo.say("Due cards : ");
+      for(var j=0;j<dueCards.length;j++){
+        convo.say(dueCards[j].name+" | "+dueCards[j].desc+" | "+dueCards[j].due);
+      }
     }
     else {
       convo.say("No cards found for the given date range!");

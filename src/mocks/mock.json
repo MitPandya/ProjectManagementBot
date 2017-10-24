@@ -408,7 +408,7 @@
                     "dueComplete": false
                 },
                 "dueComplete": true,
-                "due": "10-18-2017",
+                "due": "10-24-2017",
                 "idChecklists":
                 [
                     "59e81d28e76ede1acd51264e",
@@ -429,7 +429,7 @@
                 "checkItemStates": null,
                 "closed": false,
                 "dateLastActivity": "2017-10-19T17:52:00.418Z",
-                "desc": "",
+                "desc": "This is a card for StoryBoard Developers",
                 "descData": null,
                 "idBoard": "59dea8e32c8a0d56a4e945a9",
                 "idList": "59dea8e32c8a0d56a4e945aa",
@@ -468,7 +468,7 @@
                     "dueComplete": false
                 },
                 "dueComplete": false,
-                "due": "10-21-2017",
+                "due": "10-27-2017",
                 "idChecklists":
                 [
                 ],
