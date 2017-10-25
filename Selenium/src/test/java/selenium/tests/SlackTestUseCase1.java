@@ -55,20 +55,22 @@ public class SlackTestUseCase1 {
 		startConvo(actions);	
 		
 
-		// Case 1: Add a todo item
+		// Add a todo item
 		addChecklistItem(actions);
 
-		//Case 2: Mark a todo item
+		// List all items
+		startConvo(actions);
+		listItems(actions);
+
+		//Mark a todo item
 		startConvo(actions);
 		markChecklistItem(actions);
 
-		//Case 3: Remove a todo item
+		//Remove a todo item
 		startConvo(actions);
 		removeChecklistItem(actions);
 		
-		// Case 4: List all items
-		startConvo(actions);
-		listItems(actions);
+		
 		
 		
 	}
