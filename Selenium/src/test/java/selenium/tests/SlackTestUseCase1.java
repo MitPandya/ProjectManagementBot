@@ -58,6 +58,9 @@ public class SlackTestUseCase1 {
 		// Case 1: Add a todo item
 		addChecklistItem(actions);
 
+		//Case 2: Mark a todo item
+		startConvo(actions);
+		markChecklistItem(actions);
 		
 		// Case 4: List all items
 		startConvo(actions);
@@ -156,6 +159,33 @@ public class SlackTestUseCase1 {
 		assertNotNull(msg);
     }
     
+	//Selenium Test function to mark a checklist item of a card	
+    public static void markChecklistItem(Actions actions) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+    	
+        actions.sendKeys("Mark a todo item");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot asks about the name of the checklist item which needs to be marked in a card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to mark:']")));
+		
+		actions.sendKeys("C1_item1");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot responds back stating that it has marked the checklist item 'C1_item1'
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have marked the checklist item C1_item1']")));
+        
+		WebElement msg = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'I have marked the checklist item C1_item1']"));
+		assertNotNull(msg);
+    }
+
+
+
     //Selenium test function when card is not present in the storyboard
     public static void cardNotPresent(Actions actions) throws InterruptedException {
     	
