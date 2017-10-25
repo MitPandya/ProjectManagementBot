@@ -6,11 +6,9 @@
 | ------------- | ------------  |  ------------
 | **Use Case 1**      | **Interact with a todo item on an Existing Card**                  | &nbsp;
 | Prerequisite      | Incomplete          |  [#7](https://github.ncsu.edu/dgupta9/ProManBot/issues/7), [#8](https://github.ncsu.edu/dgupta9/ProManBot/issues/8), [#10](https://github.ncsu.edu/dgupta9/ProManBot/issues/10), [#11](https://github.ncsu.edu/dgupta9/ProManBot/issues/11)
-| Subflow      | 1             |  
-| Subflow      | 2             |  
-| Subflow      | 3             |  [Trello Card](https://trello.com/c/pNex77lp/1-card1)
-| Subflow      | 4             |  [Trello Board](https://trello.com/b/7wVOkfnW/agileteam)
-| Selenium Tests| Incomplete    | Add a checklist item to the card, list all items, mark item complete/incomplete, remove a item
+| Trello Card link      | Complete             |  [Trello Card](https://trello.com/c/pNex77lp/1-card1)
+| Trello board link     | Complete             |  [Trello Board](https://trello.com/b/7wVOkfnW/agileteam)
+| Selenium Tests | Incomplete    | Add a checklist item to the card, list all items, mark item complete/incomplete, remove a item
 
 ##### Week 2
 
