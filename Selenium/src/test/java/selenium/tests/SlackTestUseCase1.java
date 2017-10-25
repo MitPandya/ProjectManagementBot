@@ -103,11 +103,9 @@ public class SlackTestUseCase1 {
 		WebElement pw = driver.findElement(By.id("password"));
 
 		//type in slack's email address and password on the slack login page
-		//email.sendKeys(System.getenv("SLACK_EMAIL_ID"));
-		//pw.sendKeys(System.getenv("SLACK_PASSWORD"));
+		email.sendKeys(System.getenv("SLACK_EMAIL_ID"));
+		pw.sendKeys(System.getenv("SLACK_PASSWORD"));
 
-		email.sendKeys("se.project@mail.com");
-		pw.sendKeys("promanbot");
 		// Click
 		WebElement signin = driver.findElement(By.id("signin_btn"));
 		signin.click();
