@@ -6,7 +6,7 @@ In this Milestone, we have implemented a bot based on our proposed design and us
 
 Based on the feedback from design milestone, we have updated the use cases in our bot. Also, during the implementation, we found various flows inside a use case as trivial and not adding much value to the conversations and hence were modified. Below are the updated use cases:
 
-1. USE CASE1 Flow of events to interact with a todo/checklist items of a card.
+1. USE CASE 1 : Flow of events to interact with a todo/checklist items of a card.
 ```
 => Prerequisite: User has already created cards on a Trello Storyboard either using Trello website or an external application.
 
@@ -23,7 +23,7 @@ Based on the feedback from design milestone, we have updated the use cases in ou
  - [E2] If no todo item with such name exists, the user is shown the error message "No such todo items exist" and the bot asks the user to either re-enter todo item name and on second attempt bot informs the user that he has exceeded maximum attempts and closes the conversation.
 
 ```
-2. USE CASE2 Reminding members of a card through Notifications.
+2. USE CASE 2 : Reminding members of a card through Notifications.
 ```
 => Prerequisite:
 - Card exist in the Trello board and is already attached to a team member.
@@ -37,7 +37,7 @@ Based on the feedback from design milestone, we have updated the use cases in ou
 => Alternative Flows:   
 - [E1] If no card exists matching the name, the user is shown the error message "No such card exists" and the bot closes the conversation.
 ```
-3. USE CASE3 Create weekly summary of completed and incomplete cards
+3. USE CASE 3 : Create weekly summary of completed and incomplete cards
 ```
 => Prerequisite:
 - Cards regarding a board exist in the Trello.
@@ -54,6 +54,28 @@ Based on the feedback from design milestone, we have updated the use cases in ou
 - [E1] If team members have not updated status of any of the task for that week, bot will display all the tasks as incomplete even if the due date has passed. 
 - [E2] If no card is available for the week or date duration mentioned by the manager, an error is printed saying no cards found for the specified duration.
 ```
+
+
+### Mocking
+
+Mocking is a simulation technique which provides a Restful environment without the need to make a real call and it is very useful during the initial phase of a project development when the use cases keeps on changing. In this project, we have used 'Nock' to intercept REST API calls and instead of calling actual REST API, we are sending a response from a predefined JSON file. 
+
+                                                      
+                                                      
+                                                         ____NOCK Package____                 
+     _____________________                                      |                             __________________
+    |                     |                                     |                            |  REST API SERVER |
+    |   NodeJS Server     | ______ REST API CALL __________>    | ____ X                     |__________________|
+    |_____________________|                                     |
+                                                                | === +
+                  ______________________                        |     |
+                 |   Mocking Component  |  <==========================+
+                 |______________________|
+                 
+                 
+Mocking components are defined in mock.js and the mocking feature is activated by setting the environment variable "MOCKON" value as "true". 
+
+
 
 ### Selenium Testing
 
