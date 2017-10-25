@@ -122,7 +122,7 @@ The bot is deployed on Slack. User starts the interaction with the bot by typing
 Selenium testing is a tool which automates the testing of the functionality of a use case end to end.
 In this milestone we have implemented Selenium unit test cases to test every main flow as well as sub flows of our proposed design.
 We have implemented Selenium test cases as per selenium testing user guide and lecture notes and integrated with our Bot's Slack environment.
-For every use case, Selenium will interact with our Bot on a Slack channel and give certain commands to the Bot and verify Bot's responses to check if the Bot is responding as desired. This way it is easier for us to find bugs and edge cases in our design and verify the overall functionality of the underlying implementation.
+For every use case, Selenium will interact with our Bot on a Slack channel and give certain commands to the Bot and verify Bot's responses to check if the Bot is responding as desired. This way it is easier for us to find bugs and edge cases in our design and verify the overall functionality of the underlying implementation. The source code for all the Selenium test cases can be accessed from [Selenium](Selenium) folder. 
 
 
 ### Task Tracking
@@ -134,6 +134,11 @@ In this project we have used Continuous Integration Agile practice to accomplish
 To follow Agile team methodlogies we have used stories to divide tasks amongst each team member. We have achieved this through planning the implemntation and work flow in advance and breaking every feature into smaller components called stories.
 We have used git issues to track all the stories and each story is assigned story points which indicates how much effort and time is required to finish that particular story/task. This way it makes easier to track progress of every team member as well as overall project.
 We have distributed every tasks amongst every team member in such a way that every team member can contribute towards every technology used in the project let it be bot interaction messaging api or nock mocking api or selenium tests etc.
+
+### Source Code
+
+The project source code is accessible from [src](src) folder. The src folder also has a [mocks/mock.json](src/mocks/mock.json) file which has all the Mock Response Payloads.
+
 
 ###  Screencast
 Screencast URL: [Link](https://www.youtube.com/watch?v=VRpnJMoJPYI&feature=em-share_video_user)
