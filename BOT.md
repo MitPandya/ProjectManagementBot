@@ -15,12 +15,12 @@ Based on the feedback from design milestone, we have updated the use cases in ou
 => Sub Flows:
  - [S1] User asks the bot to add todo item on the card and provides the name of the new todo item to be added. Bot adds a new todo item to the card on Trello and closes the conversation.
  - [S2] User asks to list all the todo items. Bot lists all the todo items (checklist items) attached to the card and closes the conversation.
- - [S3] User asks the bot to mark a todo item as completed, after performing [S2], by providing todo item name[E2]. Bot inform the user about the update and closes the conversation.
- - [S4] User asks the bot to remove a todo item, after performing [S2], by providing todo item name[E2]. Bot inform the user about the removal and closes the conversation.
+ - [S3] User asks the bot to mark a todo item as completed, by providing todo item name[E2]. Bot informs the user about the update and closes the conversation.
+ - [S4] User asks the bot to remove a todo item, by providing todo item name[E2]. Bot informs the user about the removal and closes the conversation.
   
 => Alternate Flows: 
- - [E1] If no card exists matching the name, the user is shown the error message "No such card exists" and the bot closes the conversation.
- - [E2] If no todo item with such name exists, the user is shown the error message "No such todo items exist" and the bot asks the user to either re-enter todo item name and on second attempt bot informs the user that he has exceeded maximum attempts and closes the conversation.
+ - [E1] If no card exists matching the name, the user is shown the error message "I couldn't find the card name <CARD_NAME> in your storyboard" and the bot closes the conversation.
+ - [E2] If no todo item with such name exists, the user is shown the error message "Item <TODO_ITEM_NAME> is not present" and the bot asks the user to verify that the specified todo item name is correct and also to verify that the todo item is present in the chosen card and after this, bot closes the conversation.
 
 ```
 2. USE CASE 2 : Reminding members of a card through Notifications.
@@ -35,7 +35,7 @@ Based on the feedback from design milestone, we have updated the use cases in ou
 - None
 
 => Alternative Flows:   
-- [E1] If no card exists matching the name, the user is shown the error message "No such card exists" and the bot closes the conversation.
+- [E1] If no card exists matching the name, the user is shown the error message "I couldn't find the card name <CARD_NAME> in your storyboard" and the bot closes the conversation.
 ```
 3. USE CASE 3 : Create weekly summary of completed and incomplete cards
 ```
