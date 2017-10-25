@@ -56,6 +56,11 @@ public class SlackTestUseCase1 {
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
 
+		// Case 1: Add a todo item
+		addChecklistItem(actions);
+		
+		startConvo(actions);
+		
 		// Case 4: List all items
 		listItems(actions);
 		
@@ -78,7 +83,7 @@ public class SlackTestUseCase1 {
 		actions.sendKeys("open a card");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		//trellobot asks the name of the card which needs to be opened
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'What is the card name?']")));
@@ -87,8 +92,11 @@ public class SlackTestUseCase1 {
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
     }
     
+    //Selenium Test to list all checklist items of a card
     public static void listItems(Actions actions) throws InterruptedException
 	{
     	WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -101,9 +109,38 @@ public class SlackTestUseCase1 {
 
 		WebElement msg = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'C1_item3 | incomplete | 100475']"));
+
 		assertNotNull(msg);
 	}
+    
+    //Selenium Test to add a new checklist item in a card	
+    public static void addChecklistItem(Actions actions) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+    	
+        actions.sendKeys("Add todo item");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot asks about the name of the new checklist item which needs to be added in the card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to add:']")));
+		
+		actions.sendKeys("C1_item6");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot responds back stating that it has added the checklist item 'C1_item6'
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have added the checklist item C1_item6']")));
+		
 
+		//wait.withTimeout(10, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
+		
+		WebElement msg = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'I have added the checklist item C1_item6']"));
+
+		assertNotNull(msg);
+    }
 // Utility method to open the given webpage only once
 	public static void UtilityFunction(){
 		driver.get("https://seproject-workspace.slack.com/");
