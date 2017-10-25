@@ -111,7 +111,7 @@ For every use case, Selenium will interact with our Bot on a Slack channel and g
 ### Stories and Tasks
 
 In this project we have tried to use Agile team methodlogies to divide tasks and contribution for the project. We have achieved this through planning the implemntation and work flow in advance and breaking every feature into smaller components called stories.
-We have used git issues to track all the stories. We have also used assigning story points to every issue such that to track what task needs how much effort and time and it is easy to track progress of every team memers as well as overall project.
+We have used git issues to track all the stories. We have also used assigning story points to every issue such that to track what task needs how much effort and time and it is easy to track progress of every team member as well as overall project.
 We have distributed every tasks amongst every team member in such a way that every team member can contribute towards every technology used in the project let it be bot interaction messaging api or nock mocking api or selenium tests etc.
 
 ### Task Tracking
