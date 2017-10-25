@@ -78,9 +78,15 @@ public class SlackTestUseCase1 {
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
 
+		actions.sendKeys("List checklist items");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(5000);
 		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'C1_item3 | incomplete | 100475']")));
+
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = '4) List checklist items']"));
+				By.xpath("//span[@class='message_body' and text() = 'C1_item3 | incomplete | 100475']"));
 		assertNotNull(msg);
 }
 
@@ -97,9 +103,11 @@ public class SlackTestUseCase1 {
 		WebElement pw = driver.findElement(By.id("password"));
 
 		//type in slack's email address and password on the slack login page
-		email.sendKeys(System.getenv("SLACK_EMAIL_ID"));
-		pw.sendKeys(System.getenv("SLACK_PASSWORD"));
+		//email.sendKeys(System.getenv("SLACK_EMAIL_ID"));
+		//pw.sendKeys(System.getenv("SLACK_PASSWORD"));
 
+		email.sendKeys("se.project@mail.com");
+		pw.sendKeys("promanbot");
 		// Click
 		WebElement signin = driver.findElement(By.id("signin_btn"));
 		signin.click();
@@ -108,8 +116,8 @@ public class SlackTestUseCase1 {
 		wait.until(ExpectedConditions.titleContains("general"));
 
 		// Switch to #bots channel and wait for it to load.
-		driver.get("https://seproject-workspace.slack.com" + "/messages/bots");
-		wait.until(ExpectedConditions.titleContains("bots"));
+		driver.get("https://seproject-workspace.slack.com" + "/messages/trellobot");
+		wait.until(ExpectedConditions.titleContains("trellobot"));
 	}
 
 }
