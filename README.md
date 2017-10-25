@@ -12,4 +12,5 @@ Team Members:
 * Durgesh Kumar Gupta - [dgupta9](https://github.ncsu.edu/dgupta9/)
 
 ## Milestones
-1.  Design - [Link](./DESIGN.md)
+1.  Design - [Link](./DESIGN.md)  
+2.  Bot - [Link](./BOT.md)
