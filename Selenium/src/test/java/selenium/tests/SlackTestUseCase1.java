@@ -49,11 +49,23 @@ public class SlackTestUseCase1 {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 
 		// Test to add a checklist item in a card
-		WebElement messageBot = driver.findElement(By.id("msg_input"));
-		assertNotNull(messageBot);
 		
 		Actions actions = new Actions(driver);
-		actions.moveToElement(messageBot);
+		
+		startConvo(actions);	
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
+
+		// Case 4: List all items
+		listItems(actions);
+		
+	}
+    
+    public static void startConvo(Actions actions) throws InterruptedException{
+    	WebElement messageBot = driver.findElement(By.id("msg_input"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		assertNotNull(messageBot);
+    	actions.moveToElement(messageBot);
 		actions.click();
 		actions.sendKeys("@trellobot hi");
 		actions.sendKeys(Keys.RETURN);
@@ -75,10 +87,12 @@ public class SlackTestUseCase1 {
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
-
-		actions.sendKeys("List checklist items");
+    }
+    
+    public static void listItems(Actions actions) throws InterruptedException
+	{
+    	WebDriverWait wait = new WebDriverWait(driver, 30);
+    	actions.sendKeys("List checklist items");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5000);
@@ -88,7 +102,7 @@ public class SlackTestUseCase1 {
 		WebElement msg = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'C1_item3 | incomplete | 100475']"));
 		assertNotNull(msg);
-}
+	}
 
 // Utility method to open the given webpage only once
 	public static void UtilityFunction(){
@@ -114,8 +128,8 @@ public class SlackTestUseCase1 {
 		wait.until(ExpectedConditions.titleContains("general"));
 
 		// Switch to #bots channel and wait for it to load.
-		driver.get("https://seproject-workspace.slack.com" + "/messages/trellobot");
-		wait.until(ExpectedConditions.titleContains("trellobot"));
+		driver.get("https://seproject-workspace.slack.com" + "/messages/bots");
+		wait.until(ExpectedConditions.titleContains("bots"));
 	}
 
 }
