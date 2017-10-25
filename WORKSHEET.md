@@ -17,7 +17,7 @@
 | **Use Case 1**     | **Interact with a todo item on an Existing Card**              | &nbsp;
 | Prerequisite      | Complete          | [#9](https://github.ncsu.edu/dgupta9/ProManBot/issues/9), [#33](https://github.ncsu.edu/dgupta9/ProManBot/issues/33), [#36](https://github.ncsu.edu/dgupta9/ProManBot/issues/36)  
 | Subflow      | 1             |  [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#16](https://github.ncsu.edu/dgupta9/ProManBot/issues/16) 
-| Subflow      | 2             |  [#1](https://github.ncsu.edu/dgupta9/ProManBot/issues/1), [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#17](https://github.ncsu.edu/dgupta9/ProManBot/issues/17), [#33](https://github.ncsu.edu/dgupta9/ProManBot/issues/33)
+| Subflow      | 2             |  [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#17](https://github.ncsu.edu/dgupta9/ProManBot/issues/17), [#33](https://github.ncsu.edu/dgupta9/ProManBot/issues/33)
 | Subflow      | 3             |  [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#18](https://github.ncsu.edu/dgupta9/ProManBot/issues/18), [#41](https://github.ncsu.edu/dgupta9/ProManBot/issues/41)
 | Subflow      | 4             |  [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#19](https://github.ncsu.edu/dgupta9/ProManBot/issues/19), [#38](https://github.ncsu.edu/dgupta9/ProManBot/issues/38)
 | Alternate Flows      | 1,2,3             |  [#20](https://github.ncsu.edu/dgupta9/ProManBot/issues/20),[#21](https://github.ncsu.edu/dgupta9/ProManBot/issues/21) 
