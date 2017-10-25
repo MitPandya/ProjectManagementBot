@@ -91,17 +91,18 @@ public class SlackTestUseCase3 {
 		actions.build().perform();
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(3 * 1000);
+		Thread.sleep(2 * 1000);
 		WebElement msg2 = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'Creating weekly summary from 10/23/2017 to 10/29/2017 , would you like to change dates?']"));
 		assertNotNull(msg2);
 		actions.sendKeys("no");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(5 * 1000);
+		Thread.sleep(7 * 1000);
 		WebElement msg3 = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'Completed cards :']"));
 		assertNotNull(msg3);
+		Thread.sleep(2 * 1000);
 	}
 	
 	@Test
@@ -138,17 +139,18 @@ public class SlackTestUseCase3 {
 		actions.build().perform();
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(3 * 1000);
+		Thread.sleep(2 * 1000);
 		WebElement msg2 = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'Creating weekly summary from 10/23/2017 to 10/29/2017 , would you like to change dates?']"));
 		assertNotNull(msg2);
 		actions.sendKeys("Yes from 08/08/2016 to 08/15/2017");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(5 * 1000);
+		Thread.sleep(7 * 1000);
 		WebElement msg3 = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'No cards found for the given date range!']"));
 		assertNotNull(msg3);
+		Thread.sleep(2 * 1000);
 	}
 	
 	// Utility method to open the given webpage only once
@@ -180,4 +182,3 @@ public class SlackTestUseCase3 {
 	}
 
 }
-
