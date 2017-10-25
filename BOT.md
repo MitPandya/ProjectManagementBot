@@ -106,11 +106,12 @@ Mocking components are defined in [mock.js](src/mock.js) and the mocking feature
 For our bot platform, we have used slack.com as the user interface and we are using "botkit.js" library to handle Real Time Messaging (RTM). Also, the following environment variables needs to be set for proper functioning of the bot:
 1. PROMANTOKEN (Slack Token)
 2. PGHOST (PostGre DB Server IP) 
-3. PGDBNAME (PostGre Database name)
-4. PGUSERNAME (username for accessing PostGre Database )
+3. PGDATABASE (PostGre Database name)
+4. PGUSER (username for accessing PostGre Database )
 5. PGPASSWORD (password for accessing PostGre Database)
 6. SLACK_EMAIL_ID (For Selenium Testing)
 7. SLACK_PASSWORD (For Selenium Testing)
+8. MOCKON (For Mocking: Mocking is enabled if set to true)
 
 #### Bot Integration
 The bot is deployed on Slack. User starts the interaction with the bot by typing in 'hi/hey/hey promanbot'. All the user-bot interactions taking place for all use cases are defined in [botInteractions.js](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/src/botInteractions.js) file. Bot uses "convo.ask()" function whenever it wants to ask questions to the user and it uses convo.say() function to respond back to the user queries. For performing REST API calls, we are using the 'Request' library which provides the required functionality and this is implemented in the [restAPIHelper.js](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/src/restAPIHelper.js) file.
@@ -133,3 +134,6 @@ In this project we have used Continuous Integration Agile practice to accomplish
 To follow Agile team methodlogies we have used stories to divide tasks amongst each team member. We have achieved this through planning the implemntation and work flow in advance and breaking every feature into smaller components called stories.
 We have used git issues to track all the stories and each story is assigned story points which indicates how much effort and time is required to finish that particular story/task. This way it makes easier to track progress of every team member as well as overall project.
 We have distributed every tasks amongst every team member in such a way that every team member can contribute towards every technology used in the project let it be bot interaction messaging api or nock mocking api or selenium tests etc.
+
+###  Screencast
+Screencast URL: [Link](https://www.youtube.com/watch?v=VRpnJMoJPYI&feature=em-share_video_user)
