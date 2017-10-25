@@ -87,6 +87,10 @@ public class SlackTestUseCase1 {
 		startConvo(actions);
 		markChecklistItemAlternate(actions);
 
+		//Case when the checklist item (identified by the item name specified by user) to be removed is not present in the card
+		startConvo(actions);
+		removeChecklistItemAlternate(actions);
+		
 	
 		
 	}
@@ -278,6 +282,32 @@ public class SlackTestUseCase1 {
 		Thread.sleep(4000);
 		
 		//trellobot responds back stating that it cannot mark the user-specified checklist item with the name 'C1_item10' as it is not present in the card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']")));
+        
+		WebElement msg = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']"));
+		assertNotNull(msg);
+    }
+
+
+//Selenium Test function to remove a checklist item from a card(Alternate Path)
+    public static void removeChecklistItemAlternate(Actions actions) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+    	
+        actions.sendKeys("remove a todo item");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot asks about the name of the checklist item which needs to be removed from a card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to delete:']")));
+		
+		actions.sendKeys("C1_item10");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot responds back stating that it cannot remove the user-specified checklist item with the name 'C1_item10' as it is not present in the card
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']")));
         
 		WebElement msg = driver.findElement(
