@@ -27,6 +27,11 @@
 | Mainflow      | Complete             |  [#22](https://github.ncsu.edu/dgupta9/ProManBot/issues/22), [#23](https://github.ncsu.edu/dgupta9/ProManBot/issues/23), [#40](https://github.ncsu.edu/dgupta9/ProManBot/issues/40), [#43](https://github.ncsu.edu/dgupta9/ProManBot/issues/43)  
 | Alternate Flows      | 1             |  [#20](https://github.ncsu.edu/dgupta9/ProManBot/issues/20)
 | Selenium Tests| Incomplete    | Send Trello notification to a user 
+| **Use Case 3**     | **Weekly Summary of Cards**              | &nbsp;
+| Prerequisite      | Complete          | [#9](https://github.ncsu.edu/dgupta9/ProManBot/issues/9), [#33](https://github.ncsu.edu/dgupta9/ProManBot/issues/33), [#36](https://github.ncsu.edu/dgupta9/ProManBot/issues/36)  
+| Subflow      | Complete             |  [#25](https://github.ncsu.edu/dgupta9/ProManBot/issues/25), [#30](https://github.ncsu.edu/dgupta9/ProManBot/issues/30)  
+| Alternate Flows      | Complete             |  [#31](https://github.ncsu.edu/dgupta9/ProManBot/issues/31)
+| Selenium Tests| Incomplete    | Generate Weekly Summary 
 
 
 ##### Week 3
@@ -37,5 +42,5 @@
 | Selenium Tests| Complete    | [#46](https://github.ncsu.edu/dgupta9/ProManBot/issues/46), [#47](https://github.ncsu.edu/dgupta9/ProManBot/issues/47), [#48](https://github.ncsu.edu/dgupta9/ProManBot/issues/48), [#49](https://github.ncsu.edu/dgupta9/ProManBot/issues/49), [#50](https://github.ncsu.edu/dgupta9/ProManBot/issues/50)
 | **Use Case 2**     | **Reminding user through Notifications**              | &nbsp;
 | Selenium Tests| Complete    | [#51](https://github.ncsu.edu/dgupta9/ProManBot/issues/51)
-| **Use Case 3**     | **Weekly summary of cards**              | &nbsp;
+| **Use Case 3**     | **Weekly Summary of Cards**              | &nbsp;
 | Selenium Tests| Complete    | [#44](https://github.ncsu.edu/dgupta9/ProManBot/issues/44)  
