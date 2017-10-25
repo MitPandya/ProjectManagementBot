@@ -54,15 +54,29 @@ public class SlackTestUseCase1 {
 		
 		startConvo(actions);	
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
 
 		// Case 1: Add a todo item
 		addChecklistItem(actions);
-		
-		startConvo(actions);
+
 		
 		// Case 4: List all items
+		startConvo(actions);
 		listItems(actions);
+		
+		
+	}
+    
+    
+    @Test
+    public void useCase1AlternativePath() throws InterruptedException
+	{
+		
+    	
+    	Actions actions = new Actions(driver);
+    	// Case when the user-specified card is not present in the story board
+    	cardNotPresent(actions);
+	
+	
 		
 	}
     
@@ -83,7 +97,7 @@ public class SlackTestUseCase1 {
 		actions.sendKeys("open a card");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		
 		//trellobot asks the name of the card which needs to be opened
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'What is the card name?']")));
@@ -91,12 +105,12 @@ public class SlackTestUseCase1 {
 		actions.sendKeys("Card1_NEW");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
     }
     
-    //Selenium Test to list all checklist items of a card
+    //Selenium Test function to list all checklist items of a card
     public static void listItems(Actions actions) throws InterruptedException
 	{
     	WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -113,7 +127,7 @@ public class SlackTestUseCase1 {
 		assertNotNull(msg);
 	}
     
-    //Selenium Test to add a new checklist item in a card	
+    //Selenium Test function to add a new checklist item in a card	
     public static void addChecklistItem(Actions actions) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 30);
     	
@@ -141,6 +155,47 @@ public class SlackTestUseCase1 {
 
 		assertNotNull(msg);
     }
+    
+    //Selenium test function when card is not present in the storyboard
+    public static void cardNotPresent(Actions actions) throws InterruptedException {
+    	
+    	
+    	WebElement messageBot = driver.findElement(By.id("msg_input"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		assertNotNull(messageBot);
+    	actions.moveToElement(messageBot);
+		actions.click();
+		actions.sendKeys("@trellobot hi");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot responds back with a greeting
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'How can I help you?']")));
+
+		actions.sendKeys("open a card");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(3000);
+		
+		//trellobot asks the name of the card which needs to be opened
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'What is the card name?']")));
+    	actions.sendKeys("Card10");
+    	actions.sendKeys(Keys.RETURN);
+    	actions.build().perform();
+    	Thread.sleep(4000);
+
+    	//trellobot responds back stating that the card with the name 'Card10' is not present in the current storyboard
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = \"I couldn't find the card name 'Card10' in your storyboard\"]")));
+    	wait.withTimeout(10, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
+    	
+    	WebElement msg = driver.findElement(
+			By.xpath("//span[@class='message_body' and text() = \"I couldn't find the card name 'Card10' in your storyboard\"]"));
+    	assertNotNull(msg);
+    
+    }
+
+
 // Utility method to open the given webpage only once
 	public static void UtilityFunction(){
 		driver.get("https://seproject-workspace.slack.com/");
