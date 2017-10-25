@@ -5,7 +5,7 @@ In this Milestone, we have implemented a bot based on our proposed design and us
 ### Use Case Refinement
 Based on the feedback from design milestone, we have updated the use cases in our bot. Also, during the implementation, we found various flows inside a use case as trivial and not adding much value to the conversations and hence were modified. Below are the updated use cases:
 
-1. USE CASE1
+1. USE CASE1 Flow of events to interact with a todo/checklist items of a card.
 ```
 => Prerequisite: User has already created cards on a Trello Storyboard either using Trello website or an external application.
 
@@ -22,7 +22,7 @@ Based on the feedback from design milestone, we have updated the use cases in ou
  - [E2] If no todo item with such name exists, the user is shown the error message "No such todo items exist" and the bot asks the user to either re-enter todo item name and on second attempt bot informs the user that he has exceeded maximum attempts and closes the conversation.
 
 ```
-2. USE CASE2
+2. USE CASE2 Reminding members of a card through Notifications.
 ```
 => Prerequisite:
 - Card exist in the Trello board and is already attached to a team member.
@@ -35,4 +35,21 @@ Based on the feedback from design milestone, we have updated the use cases in ou
 
 => Alternative Flows:   
 - [E1] If no card exists matching the name, the user is shown the error message "No such card exists" and the bot closes the conversation.
+```
+3. USE CASE3 Create weekly summary of completed and incomplete cards
+```
+=> Prerequisite:
+- Cards regarding a board exist in the Trello.
+- Team members have updated statuses of their cards.
+                 
+=> Main Flow:
+- Manager asks the bot to create a weekly summary of completed and incomplete cards[E1][E2].
+
+=> Sub Flows:   
+- [S1] By default bot will start creating summary for current week starting from Monday as first day of the week and ask manager if they want to create summary of current week or any other week[E1][E2].
+- [S2] If manager responds with other date range, bot will start preparing summary of the cards for the date range specified by manager and display it[E1][E2].
+
+=> Alternative Flows:   
+- [E1] If team members have not updated status of any of the task for that week, bot will display all the tasks as incomplete even if the due date has passed. 
+- [E2] If no card is available for the week or date duration mentioned by the manager, an error is printed saying no cards found for the specified duration.
 ```
