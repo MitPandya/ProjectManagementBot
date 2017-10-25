@@ -13,7 +13,7 @@ Based on the feedback from design milestone, we have updated the use cases in ou
 => Main Flow: User asks the bot to open a card by providing card name.The user is shown the matching card along with descriptions[E1] and displayed options to either add[S1], list[S2], mark[S3] or remove a todo/checklist item[S4].
 
 => Sub Flows:
- - [S1] User asks the bot to add todo item on the card and provides an item text. Bot adds a new todo item to the card on Trello and closes the conversation.
+ - [S1] User asks the bot to add todo item on the card and provides the name of the new todo item to be added. Bot adds a new todo item to the card on Trello and closes the conversation.
  - [S2] User asks to list all the todo items. Bot lists all the todo items (checklist items) attached to the card and closes the conversation.
  - [S3] User asks the bot to mark a todo item as completed, after performing [S2], by providing todo item name[E2]. Bot inform the user about the update and closes the conversation.
  - [S4] User asks the bot to remove a todo item, after performing [S2], by providing todo item name[E2]. Bot inform the user about the removal and closes the conversation.
@@ -90,3 +90,5 @@ In this project we have tried to use Agile team methodlogies to divide tasks and
 We have used git issues to track all the stories. We have also used assigning story points to every issue such that to track what task needs how much effort and time and it is easy to track progress of every team memers as well as overall project.
 We have distributed every tasks amongst every team member in such a way that every team member can contribute towards every technology used in the project let it be bot interaction messaging api or nock mocking api or selenium tests etc.
 
+#### Task Tracking
+The weekly progress of the project was tracked in the [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/WORKSHEET.md) file. 
