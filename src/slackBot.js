@@ -31,7 +31,7 @@ dbHelper.setupTrelloAppKey(function(appkey){
 });
 
 // Default Bot Invocation
-controller.hears([/hey/i,/hi/i,/hey promanbot/i],['mention', 'direct_message'], function(bot,message) 
+controller.hears([/hey/i,/hi/i,/hey promanbot/i],['mention', 'direct_message', 'direct_mention'], function(bot,message) 
 {
   //console.log("#SLACK USER ID: "+message.user);
   // check for user trello account link
