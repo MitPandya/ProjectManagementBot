@@ -82,7 +82,11 @@ public class SlackTestUseCase1 {
     	Actions actions = new Actions(driver);
     	// Case when the user-specified card is not present in the story board
     	cardNotPresent(actions);
-	
+
+		//Case when the checklist item (identified by the item name specified by user) to be marked is not present in the card
+		startConvo(actions);
+		markChecklistItemAlternate(actions);
+
 	
 		
 	}
@@ -253,6 +257,32 @@ public class SlackTestUseCase1 {
 			By.xpath("//span[@class='message_body' and text() = \"I couldn't find the card name 'Card10' in your storyboard\"]"));
     	assertNotNull(msg);
     
+    }
+
+
+	//Selenium Test function to mark a checklist item of a card(Alternate Path)	
+    public static void markChecklistItemAlternate(Actions actions) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+    	
+        actions.sendKeys("Mark a todo item");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot asks about the name of the checklist item which needs to be marked in a card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to mark:']")));
+		
+		actions.sendKeys("C1_item10");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot responds back stating that it cannot mark the user-specified checklist item with the name 'C1_item10' as it is not present in the card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']")));
+        
+		WebElement msg = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']"));
+		assertNotNull(msg);
     }
 
 
