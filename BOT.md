@@ -73,8 +73,32 @@ Mocking is a simulation technique which provides a Restful environment without t
                  |______________________|
                  
                  
-Mocking components are defined in mock.js and the mocking feature is activated by setting the environment variable "MOCKON" value as "true". 
+Mocking components are defined in [mock.js](src/mock.js) and the mocking feature is activated by setting the environment variable "MOCKON" value as "true". We have implemented mocking feature for the following REST API's:
 
+1. Mock for story board
+   * Url: https://api.trello.com/1/members/me/boards/id
+   * Method: GET
+2. Mock for all the lists in a board
+    * Url: https://api.trello.com/1/boards/id/lists
+    * Method: GET
+3. Mock for getting all the cards in a List
+    * Url: https://api.trello.com/1/batch
+    * Method: GET
+4. Mock to retrieve checklist items
+    * Url: https://api.trello.com/1/checklists/id/checkItems
+    * Method: GET
+5. Mock to add checklist items
+    * Url: https://api.trello.com/1/checklists/id/checkItems
+    * Method: POST
+6. Mock to remove a checklist item
+    * Url: https://api.trello.com/1/checklists/id/checkItems/id
+    * Method: DELETE
+7. Mock for marking an item present in the checklist of a card
+    * Url: https://api.trello.com/1/cards/id/checkItem/id
+    * Method: PUT
+8. Mock for adding a comment to a card
+    * Url: https://api.trello.com/1/cards/id/actions/comments/
+    * Method: POST
 
 
 ### Selenium Testing
@@ -84,11 +108,11 @@ In this milestone we have implemented Selenium unit test cases to test every mai
 We have implemented Selenium test cases as per selenium testing user guide and lecture notes and integrated with our Bot's Slack environment.
 For every use case Selenium will interact with our Bot on a Slack channel and give certain commands to the Bot and verify Bot's responses to check if the Bot is responding as desired. This way it is easier for us to find bugs and edge cases in our design and overall verify the functionality of the underlying implementation.
 
-#### Stories and Tasks
+### Stories and Tasks
 
 In this project we have tried to use Agile team methodlogies to divide tasks and contribution for the project. We have achieved this through planning the implemntation and work flow in advance and breaking every feature into smaller components called stories.
 We have used git issues to track all the stories. We have also used assigning story points to every issue such that to track what task needs how much effort and time and it is easy to track progress of every team memers as well as overall project.
 We have distributed every tasks amongst every team member in such a way that every team member can contribute towards every technology used in the project let it be bot interaction messaging api or nock mocking api or selenium tests etc.
 
-#### Task Tracking
+### Task Tracking
 The weekly progress of the project was tracked in the [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/WORKSHEET.md) file. 
