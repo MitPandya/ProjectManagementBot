@@ -115,6 +115,6 @@ In this project we have used Continuous Integration Agile practice to accomplish
 
 #### Stories and Tasks
 
-In this project we have tried to use Agile team methodlogies to divide tasks and contribution for the project. We have achieved this through planning the implemntation and work flow in advance and breaking every feature into smaller components called stories.
-We have used git issues to track all the stories. We have also used assigning story points to every issue such that to track what task needs how much effort and time and it is easy to track progress of every team member as well as overall project.
+To follow Agile team methodlogies we have used stories to divide tasks amongst each team member. We have achieved this through planning the implemntation and work flow in advance and breaking every feature into smaller components called stories.
+We have used git issues to track all the stories and each story is assigned story points which indicates how much effort and time is required to finish that particular story/task. This way it makes easier to track progress of every team member as well as overall project.
 We have distributed every tasks amongst every team member in such a way that every team member can contribute towards every technology used in the project let it be bot interaction messaging api or nock mocking api or selenium tests etc.
