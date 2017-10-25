@@ -100,6 +100,21 @@ Mocking components are defined in [mock.js](src/mock.js) and the mocking feature
     * Url: https://api.trello.com/1/cards/id/actions/comments/
     * Method: POST
 
+### Bot Implementation
+
+#### Bot Platform
+For our bot platform, we have used slack.com as the user interface and we are using "botkit.js" library to handle Real Time Messaging (RTM). Also, the following environment variables needs to be set for proper functioning of the bot:
+1. PROMANTOKEN (Slack Token)
+2. PGHOST (PostGre DB Server IP) 
+3. PGDBNAME (PostGre Database name)
+4. PGUSERNAME (username for accessing PostGre Database )
+5. PGPASSWORD (password for accessing PostGre Database)
+6. SLACK_EMAIL_ID (For Selenium Testing)
+7. SLACK_PASSWORD (For Selenium Testing)
+
+#### Bot Integration
+The bot is deployed on Slack. User starts the interaction with the bot by typing in 'hi/hey/hey promanbot'. All the user-bot interactions taking place for all use cases are defined in [botInteractions.js](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/src/botInteractions.js) file. Bot uses "convo.ask()" function whenever it wants to ask questions to the user and it uses convo.say() function to respond back to the user queries. For performing REST API calls, we are using the 'Request' library which provides the required functionality and this is implemented in the [restAPIHelper.js](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/src/restAPIHelper.js) file.
+
 
 ### Selenium Testing
 
