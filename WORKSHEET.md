@@ -15,7 +15,7 @@
 | Deliverable   | Item/Status   |  Issues/Tasks
 | ------------- | ------------  |  ------------
 | **Use Case 1**     | **Interact with a todo item on an Existing Card**              | &nbsp;
-| Prerequisite      | Complete          | [#9](https://github.ncsu.edu/dgupta9/ProManBot/issues/9), [#33](https://github.ncsu.edu/dgupta9/ProManBot/issues/33), [#36](https://github.ncsu.edu/dgupta9/ProManBot/issues/36)  
+| Prerequisite      | Complete          | [#9](https://github.ncsu.edu/dgupta9/ProManBot/issues/9), [#36](https://github.ncsu.edu/dgupta9/ProManBot/issues/36)  
 | Subflow      | 1             |  [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#16](https://github.ncsu.edu/dgupta9/ProManBot/issues/16) 
 | Subflow      | 2             |  [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#17](https://github.ncsu.edu/dgupta9/ProManBot/issues/17), [#33](https://github.ncsu.edu/dgupta9/ProManBot/issues/33)
 | Subflow      | 3             |  [#15](https://github.ncsu.edu/dgupta9/ProManBot/issues/15), [#18](https://github.ncsu.edu/dgupta9/ProManBot/issues/18), [#41](https://github.ncsu.edu/dgupta9/ProManBot/issues/41)
