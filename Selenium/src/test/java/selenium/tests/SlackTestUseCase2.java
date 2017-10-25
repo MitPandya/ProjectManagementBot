@@ -61,7 +61,7 @@ public class SlackTestUseCase2 {
 		actions.moveToElement(messageBot);
 		actions.click();
 	
-		actions.sendKeys("Hey");
+		actions.sendKeys("@trellobot Hey");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
@@ -109,7 +109,7 @@ public class SlackTestUseCase2 {
 		actions.moveToElement(messageBot);
 		actions.click();
 	
-		actions.sendKeys("Hey");
+		actions.sendKeys("@trellobot Hey");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
@@ -158,8 +158,8 @@ public class SlackTestUseCase2 {
 		wait.until(ExpectedConditions.titleContains("general"));
 
 		// Switch to #selenium-bot channel and wait for it to load.
-		driver.get("https://seproject-workspace.slack.com" + "/messages/trellobot");
-		wait.until(ExpectedConditions.titleContains("trellobot"));
+		driver.get("https://seproject-workspace.slack.com" + "/messages/bots");
+		wait.until(ExpectedConditions.titleContains("bots"));
 	}
 
 }
