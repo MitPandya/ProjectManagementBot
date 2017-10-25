@@ -106,7 +106,10 @@ function getListChecklistItemsHandler(cardName, checkListID){
       if (err) {
           convo.say(err);
       } else {
-          convo.say(body);
+          var checkListItems = JSON.parse(body);
+          for(var i =0; i<checkListItems.length;i++){
+              convo.say(checkListItems[i].name+" | "+checkListItems[i].state+" | "+checkListItems[i].pos);
+          }
       }
       convo.next();
     });
@@ -359,8 +362,6 @@ function getCardCommentHandler(cardID){
             }
             convo.next();
         }
-
-        sendFeedback(true);
         restHelper.addCommentOnCard(response.user,cardID,message,sendFeedback);
     }
     return temp;

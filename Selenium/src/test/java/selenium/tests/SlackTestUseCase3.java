@@ -164,8 +164,8 @@ public class SlackTestUseCase3 {
 
 		// Enter our email and password
 		// If running this from Eclipse, you should specify these variables in the run configurations.
-		email.sendKeys("Your EMAIL");
-		pw.sendKeys("Your PASSWORD");
+		email.sendKeys(System.getenv("SLACK_EMAIL_ID"));
+		pw.sendKeys(System.getenv("SLACK_PASSWORD"));
 
 		// Click
 		WebElement signin = driver.findElement(By.id("signin_btn"));
