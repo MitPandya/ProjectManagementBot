@@ -3,6 +3,7 @@
 In this Milestone, we have implemented a bot based on our proposed design and use cases. We have used Slack as our bot interaction platform, Node.js as our backend server, PostGre database for persistence, BotKit.js for bot interactions module, Nock along with JSON for mocking REST APIs and Selenium for testing the end to end use case. Below we will describe every component implemented in this milestone in details.
 
 ### Use Case Refinement
+
 Based on the feedback from design milestone, we have updated the use cases in our bot. Also, during the implementation, we found various flows inside a use case as trivial and not adding much value to the conversations and hence were modified. Below are the updated use cases:
 
 1. USE CASE1 Flow of events to interact with a todo/checklist items of a card.
@@ -53,3 +54,11 @@ Based on the feedback from design milestone, we have updated the use cases in ou
 - [E1] If team members have not updated status of any of the task for that week, bot will display all the tasks as incomplete even if the due date has passed. 
 - [E2] If no card is available for the week or date duration mentioned by the manager, an error is printed saying no cards found for the specified duration.
 ```
+
+### Selenium Testing
+
+Selenium testing is a tool which automates the testing of the functionality of a use case end to end.
+In this milestone we have implemented Selenium unit test cases to test every main flow as well as sub slows of our proposed design.
+We have implemented Selenium test cases as per selenium testing user guide and lecture notes and integrated with our Bot's Slack environment.
+For every use case Selenium will interact with our Bot on a Slack channel and give certain commands to the Bot and verify Bot's responses to check if the Bot is responding as desired. This way it is easier for us to find bugs and edge cases in our design and overall verify the functionality of the underlying implementation.
+
