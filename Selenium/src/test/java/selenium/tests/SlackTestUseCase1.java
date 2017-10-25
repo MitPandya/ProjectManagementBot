@@ -61,6 +61,10 @@ public class SlackTestUseCase1 {
 		//Case 2: Mark a todo item
 		startConvo(actions);
 		markChecklistItem(actions);
+
+		//Case 3: Remove a todo item
+		startConvo(actions);
+		removeChecklistItem(actions);
 		
 		// Case 4: List all items
 		startConvo(actions);
@@ -181,6 +185,32 @@ public class SlackTestUseCase1 {
         
 		WebElement msg = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'I have marked the checklist item C1_item1']"));
+		assertNotNull(msg);
+    }
+
+
+	//Selenium Test function to remove a checklist item from a card	
+    public static void removeChecklistItem(Actions actions) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+    	
+        actions.sendKeys("remove a todo item");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot asks about the name of the checklist item which needs to be removed from a card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to delete:']")));
+		
+		actions.sendKeys("C1_item2");
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();
+		Thread.sleep(4000);
+		
+		//trellobot responds back stating that it has removed the checklist item 'C1_item2'
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have deleted the checklist item C1_item2']")));
+        
+		WebElement msg = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'I have deleted the checklist item C1_item2']"));
 		assertNotNull(msg);
     }
 
