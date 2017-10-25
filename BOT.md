@@ -104,9 +104,9 @@ Mocking components are defined in [mock.js](src/mock.js) and the mocking feature
 ### Selenium Testing
 
 Selenium testing is a tool which automates the testing of the functionality of a use case end to end.
-In this milestone we have implemented Selenium unit test cases to test every main flow as well as sub slows of our proposed design.
+In this milestone we have implemented Selenium unit test cases to test every main flow as well as sub flows of our proposed design.
 We have implemented Selenium test cases as per selenium testing user guide and lecture notes and integrated with our Bot's Slack environment.
-For every use case Selenium will interact with our Bot on a Slack channel and give certain commands to the Bot and verify Bot's responses to check if the Bot is responding as desired. This way it is easier for us to find bugs and edge cases in our design and overall verify the functionality of the underlying implementation.
+For every use case, Selenium will interact with our Bot on a Slack channel and give certain commands to the Bot and verify Bot's responses to check if the Bot is responding as desired. This way it is easier for us to find bugs and edge cases in our design and verify the overall functionality of the underlying implementation.
 
 ### Stories and Tasks
 
