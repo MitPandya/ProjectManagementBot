@@ -120,20 +120,20 @@ The bot is deployed on Slack. User starts the interaction with the bot by typing
 ### Selenium Testing
 
 Selenium testing is a tool which automates the testing of the functionality of a use case end to end.
-In this milestone we have implemented Selenium unit test cases to test every main flow as well as sub flows of our proposed design.
+In this milestone we have implemented Selenium Unit test cases to test every main flow as well as sub flows of our proposed design.
 We have implemented Selenium test cases as per selenium testing user guide and lecture notes and integrated with our Bot's Slack environment.
 For every use case, Selenium will interact with our Bot on a Slack channel and give certain commands to the Bot and verify Bot's responses to check if the Bot is responding as desired. This way it is easier for us to find bugs and edge cases in our design and verify the overall functionality of the underlying implementation. The source code for all the Selenium test cases can be accessed from [Selenium](Selenium) folder. 
 
 
 ### Task Tracking
 
-In this project we have used Continuous Integration Agile practice to accomplish our milestone and to track progress of each individual task we used github issues. To summarize all the issues with weekly progress, we have created a [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/WORKSHEET.md) file which is subdivided into weeks and use cases. 
+In this project we have used Continuous Integration Agile practice to accomplish our milestones and Github Issues to track progress of each individual task. To summarize all the issues with weekly progress, we have created a [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/WORKSHEET.md) file which is subdivided into Weeks and Use Cases. 
 
 #### Stories and Tasks
 
-To follow Agile team methodlogies we have used stories to divide tasks amongst each team member. We have achieved this through planning the implemntation and work flow in advance and breaking every feature into smaller components called stories.
-We have used git issues to track all the stories and each story is assigned story points which indicates how much effort and time is required to finish that particular story/task. This way it makes easier to track progress of every team member as well as overall project.
-We have distributed every tasks amongst every team member in such a way that every team member can contribute towards every technology used in the project let it be bot interaction messaging api or nock mocking api or selenium tests etc.
+To follow Agile team methodologies, we have used stories to divide tasks amongst each team member. We have achieved this by planning the implementation & work flow in advance and breaking every feature into smaller components called stories.
+We have used git issues to track all the stories and each story is assigned story points which indicates how much effort and time is required to finish that particular story/task. This makes it easier to track progress of every team member as well as overall project.
+Every team member is assigned tasks in such a way that everyone contributed equally towards every technology used in the project such as Bot Interaction Messaging API or Nock Mocking API or Selenium testing, etc.
 
 ### Source Code
 
