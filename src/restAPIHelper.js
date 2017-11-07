@@ -121,7 +121,7 @@ function loadCards(userID, listArray,cardName, convo,callback){
 //Function to list all the checklist items present in the card
 
 function listChecklistItems(userID, checkListID, callback){
-    var urlBoard = api_list_checklistitems.replace("{checkListID}",checkListID).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
+    var urlBoard = api_list_checklistitems.replace("{CHECKLIST_ID}",checkListID).replace("{APP_KEY}",global.APP_KEY).replace("{TOKEN_VALUE}",global.TRELLO_TOKEN_MAP[userID]);
     var options = { 
                     method: 'GET',
                     url: urlBoard  };
