@@ -26,7 +26,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
           convo.say("Here is the card "+cardName+" with description : "+cardList[i].desc);
           convo.ask("What do you want to do ? Below are the available options:\n1) Add todo item\n2) Mark a todo item\n3) Remove a todo item\n4) List checklist items",[
               {
-                  pattern: /Add todo item/i,
+                  pattern: /.*Add.*item.*/i,
                   callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'add checklist item'
               },
               {
@@ -38,7 +38,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: getMarkChecklistItemHandler(cardList[i].id, cardList[i].idChecklists)// Function to handle 'mark a checklist item of a card'
               },
               {
-                  pattern: /Remove a todo item/i,
+                  pattern: /(.*Remove.*item.*)|(.*Delete.*item.*)/i,
                   callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'remove checklist item'
               },
               {
