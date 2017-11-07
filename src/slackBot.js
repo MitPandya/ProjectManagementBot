@@ -69,7 +69,7 @@ function startMainThread(bot, message){
         callback: botInteractions.getCardsForWeeklySummary
       },
       {
-        pattern: /Send notification to members of card/i,
+      pattern: /(.*Send.*notification.*)|(.*Remind.*)|(.*Notify.*)/i,
         callback: botInteractions.handleNotifyUser
       },
       {
@@ -87,7 +87,7 @@ function startMainThread(bot, message){
                callback: botInteractions.getCardsForWeeklySummary
              },
              {
-               pattern: /Send notification to members of card/i,
+               pattern: /(.*Send.*notification.*)|(.*Remind.*)|(.*Notify.*)/i,
                callback: botInteractions.handleNotifyUser
              },
              {
