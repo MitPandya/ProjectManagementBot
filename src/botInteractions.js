@@ -256,7 +256,19 @@ function generateCardSummary(startDate, endDate){
     var completedCards = [];
 
     for(var i=0;i<cardList.length;i++){
-          var isValid = moment(cardList[i].due,["MM-DD-YYYY"]).isBetween(startDate, endDate);
+          var card_date = cardList[i].due.split('T')[0];
+          card_date = moment(card_date).format("MM/DD/YYYY");
+
+          startDate = new Date(startDate);
+          endDate = new Date(endDate);
+          card_date = new Date(card_date);
+
+          var isValid = false;
+          console.log(startDate+" "+endDate+" "+card_date);
+          if((card_date <= endDate && card_date >= startDate)) {
+              isValid = true;
+          }
+          //var isValid = moment(card_date,"DD/MM/YYYY").isBetween(startDate, endDate, 'days', '[]');
           if(isValid){
             if(cardList[i].dueComplete == true){
               completedCards.push(cardList[i]);
@@ -266,7 +278,9 @@ function generateCardSummary(startDate, endDate){
             }
           }
     }
+    
     if(dueCards.length > 0 || completedCards.length > 0){
+      
       convo.say("Here is the list of completed cards");
       convo.say("Completed cards : ");
       for(var i=0;i<completedCards.length;i++){
@@ -280,6 +294,7 @@ function generateCardSummary(startDate, endDate){
     else {
       convo.say("No cards found for the given date range!");
     }
+    convo.next();
   }
   return parseCardsAndCreateSummary;
 }
