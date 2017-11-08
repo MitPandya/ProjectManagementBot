@@ -61,8 +61,12 @@ function startMainThread(bot, message){
     convo.ask('How can I help you?', [
      
       {
-        pattern: /Open a card/i,
+        pattern: /.*open.*card$/i,
         callback: botInteractions.handleOpenCard
+      },
+      {
+        pattern: /.*open.*card.*/i,
+        callback: botInteractions.handleOpenCardWithArgs
       },
       {
         pattern: /Create weekly summary for completed and incompleted tasks/i,
@@ -79,8 +83,12 @@ function startMainThread(bot, message){
           convo.ask('Type the operation to be performed on the card EXACTLY as it appears in the above given options',[
             
              {
-               pattern: /Open a card/i,
+               pattern: /.*open.*card$/i,
                callback: botInteractions.handleOpenCard
+             },
+             {
+               pattern: /.*open.*card.*/i,
+               callback: botInteractions.handleOpenCardWithArgs
              },
              {
                pattern: /Create weekly summary for completed and incompleted tasks/i,

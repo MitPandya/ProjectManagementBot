@@ -17,6 +17,19 @@ module.exports.handleOpenCard = function(response,convo){
   convo.next();
 }
 
+module.exports.handleOpenCardWithArgs = function(response,convo){
+    var cardName=response.text;
+    cardName=cardName.split("card ")[1];
+    cardName = cardName.trim();
+    if(cardName==""){
+        module.exports.handleOpenCard(response,convo);
+        return;
+    }
+
+    restHelper.openCard(response.user, cardName, convo, fetchCardHandler);
+    convo.next();
+}
+
 //User-bot interaction to fetch Card info and then display the operations available to the user for this card
 
 var fetchCardHandler=function(convo, cardName, cardList){
