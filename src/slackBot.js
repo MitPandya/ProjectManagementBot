@@ -57,8 +57,8 @@ controller.hears([/hey/i,/hi/i,/hey promanbot/i],['mention', 'direct_message', '
 
 function startMainThread(bot, message){
   bot.startConversation(message,function(err,convo) {
-    convo.say('Good to see you.');
-    convo.ask('How can I help you?', [
+    convo.say('Good to see you.\n How can I help you?');
+    convo.ask('Please select one of the following options: \n1)Open a card \n2)Send notification to card members \n3)Create weekly summary for incomplete and complete cards', [
      
       {
         pattern: /.*open.*card$/i,
@@ -79,35 +79,9 @@ function startMainThread(bot, message){
       {
         pattern: '.*',
         callback: function(response, convo){
-          convo.say('ERROR occurred while performing the specified operation on the card.\nThe operations which can be performed on the card are:\n1)Open a card \n2)Create weekly summary for completed and incompleted tasks \n3)Send notification to members of card.');
-          convo.ask('Type the operation to be performed on the card EXACTLY as it appears in the above given options',[
-            
-             {
-               pattern: /.*open.*card$/i,
-               callback: botInteractions.handleOpenCard
-             },
-             {
-               pattern: /.*open.*card.*/i,
-               callback: botInteractions.handleOpenCardWithArgs
-             },
-             {
-               pattern: /Create weekly summary for completed and incompleted tasks/i,
-               callback: botInteractions.getCardsForWeeklySummary
-             },
-             {
-               pattern: /(.*Send.*notification.*)|(.*Remind.*)|(.*Notify.*)/i,
-               callback: botInteractions.handleNotifyUser
-             },
-             {
-               pattern: '.*',
-               callback: function(response, convo){
-                 convo.say('Sorry, the operation specified by you didn\'t match any of the above given options');
-                 convo.next();
-                }
-             }
-            ]); 
+          convo.say('Sorry, the operation specified by you didn\'t match any of the above given options');
           convo.next();
-        }
+         }
       }
     ]);
     convo.next();
