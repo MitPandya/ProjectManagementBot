@@ -42,38 +42,13 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'remove checklist item'
               },
               {
-                  pattern: '.*',
-                  callback: function(response,convo){
-                      convo.say("ERROR occurred while selecting the option available for checklist items of a card.");
-                      convo.ask("Type the operation to be performed EXACTLY as it appears in the above given options.",[
-                        {
-                            pattern: /Add todo item/i,
-                            callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'add checklist item'
-                        },
-                        {
-                            pattern: /List checklist items/i,
-                            callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle 'list checklist items'
-                        },
-                        {
-                            pattern: /Mark a todo item/i,
-                            callback: getMarkChecklistItemHandler(cardList[i].id, cardList[i].idChecklists)// Function to handle 'mark a checklist item of a card'
-                        },
-                        {
-                            pattern: /Remove a todo item/i,
-                            callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'remove checklist item'
-                        },
-                        {
-                            pattern: '.*',
-                            callback: function(response,convo){
-                                convo.say("Sorry, the operation specified by you didn't match any of the above given options");
-                                convo.next();   
-                            }
-                        }   
-                      ]);
-                      convo.next();
-                  }
-              }
-          ]);
+                pattern: '.*',
+                callback: function(response,convo){
+                    convo.say("Sorry, the operation specified by you didn't match any of the above given options");
+                    convo.next();   
+                    }
+               }
+            ]);
           convo.next();
           return;
         }
