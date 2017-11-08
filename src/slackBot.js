@@ -69,7 +69,7 @@ function startMainThread(bot, message){
         callback: botInteractions.handleOpenCardWithArgs
       },
       {
-        pattern: /Create weekly summary for completed and incompleted tasks/i,
+        pattern: /(.*create.*summary.*) | (.*summary.*) | (.*weekly.*summary.*) | (.*complete.*incomplete.*)/i,
         callback: botInteractions.getCardsForWeeklySummary
       },
       {
