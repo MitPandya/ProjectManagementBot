@@ -34,7 +34,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle 'list checklist items'
               },
               {
-                  pattern: /Mark a todo item/i,
+                  pattern:  /(.*Mark.*item.*)|(.*Check.*item.*)|(.*Done.*item.*)|(.*Finished.*item.*)/i,
                   callback: getMarkChecklistItemHandler(cardList[i].id, cardList[i].idChecklists)// Function to handle 'mark a checklist item of a card'
               },
               {
