@@ -28,6 +28,14 @@ module.exports.setupTrelloAppKey = function(callback){
     })
 }
 
-//module.exports.getTrelloToken('U6WESAKGA',console.log);
-//setupTrelloAppKey();
-
+module.exports.setTrelloToken = function(userid, trelloToken, callback){
+    const { Pool, Client } = require('pg')
+    const pool = new Pool()
+    pool.query("INSERT INTO SlackTrelloUserMap(slackID, trelloToken ) VALUES ('"+userid+"', '"+trelloToken+"');",(err,res)=>{
+        if(err){
+            callback(false);
+        }else{
+            callback(true);
+        }
+    })
+}
