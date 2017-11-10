@@ -297,11 +297,11 @@ function generateCardSummary(startDate, endDate){
       convo.say("Here is the list of completed cards");
       convo.say("Completed cards : ");
       for(var i=0;i<completedCards.length;i++){
-        convo.say(completedCards[i].name+" | "+completedCards[i].desc+" | "+completedCards[i].due);
+        convo.say(completedCards[i].name+" | "+completedCards[i].desc+" | "+completedCards[i].due.split('T')[0]);
       }
       convo.say("Due cards : ");
       for(var j=0;j<dueCards.length;j++){
-        convo.say(dueCards[j].name+" | "+dueCards[j].desc+" | "+dueCards[j].due);
+        convo.say(dueCards[j].name+" | "+dueCards[j].desc+" | "+dueCards[j].due.split('T')[0]);
       }
     }
     else {
