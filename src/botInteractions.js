@@ -43,7 +43,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'add checklist item'
               },
               {
-                  pattern: /List checklist items/i,
+                  pattern: /(.*List.*item*)|(.*List.*Checklist.*)|(.*Checklist.*items.*)/i,
                   callback: getListChecklistItemsHandler(cardName,cardList[i].idChecklists)// Function to handle 'list checklist items'
               },
               {
