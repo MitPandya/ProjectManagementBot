@@ -1,25 +1,40 @@
 // Importing the 'botkit' library
 var Botkit = require('botkit');
+var randomstring = require("randomstring");
+
 var dbHelper = require('./databaseHelper.js');
 var botInteractions = require('./botInteractions.js')
 var mock = require('./mock.js');
+var authentication = require('./authenticationHelper.js');
 
 var controller = Botkit.slackbot({
+  interactive_replies: true,
   debug: false  
 });
 
+
+controller.setupWebserver(process.env.PORT_NO,function(err,webserver) {
+  controller.createWebhookEndpoints(webserver);
+  authentication.setupWebhookEndpoints(webserver);
+});
+
+
 //fetch trello App key from db
 dbHelper.setupTrelloAppKey(function(appkey){
-  console.log("#KEY: "+appkey);
   if(typeof appkey != 'undefined'){
     global.APP_KEY = appkey;
     global.TRELLO_TOKEN_MAP = {}; // initialize the map
+    global.OAUTH_NOUNCE = {}; // initialize the oauth nounce to user map
 
-    console.log("Mocking flag is : "+process.env.MOCKON);
+    
     // initialize mocking
     if(process.env.MOCKON=="true"){
       mock.startMock();
+      console.log("Mocking REST API is Enabled");
+    }else{
+      console.log("Mocking REST API is Disabled");
     }
+
 
     // connect the bot to a stream of messages
     controller.spawn({
@@ -30,11 +45,15 @@ dbHelper.setupTrelloAppKey(function(appkey){
   }
 });
 
+
 // Default Bot Invocation
 controller.hears([/hey/i,/hi/i,/hey promanbot/i],['mention', 'direct_message', 'direct_mention'], function(bot,message) 
 {
   //console.log("#SLACK USER ID: "+message.user);
   // check for user trello account link
+  
+  // Needed for interaction button
+  controller.storage.teams.save({id: message.team, foo:'bar'}, function(err) { console.log(err) });
 
   if(typeof global.TRELLO_TOKEN_MAP[message.user] != 'undefined'){
     // ALL Good
@@ -57,32 +76,61 @@ controller.hears([/hey/i,/hi/i,/hey promanbot/i],['mention', 'direct_message', '
 
 function startMainThread(bot, message){
   bot.startConversation(message,function(err,convo) {
-    convo.say('Good to see you.\n How can I help you?');
-    convo.ask('Please select one of the following options: \n1)Open a card \n2)Send notification to card members \n3)Create weekly summary for incomplete and complete cards', [
-     
-      {
-        pattern: /.*open.*card$/i,
-        callback: botInteractions.handleOpenCard
-      },
-      {
-        pattern: /.*open.*card.*/i,
-        callback: botInteractions.handleOpenCardWithArgs
-      },
-      {
-        pattern: /(.*create.*summary.*)|(.*summary.*)|(.*weekly.*summary.*)|(.*complete.*incomplete.*)/i,
-        callback: botInteractions.getCardsForWeeklySummary
-      },
-      {
-      pattern: /(.*Send.*notification.*)|(.*Remind.*)|(.*Notify.*)/i,
-        callback: botInteractions.handleNotifyUser
-      },
-      {
-        pattern: '.*',
-        callback: function(response, convo){
-          convo.say('Sorry, the operation specified by you didn\'t match any of the above given options');
-          convo.next();
-         }
-      }
+    convo.say('Good to see you.');
+    convo.ask({
+      attachments:[
+        {
+            title: 'How can I help you?\nType or click the below options',
+            callback_id: '123',
+            attachment_type: 'default',
+            color:"#7750a5",
+            actions: [
+              {
+                  "name":"Open a card",
+                  "text": "Open a card",
+                  "value": "Open a card",
+                  "type": "button",
+              },
+              {
+                "name":"Create weekly summary",
+                "text": "Create weekly summary",
+                "value": "Create weekly summary",
+                "type": "button",
+              },
+              {
+                "name":"Send notification",
+                "text": "Send notification",
+                "value": "Send notification",
+                "type": "button",
+              },
+            ]
+        }
+      ]
+    },[
+        {
+          pattern: /.*open.*card$/i,
+          callback: botInteractions.handleOpenCard
+        },
+        {
+          pattern: /.*open.*card.*/i,
+          callback: botInteractions.handleOpenCardWithArgs
+        },
+        {
+          pattern: /(.*create.*summary.*)|(.*summary.*)|(.*weekly.*summary.*)|(.*complete.*incomplete.*)/i,
+          callback: botInteractions.getCardsForWeeklySummary
+        },
+        {
+        pattern: /(.*Send.*notification.*)|(.*Remind.*)|(.*Notify.*)/i,
+          callback: botInteractions.handleNotifyUser
+        },
+        {
+          pattern: '.*',
+          callback: function(response, convo){
+            convo.say('I could not understand your response. Can you please repeat?');
+            convo.repeat();
+            convo.next();
+          }
+        }
     ]);
     convo.next();
   });
@@ -91,21 +139,48 @@ function startMainThread(bot, message){
 function askForSetup(bot, message){
   bot.startConversation(message,function(err,convo) {
     convo.say('It seems like you haven\'t linked you trello account.');
-    convo.ask('Do you want to setup now ?',[
+    convo.ask({
+      attachments:[
+        {
+            title: 'Do you want to setup now ?\nType or click the below options',
+            callback_id: '123',
+            attachment_type: 'default',
+            color:"#7750a5",
+            actions: [
+              {
+                  "name":"Yes",
+                  "text": "Yes",
+                  "value": "Yes",
+                  "type": "button",
+              },
+              {
+                "name":"No",
+                "text": "No",
+                "value": "No",
+                "type": "button",
+              },
+            ]
+        }
+      ]
+    },[
       {
-        pattern:bot.utterances.yes,
+        pattern:"Yes",
         callback: function(response,convo){
-          console.log('Load up the web module');
-          convo.say('Open this link: <http://trello.com|LINK ACCOUNT>');
+          var randNounce = randomstring.generate(5);
+          var temp = function(){
+            startMainThread(bot,message);
+          }
+          global.OAUTH_NOUNCE[randNounce]=[message.user,temp];
+          convo.say('Open this link to setup : <'+process.env.HOSTBASEURL+"/setup?userid="+message.user+"&nounce="+randNounce+"| Trello Authorization>");
           convo.next();
         }
       },
       {
-        pattern: bot.utterances.no,
+        pattern: "No",
         callback: function(response,convo){
           console.log('Fall back to error message');
           convo.say('Ok, we can do it sometime later. I will have to leave since I can\'t access you trello.');
-          convo.stop("ending");
+          convo.next();
         }
       }
     ]);
