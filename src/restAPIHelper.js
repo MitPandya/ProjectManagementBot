@@ -108,6 +108,7 @@ function loadCards(userID, listArray,cardName, convo,callback){
                     'desc':respCardList[j].desc,
                     'idChecklists':respCardList[j].idChecklists[0],
                     'due':respCardList[j].due,
+                    'url':respCardList[j].url,
                     'dueComplete':respCardList[j].dueComplete,
                 });
             }

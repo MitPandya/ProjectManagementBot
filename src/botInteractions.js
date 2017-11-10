@@ -36,8 +36,55 @@ var fetchCardHandler=function(convo, cardName, cardList){
     var count = cardList.length;
     for(var i=0;i<count;i++){
         if(cardName == cardList[i].name){
-          convo.say("Here is the card "+cardName+" with description : "+cardList[i].desc);
-          convo.ask("What do you want to do ? Below are the available options:\n1) Add todo item\n2) Mark a todo item\n3) Remove a todo item\n4) List checklist items",[
+            convo.say({
+                "attachments": [
+                {
+                    "fallback": cardName+"\n Desc: "+cardList[i].desc,
+                    "pretext": "I found that card",
+                    "title": "Card1",
+                    "title_link": cardList[i].url,
+                    "text": cardList[i].desc,
+                    "thumb_url":process.env.HOSTBASEURL+"/card-icon.png",
+                    "color": "#7CD197"
+                    
+                }
+                ]
+            });
+            convo.ask({
+                attachments:[
+                {
+                    title: 'What do you want to do ?\nType or click the below options',
+                    callback_id: '123',
+                    attachment_type: 'default',
+                    color:"#7750a5",
+                    actions: [
+                    {
+                        "name":"Add todo item",
+                        "text": "Add todo item",
+                        "value": "Add todo item",
+                        "type": "button",
+                    },
+                    {
+                        "name":"Mark a todo item",
+                        "text": "Mark a todo item",
+                        "value": "Mark a todo item",
+                        "type": "button",
+                    },
+                    {
+                        "name":"Remove a todo item",
+                        "text": "Remove a todo item",
+                        "value": "Remove a todo item",
+                        "type": "button",
+                    },
+                    {
+                        "name":"List checklist items",
+                        "text": "List checklist items",
+                        "value": "List checklist items",
+                        "type": "button",
+                    }
+                    ]
+                }]
+            },[
               {
                   pattern: /.*Add.*item.*/i,
                   callback: getAddChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'add checklist item'
@@ -57,16 +104,19 @@ var fetchCardHandler=function(convo, cardName, cardList){
               {
                 pattern: '.*',
                 callback: function(response,convo){
-                    convo.say("Sorry, the operation specified by you didn't match any of the above given options");
+                    convo.say("I am sorry, I didn't get that.");
+                    convo.repeat();
                     convo.next();   
                     }
                }
             ]);
-          convo.next();
-          return;
+            convo.next();
+            return;
+
         }
     }
     convo.say("I couldn't find the card name '"+cardName+"' in your storyboard");
+    convo.next();
 }
 
 //User-bot interaction to add a checklist item in a card
