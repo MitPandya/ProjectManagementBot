@@ -317,6 +317,10 @@ function generateCardSummary(startDate, endDate){
   var parseCardsAndCreateSummary = function(convo, cardName, cardList){
     var dueCards = [];
     var completedCards = [];
+    var due_card_json = {};
+    var completed_card_json = {};
+    var due_card_data = [];
+    var completed_card_data = [];
 
     for(var i=0;i<cardList.length;i++){
           var card_date = cardList[i].due.split('T')[0];
@@ -344,15 +348,27 @@ function generateCardSummary(startDate, endDate){
     
     if(dueCards.length > 0 || completedCards.length > 0){
       
-      convo.say("Here is the list of completed cards");
+      convo.say("Here is the summary of complete and incomplete cards for the given period!");
       convo.say("Completed cards : ");
       for(var i=0;i<completedCards.length;i++){
-        convo.say(completedCards[i].name+" | "+completedCards[i].desc+" | "+completedCards[i].due.split('T')[0]);
+        var temp = {};
+        temp.color = "good";
+        temp.title = completedCards[i].name+" | "+completedCards[i].desc+" | "+completedCards[i].due.split('T')[0];
+        completed_card_data.push(temp);
       }
+      completed_card_json.attachments = due_card_data;
+      convo.say(due_card_json);
+      convo.next();
+
       convo.say("Due cards : ");
       for(var j=0;j<dueCards.length;j++){
-        convo.say(dueCards[j].name+" | "+dueCards[j].desc+" | "+dueCards[j].due.split('T')[0]);
+        var temp = {};
+        temp.color = "warning";
+        temp.title = dueCards[j].name+" | "+dueCards[j].desc+" | "+dueCards[j].due.split('T')[0];
+        due_card_data.push(temp);
       }
+      due_card_json.attachments = completed_card_data;
+      convo.say(completed_card_json);
     }
     else {
       convo.say("No cards found for the given date range!");
