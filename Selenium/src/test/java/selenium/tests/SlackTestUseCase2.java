@@ -52,7 +52,7 @@ public class SlackTestUseCase2 {
 	@Test
 	public void useCase2HappyPath() throws InterruptedException
 	{
-
+	
 		// Type something
 		WebElement messageBot = driver.findElement(By.id("msg_input"));
 		assertNotNull(messageBot);
@@ -61,33 +61,34 @@ public class SlackTestUseCase2 {
 		actions.moveToElement(messageBot);
 		actions.click();
 	
-		actions.sendKeys("@trellobot Hey");
+		actions.sendKeys("@ProManBot Hey");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
-
+	
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'How can I help you?']"));
+				By.xpath("//span[@class='message_body' and text() = 'Good to see you.']"));
 		assertNotNull(msg);
-		actions.sendKeys("Send notification to members of card");
-		actions.sendKeys(Keys.RETURN);
-		actions.build().perform();
+		Thread.sleep(2 * 1000);
+		WebElement msg1 = driver.findElement(By.xpath("//span/button[@title='Send notification']"));
+		assertNotNull(msg1);
+		msg1.click();
 		Thread.sleep(5 * 1000);
 		WebElement msg2 = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'Can you provide the card name?']"));
 		assertNotNull(msg2);
-		actions.sendKeys("Card1_NEW");
+		actions.sendKeys("Handle click icon over popup");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
 		WebElement msg3 = driver.findElement(
-				By.xpath("//span[@class=\"message_body\" and text()=\"Here is the card Card1_NEW with description : This is the first card in a list called 'todo'\"]"));
+				By.xpath("//span[@class='message_body' and text()='Here is the card Handle click icon over popup with description : This card should handle clicks']"));
 		assertNotNull(msg3);
-		Thread.sleep(3 * 1000);
+		Thread.sleep(2 * 1000);
 		WebElement msg4 = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'Enter the message']"));
 		assertNotNull(msg4);
-		Thread.sleep(5 * 1000);
+		Thread.sleep(2 * 1000);
 		actions.sendKeys("Sample memo message");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
@@ -109,13 +110,13 @@ public class SlackTestUseCase2 {
 		actions.moveToElement(messageBot);
 		actions.click();
 	
-		actions.sendKeys("@trellobot Hey");
+		actions.sendKeys("@ProManBot Hey");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
 
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'How can I help you?']"));
+				By.xpath("//span[@class='message_body' and text() = 'Good to see you.']"));
 		assertNotNull(msg);
 		actions.sendKeys("Send notification to members of card");
 		actions.sendKeys(Keys.RETURN);
