@@ -25,7 +25,11 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 public class SlackTestUseCase1 {
 
 	private static WebDriver driver;
-	
+	private static final String cardName = "Handle click icon over popup";
+	private static final String itemName = "enable touchscreen mode";
+	private static final String itemNotPresent ="Enable using gesture recognition";
+	private static final String cardisNotPresent ="Updated Website";
+	public static boolean flag = false;
 	@BeforeClass
 	public static void setUp() throws Exception 
 	{
@@ -52,16 +56,15 @@ public class SlackTestUseCase1 {
 		
 		Actions actions = new Actions(driver);
 		
-		startConvo(actions);	
-		
-
-		// Add a todo item
-		addChecklistItem(actions);
-
 		// List all items
 		startConvo(actions);
 		listItems(actions);
+			
+		// Add a todo item
+		startConvo(actions);
+		addChecklistItem(actions);
 
+		
 		//Mark a todo item
 		startConvo(actions);
 		markChecklistItem(actions);
@@ -103,72 +106,80 @@ public class SlackTestUseCase1 {
 		assertNotNull(messageBot);
     	actions.moveToElement(messageBot);
 		actions.click();
-		actions.sendKeys("@trellobot hi");
+		actions.sendKeys("@ProManBot hi");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot responds back with a greeting
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'How can I help you?']")));
-
-		actions.sendKeys("open a card");
-		actions.sendKeys(Keys.RETURN);
-		actions.build().perform();
-		Thread.sleep(3000);
+		//ProManBot responds back with a greeting
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Good to see you.']")));
+		if(flag == false) {
+			WebElement msg = driver.findElement(By.xpath("//span/button[@title='Open a card']"));
+			assertNotNull(msg);
+			msg.click();
+			flag = true;
+		}else {
+			actions.sendKeys("open a card");
+			actions.sendKeys(Keys.RETURN);
+			actions.build().perform();
+		}
 		
-		//trellobot asks the name of the card which needs to be opened
+		
+		Thread.sleep(5000);
+		
+		//ProManBot asks the name of the card which needs to be opened
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'What is the card name?']")));
 
-		actions.sendKeys("Card1_NEW");
+		actions.sendKeys(cardName);
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5000);
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = '4) List checklist items']")));
+		WebElement msg3 = driver.findElement(By.xpath("//span/div[@class='attachment_pretext for_attachment_group' and text() = 'I found that card']"));
+		assertNotNull(msg3);
     }
     
     //Selenium Test function to list all checklist items of a card
     public static void listItems(Actions actions) throws InterruptedException
 	{
     	WebDriverWait wait = new WebDriverWait(driver, 30);
-    	actions.sendKeys("List checklist items");
-		actions.sendKeys(Keys.RETURN);
-		actions.build().perform();
-		Thread.sleep(5000);
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'C1_item3 | incomplete | 100475']")));
-
-		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'C1_item3 | incomplete | 100475']"));
-
+    	WebElement msg = driver.findElement(By.xpath("//span/button[@title='List checklist items']"));
 		assertNotNull(msg);
+		msg.click();
+		Thread.sleep(6000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'capture mouse click action | incomplete | 17106']")));
+
+		WebElement msg1 = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'capture mouse click action | incomplete | 17106']"));
+
+		assertNotNull(msg1);
 	}
     
     //Selenium Test function to add a new checklist item in a card	
     public static void addChecklistItem(Actions actions) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 30);
-    	
-        actions.sendKeys("Add todo item");
+        
+       actions.sendKeys("Add todo item");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot asks about the name of the new checklist item which needs to be added in the card
+		//ProManBot asks about the name of the new checklist item which needs to be added in the card
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to add:']")));
 		
-		actions.sendKeys("C1_item6");
+		actions.sendKeys(itemName);
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot responds back stating that it has added the checklist item 'C1_item6'
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have added the checklist item C1_item6']")));
+		//ProManBot responds back stating that it has added the checklist item 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have added the checklist item "+itemName+"']")));
 		
 
-		//wait.withTimeout(10, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
 		
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'I have added the checklist item C1_item6']"));
+				By.xpath("//span[@class='message_body' and text() = 'I have added the checklist item "+itemName+"']"));
 
 		assertNotNull(msg);
     }
@@ -182,19 +193,19 @@ public class SlackTestUseCase1 {
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot asks about the name of the checklist item which needs to be marked in a card
+		//ProManBot asks about the name of the checklist item which needs to be marked in a card
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to mark:']")));
 		
-		actions.sendKeys("C1_item1");
+		actions.sendKeys(itemName);
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot responds back stating that it has marked the checklist item 'C1_item1'
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have marked the checklist item C1_item1']")));
+		//ProManBot responds back stating that it has marked the checklist item
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have marked the checklist item "+itemName+"']")));
         
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'I have marked the checklist item C1_item1']"));
+				By.xpath("//span[@class='message_body' and text() = 'I have marked the checklist item "+itemName+"']"));
 		assertNotNull(msg);
     }
 
@@ -208,19 +219,19 @@ public class SlackTestUseCase1 {
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot asks about the name of the checklist item which needs to be removed from a card
+		//ProManBot asks about the name of the checklist item which needs to be removed from a card
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to delete:']")));
 		
-		actions.sendKeys("C1_item2");
+		actions.sendKeys(itemName);
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot responds back stating that it has removed the checklist item 'C1_item2'
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have deleted the checklist item C1_item2']")));
+		//ProManBot responds back stating that it has removed the checklist item 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'I have deleted the checklist item "+itemName+"']")));
         
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'I have deleted the checklist item C1_item2']"));
+				By.xpath("//span[@class='message_body' and text() = 'I have deleted the checklist item "+itemName+"']"));
 		assertNotNull(msg);
     }
 
@@ -235,33 +246,34 @@ public class SlackTestUseCase1 {
 		assertNotNull(messageBot);
     	actions.moveToElement(messageBot);
 		actions.click();
-		actions.sendKeys("@trellobot hi");
+		actions.sendKeys("@ProManBot hi");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot responds back with a greeting
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'How can I help you?']")));
-
+		//ProManBot responds back with a greeting
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Good to see you.']")));
+		
 		actions.sendKeys("open a card");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(3000);
 		
-		//trellobot asks the name of the card which needs to be opened
+		//ProManBot asks the name of the card which needs to be opened
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'What is the card name?']")));
-    	actions.sendKeys("Card10");
+    	actions.sendKeys(cardisNotPresent);
     	actions.sendKeys(Keys.RETURN);
     	actions.build().perform();
     	Thread.sleep(4000);
 
-    	//trellobot responds back stating that the card with the name 'Card10' is not present in the current storyboard
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = \"I couldn't find the card name 'Card10' in your storyboard\"]")));
+    	//ProManBot responds back stating that the card is not present in the current storyboard
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = \"I couldn't find the card name \'"+cardisNotPresent+"\' in your storyboard\"]")));
     	wait.withTimeout(10, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
     	
-    	WebElement msg = driver.findElement(
-			By.xpath("//span[@class='message_body' and text() = \"I couldn't find the card name 'Card10' in your storyboard\"]"));
-    	assertNotNull(msg);
+    	WebElement msg1 = driver.findElement(
+			By.xpath("//span[@class='message_body' and text() = \"I couldn't find the card name \'"+cardisNotPresent+"\' in your storyboard\"]"));
+    	assertNotNull(msg1);
     
     }
 
@@ -275,19 +287,19 @@ public class SlackTestUseCase1 {
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot asks about the name of the checklist item which needs to be marked in a card
+		//ProManBot asks about the name of the checklist item which needs to be marked in a card
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to mark:']")));
 		
-		actions.sendKeys("C1_item10");
+		actions.sendKeys(itemNotPresent);
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot responds back stating that it cannot mark the user-specified checklist item with the name 'C1_item10' as it is not present in the card
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']")));
+		//ProManBot responds back stating that it cannot mark the user-specified checklist item as it is not present in the card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Item "+itemNotPresent+" is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']")));
         
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']"));
+				By.xpath("//span[@class='message_body' and text() = 'Item "+itemNotPresent+" is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']"));
 		assertNotNull(msg);
     }
 
@@ -301,19 +313,19 @@ public class SlackTestUseCase1 {
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot asks about the name of the checklist item which needs to be removed from a card
+		//ProManBot asks about the name of the checklist item which needs to be removed from a card
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Enter the name of the checklist item you want to delete:']")));
 		
-		actions.sendKeys("C1_item10");
+		actions.sendKeys(itemNotPresent);
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(4000);
 		
-		//trellobot responds back stating that it cannot remove the user-specified checklist item with the name 'C1_item10' as it is not present in the card
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']")));
+		//ProManBot responds back stating that it cannot remove the user-specified checklist item as it is not present in the card
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='message_body' and text() = 'Item "+itemNotPresent+" is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']")));
         
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'Item C1_item10 is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']"));
+				By.xpath("//span[@class='message_body' and text() = 'Item "+itemNotPresent+" is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.']"));
 		assertNotNull(msg);
     }
 
