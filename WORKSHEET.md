@@ -1,5 +1,6 @@
 # Task tracking details on a weekly basis
 
+### Milestone: BOT 
 ##### Week 1
 
 | Deliverable   | Item/Status   |  Issues/Tasks
@@ -44,3 +45,40 @@
 | Selenium Tests| Complete    | [#51](https://github.ncsu.edu/dgupta9/ProManBot/issues/51)
 | **Use Case 3**     | **Weekly Summary of Cards**              | &nbsp;
 | Selenium Tests| Complete    | [#44](https://github.ncsu.edu/dgupta9/ProManBot/issues/44)  
+
+  
+  
+### Milestone: SERVICE
+
+##### Week 1
+
+| Deliverable   | Item/Status   |  Issues/Tasks
+| ------------- | ------------  |  ------------
+| Initial setup     | Complete              |  [#58](https://github.ncsu.edu/dgupta9/ProManBot/issues/52), [#61](https://github.ncsu.edu/dgupta9/ProManBot/issues/61) -- Updated initial bot interaction for mapping Slack and Trello users
+| **Use Case 1**     | **Interact with a todo item on an Existing Card**                 | &nbsp;
+| Mainflow      | Complete             |  [#52](https://github.ncsu.edu/dgupta9/ProManBot/issues/52), [#60](https://github.ncsu.edu/dgupta9/ProManBot/issues/60) 
+| Subflow      | 1             |  [#54](https://github.ncsu.edu/dgupta9/ProManBot/issues/54)
+| Subflow      | 2             |  [#59](https://github.ncsu.edu/dgupta9/ProManBot/issues/59)
+| Subflow      | 3             |  [#55](https://github.ncsu.edu/dgupta9/ProManBot/issues/55)
+| Subflow      | 4             |  [#54](https://github.ncsu.edu/dgupta9/ProManBot/issues/54)
+| REST-API(SF2)     | Complete           |  [#17](https://github.ncsu.edu/dgupta9/ProManBot/issues/17)
+| Selenium Tests| Incomplete    | Update selenium test for use case 1 according to the new UI feature
+| **Use Case 2**     | **Reminding user through Notifications**                          | &nbsp;
+| Mainflow      | Complete             |  [#53](https://github.ncsu.edu/dgupta9/ProManBot/issues/53)
+| Selenium Tests| Incomplete    | Update selenium test for use case 2 according to the new UI feature
+| **Use Case 3**     | **Weekly Summary of Cards**                                        | &nbsp;
+| Mainflow      | Complete             |  [#57](https://github.ncsu.edu/dgupta9/ProManBot/issues/57), [#62](https://github.ncsu.edu/dgupta9/ProManBot/issues/62) 
+| REST-API      | Complete             |  [#27](https://github.ncsu.edu/dgupta9/ProManBot/issues/27)
+| Selenium Tests| Incomplete    | Update selenium test for usecase 3 according to the new UI feature
+
+
+##### Week 2
+
+| Deliverable   | Item/Status   |  Issues/Tasks
+| ------------- | ------------  |  ------------
+| **Use Case 1**     | **Interact with a todo item on an Existing Card**              | &nbsp;
+| Selenium Tests| Complete    | [#65](https://github.ncsu.edu/dgupta9/ProManBot/issues/65)
+| **Use Case 2**     | **Reminding user through Notifications**              | &nbsp;
+| Selenium Tests| Complete    | [#64](https://github.ncsu.edu/dgupta9/ProManBot/issues/64)
+| **Use Case 3**     | **Weekly Summary of Cards**              | &nbsp;
+| Selenium Tests| Complete    | [#63](https://github.ncsu.edu/dgupta9/ProManBot/issues/63)  
