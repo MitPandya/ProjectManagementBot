@@ -20,3 +20,7 @@ For this milestone and for our project, we have used the following REST APIs to 
 
 * In order to create a weekly summary of completed and incompleted cards, all the cards present within a Trello's story board needs to be fetched. 
 * REST-API call to fetch all the cards present within a Trello's story board: https://api.trello.com/1/batch/?urls={LISTS_IDS}&key={APP_KEY}&token={TOKEN_VALUE}
+
+
+### Task Tracking
+To summarize all the issues with weekly progress, we have created a [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/WORKSHEET.md) file which is subdivided into Weeks and Use Cases.
