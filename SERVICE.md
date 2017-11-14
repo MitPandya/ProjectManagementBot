@@ -1,9 +1,8 @@
 # Milestone: SERVICE
-
 ### Service
-For this milestone and for our project, we have used the following REST APIs to fetch data and perform necessary actions using the Slack Bot.
+As we are dealing with the actual REST APIs in this milestone instead of using the mocking functionality implemented in the previous milestone, the environment variable 'MOCKON' is set to 'false' so as to invoke the actual REST API calls.
 
-Since we used mocking functionality in the previous milestone, in this milestone we set environment variable mock=false to invoke the actual REST APIs.
+For this milestone and for our project, we have used the following REST APIs to fetch data and perform necessary actions using the Slack Bot.
 
 #### Use Case #1
 * REST-API call to fetch and list all the Trello Boards that a member has access to: https://api.trello.com/1/members/me/boards?key={APP_KEY}&token={TOKEN_VALUE} 
