@@ -41,7 +41,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
                 {
                     "fallback": cardName+"\n Desc: "+cardList[i].desc,
                     "pretext": "I found that card",
-                    "title": "Card1",
+                    "title": cardName,
                     "title_link": cardList[i].url,
                     "text": cardList[i].desc,
                     "thumb_url":process.env.HOSTBASEURL+"/card-icon.png",
