@@ -2,10 +2,10 @@
 ### Service
 As we are dealing with the actual REST APIs in this milestone instead of using the mocking functionality implemented in the previous milestone, the environment variable 'MOCKON' is set to 'false' so as to invoke the actual REST API calls.
 
-For this milestone and for our project, we have used the following REST APIs to fetch data and perform necessary actions using the Slack Bot.
+For this milestone and for our project, we have used the following REST APIs to fetch data from Trello and perform necessary actions using the Slack Bot.
 
 ### Rest API Details
-To perform HTTP calls to REST API we have used the module "request" and [restAPIHelper.js](src/restAPIHelper.js) contains all the modules to both perform and parse JSON response from Trello server.
+To perform HTTP calls to REST API, we have used the module "request" and [restAPIHelper.js](src/restAPIHelper.js) contains all the modules to perform and parse JSON response from Trello server.
 
 #### Use Case #1
 * REST-API call to fetch and list all the Trello Boards that a member has access to: 
@@ -44,14 +44,14 @@ To perform HTTP calls to REST API we have used the module "request" and [restAPI
 
 #### Use Case #3
 
-* In order to create a weekly summary of completed and incompleted cards, all the cards present within a Trello's story board needs to be fetched. 
+* In order to create a weekly summary of all the complete and incomplete cards, all the cards present within a Trello's story board needs to be fetched. 
 * REST-API call to fetch all the cards present within a Trello's story board: 
   * URL : https://api.trello.com/1/batch/?urls={LISTS_IDS}&key={APP_KEY}&token={TOKEN_VALUE} 
   * METHOD : GET
-* After fetching all the cards we filter the cards based on the card date to chek whether the card is in given range and categorize it in one of the two lists i.e. completed cards list or due card list.
+* After fetching all the cards, we filter the cards based on the card date to check whether the card is in the given range and categorize it in one of the two lists i.e. completed cards list or due card list.
 
 ### Authentication
-To invoke REST API's on Trello, bot need to have a user token associated with the respective trello account. Trello support 2 ways to authenticate client, either via authorize route using client.js or implementing basic oauth flow. We used the first method since the client.js performs handles all the interaction with Trello and generates a token which is as good as an oauth token and is supported by all the Trello REST API's. We store this token inside the database inside the table "SlackTrelloUserMap". [authenticationHelper.js](src/authenticationHelper.js) contains all the modules to handle authentication.
+To invoke REST API's on Trello, bot need to have a user token associated with the respective trello account. Trello support 2 ways to authenticate client, either via authorize route using client.js or implementing basic OAUTH flow. We used the first method since the client.js handles all the interaction with Trello and generates a token which is as good as an OAUTH token and is supported by all the Trello REST API's. We store this token in the database inside the table "SlackTrelloUserMap". The [authenticationHelper.js](src/authenticationHelper.js) contains all the modules to handle authentication.
 
 _Below is the flow diagram:_
 ```
@@ -68,7 +68,7 @@ _Below is the flow diagram:_
 
 
 ### Screen cast
-The screencast has been uploaded where all the bot interactions are shown allow with their effect on Trello : [Link](https://www.youtube.com/watch?v=jvNUr7_CCwU)
+The screencast has been uploaded where all the bot interactions are shown alongwith their effect on Trello : [Link](https://www.youtube.com/watch?v=jvNUr7_CCwU)
 
 ### Task Tracking
 To summarize all the issues with weekly progress, we have created a [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/master/WORKSHEET.md) file which is subdivided into Weeks and Use Cases.
