@@ -69,7 +69,7 @@ public class SlackTestUseCase3 {
 		actions.moveToElement(messageBot);
 		actions.click();
 	
-		actions.sendKeys("@trellobot Hey");
+		actions.sendKeys("@ProManBot Hey");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
@@ -77,23 +77,24 @@ public class SlackTestUseCase3 {
 		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		//driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
 		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[@class='message_body' and text() = 'How can I help you?']"))));
-		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'How can I help you?']"));
+		/*WebElement msg = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'Good to see you.']"));*/
+		WebElement msg = driver.findElement(By.xpath("//span/button[@title='Create weekly summary']"));
 		assertNotNull(msg);
 		//wait.withTimeout(10, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
-		actions.sendKeys("Create weekly summary for completed and incompleted tasks");
+		/*actions.sendKeys("Create weekly summary");
 		actions.sendKeys(Keys.RETURN);
-		actions.build().perform();
+		actions.build().perform();*/
+		msg.click();
+		/*WebElement msg1 = driver.findElement(
+				By.xpath("//span[@class='message_body' and text() = 'Create weekly summary']"));
+		assertNotNull(msg1);*/
+		/*actions.build().perform();
+		actions.sendKeys(Keys.RETURN);
+		actions.build().perform();*/
 		Thread.sleep(5 * 1000);
-		WebElement msg1 = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'Create weekly summary for completed and incompleted tasks']"));
-		assertNotNull(msg1);
-		actions.build().perform();
-		actions.sendKeys(Keys.RETURN);
-		actions.build().perform();
-		Thread.sleep(2 * 1000);
 		WebElement msg2 = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'Creating weekly summary from 10/23/2017 to 10/29/2017 , would you like to change dates?']"));
+				By.xpath("//span[@class='message_body' and text() = 'Creating weekly summary from 11/13/2017 to 11/19/2017 , would you like to change dates?']"));
 		assertNotNull(msg2);
 		actions.sendKeys("no");
 		actions.sendKeys(Keys.RETURN);
@@ -117,7 +118,7 @@ public class SlackTestUseCase3 {
 		actions.moveToElement(messageBot);
 		actions.click();
 	
-		actions.sendKeys("@trellobot Hey");
+		actions.sendKeys("@ProManBot Hey");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
@@ -126,27 +127,27 @@ public class SlackTestUseCase3 {
 		//driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
 		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[@class='message_body' and text() = 'How can I help you?']"))));
 		WebElement msg = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'How can I help you?']"));
+				By.xpath("//span[@class='message_body' and text() = 'Good to see you.']"));
 		assertNotNull(msg);
 		//wait.withTimeout(10, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
-		actions.sendKeys("Create weekly summary for completed and incompleted tasks");
+		actions.sendKeys("Create weekly summary");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
 		Thread.sleep(5 * 1000);
 		WebElement msg1 = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'Create weekly summary for completed and incompleted tasks']"));
+				By.xpath("//span[@class='message_body' and text() = 'Create weekly summary']"));
 		assertNotNull(msg1);
 		actions.build().perform();
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(2 * 1000);
+		Thread.sleep(5 * 1000);
 		WebElement msg2 = driver.findElement(
-				By.xpath("//span[@class='message_body' and text() = 'Creating weekly summary from 10/23/2017 to 10/29/2017 , would you like to change dates?']"));
+				By.xpath("//span[@class='message_body' and text() = 'Creating weekly summary from 11/13/2017 to 11/19/2017 , would you like to change dates?']"));
 		assertNotNull(msg2);
 		actions.sendKeys("Yes from 08/08/2016 to 08/15/2017");
 		actions.sendKeys(Keys.RETURN);
 		actions.build().perform();
-		Thread.sleep(7 * 1000);
+		Thread.sleep(10 * 1000);
 		WebElement msg3 = driver.findElement(
 				By.xpath("//span[@class='message_body' and text() = 'No cards found for the given date range!']"));
 		assertNotNull(msg3);
