@@ -3,6 +3,8 @@
 ### Service
 For this milestone and for our project, we have used the following REST APIs to fetch data and perform necessary actions using the Slack Bot.
 
+Since we used mocking functionality in the previous milestone, in this milestone we set environment variable mock=false to invoke the actual REST APIs.
+
 #### Use Case #1
 * REST-API call to fetch and list all the Trello Boards that a member has access to: https://api.trello.com/1/members/me/boards?key={APP_KEY}&token={TOKEN_VALUE} 
 * REST-API call to fetch all the lists present within a Trello's story board: https://api.trello.com/1/boards/{BOARD_ID}/lists?key={APP_KEY}&token={TOKEN_VALUE} : 
@@ -20,6 +22,7 @@ For this milestone and for our project, we have used the following REST APIs to 
 
 * In order to create a weekly summary of completed and incompleted cards, all the cards present within a Trello's story board needs to be fetched. 
 * REST-API call to fetch all the cards present within a Trello's story board: https://api.trello.com/1/batch/?urls={LISTS_IDS}&key={APP_KEY}&token={TOKEN_VALUE}
+* After fetching all the cards we filter the cards based on the card date to chek whether the card is in given range and categorize it in one of the two lists i.e. completed cards list or due card list.
 
 
 ### Task Tracking
