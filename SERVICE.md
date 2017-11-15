@@ -67,8 +67,8 @@ _Below is the flow diagram:_
 ```
 
 ### Interactive Components
-To improve the user interface of the bot, we have various interactive  components allow user to perform operations by just clicking on options. This feature allowed the user an additional option apart from the regular way of interacting via chat. In our implementation, we have included buttons respond the same way as if the user had typed his conversation. However, interactive components required following components:
-  * Public Request URL: When a button is clicked, Slack platform sends a request to a url to notify the action. However, since we are currently running our bot on localserver, we require a proxy service to redirect call from public network to the localhost server. Hence, we used NGROK which creates a tunnel between our localhost and public webserver. 
+To improve the user interface of the bot, we have various interactive  components that allow user to perform operations by just clicking the option. This feature provided an additional option to the user in addition to the regular chat interaction. In our implementation, we have included buttons that respond the same way as if the user had typed their conversation. However, Interactive Components required following components:
+  * **Public Request URL**: When a button is clicked, Slack platform sends a request to a URL to notify the action. However, since we are currently running our bot on local server, we require a proxy service to redirect the call from public network to the localhost server. Hence, we used NGROK which creates a tunnel between our localhost and the public webserver. 
   
   ```
      ____________                                  _________________                        ____________________
@@ -78,7 +78,7 @@ To improve the user interface of the bot, we have various interactive  component
   
   ```
   
-  * Bot reply as attachments: To display buttons on the slack chat interface, we had send the button information in the form of attachments in convo.ask(). The attachment is predefined JSON message which is used to generate with parameters such as button name and response value. 
+  * **Bot reply as attachments**: To display buttons on the Slack Chat Interface, we sent the button information in the form of attachments in convo.ask(). The attachment is a predefined JSON message which is used to generate parameters such as button name and response value. 
 
 ### Screen cast
 The screencast has been uploaded where all the bot interactions are shown alongwith their effect on Trello : [Link](https://www.youtube.com/watch?v=jvNUr7_CCwU)
