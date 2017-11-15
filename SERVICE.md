@@ -66,6 +66,19 @@ _Below is the flow diagram:_
                             back token to bot
 ```
 
+### Interactive Components
+To improve the user interface of the bot, we have various interactive  components allow user to perform operations by just clicking on options. This feature allowed the user an additional option apart from the regular way of interacting via chat. In our implementation, we have included buttons respond the same way as if the user had typed his conversation. However, interactive components required following components:
+  * Public Request URL: When a button is clicked, Slack platform sends a request to a url to notify the action. However, since we are currently running our bot on localserver, we require a proxy service to redirect call from public network to the localhost server. Hence, we used NGROK which creates a tunnel between our localhost and public webserver. 
+  
+  ```
+     ____________                                  _________________                        ____________________
+    |            |    Button is clicked to        |  NGROK Public   |     SECURED TUNNEL   | Bot Server running |
+    | Slack      | ---------------------------    |   Address       |  =================== | on local server    |
+    |____________|    respond to bot query        |_________________|                      |____________________|
+  
+  ```
+  
+  * Bot reply as attachments: To display buttons on the slack chat interface, we had send the button information in the form of attachments in convo.ask(). The attachment is predefined JSON message which is used to generate with parameters such as button name and response value. 
 
 ### Screen cast
 The screencast has been uploaded where all the bot interactions are shown alongwith their effect on Trello : [Link](https://www.youtube.com/watch?v=jvNUr7_CCwU)
