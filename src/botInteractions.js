@@ -302,8 +302,13 @@ module.exports.getCardsForWeeklySummary = function(response,convo){
         
         // parse dates from response
         var res = response.text.match(/\d{2}(\D)\d{2}\1\d{4}/g);
-        // rest api handler
-        restHelper.openCard(response.user, "", convo, generateCardSummary(res[0], res[1]));
+        if(res==null || res.length<=1){
+          convo.say("Please enter valid dates!");
+          convo.say("Type hi @ProManBot  or hey @ProManBot to restart the convo!");
+        }else{
+          // rest api handler
+          restHelper.openCard(response.user, "", convo, generateCardSummary(res[0], res[1]));
+        }
         convo.next();
       }
     }
@@ -345,7 +350,6 @@ function generateCardSummary(startDate, endDate){
             }
           }
     }
-    
     if(dueCards.length > 0 || completedCards.length > 0){
       
       convo.say("Here is the summary of complete and incomplete cards for the given period!");
@@ -369,9 +373,11 @@ function generateCardSummary(startDate, endDate){
       }
       due_card_json.attachments = completed_card_data;
       convo.say(completed_card_json);
+      convo.say("Type hi @ProManBot  or hey @ProManBot to restart the convo!");
     }
     else {
       convo.say("No cards found for the given date range!");
+      convo.say("Type hi@ProManBot or hey@ProManBot to restart the convo!");
     }
     convo.next();
   }
