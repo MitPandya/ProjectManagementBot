@@ -5,6 +5,13 @@ var moment = require('moment');
 module.exports.handleOpenCard = function(response,convo){
   convo.ask('What is the card name?',[
     {
+        pattern: /(^quit$)|(^abort$)/i,
+        callback: function(response,convo){
+          convo.say("Aborting the conversation.Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
+          convo.next();
+        }
+    },
+    {
       pattern: '.*',
       callback:function(response,convo){
         
@@ -102,6 +109,13 @@ var fetchCardHandler=function(convo, cardName, cardList){
                   callback: getRemoveChecklistItemHandler(cardList[i].idChecklists)// Function to handle 'remove checklist item'
               },
               {
+                pattern: /(.*quit.*)|(.*stop.*)|(.*end.*)|(.*finish.*)|(.*terminate.*)|(.*close.*)|(.*abort.*)/i,
+                callback: function(response,convo){
+                  convo.say("Aborting the conversation.Type 'hi @ProManBot' or 'hey @ProManBot' to restart the conversation.");
+                  convo.next();
+                }
+              },
+              {
                 pattern: '.*',
                 callback: function(response,convo){
                     convo.say("I am sorry, I didn't get that.");
@@ -115,7 +129,7 @@ var fetchCardHandler=function(convo, cardName, cardList){
 
         }
     }
-    convo.say("I couldn't find the card name '"+cardName+"' in your storyboard");
+    convo.say("I couldn't find the card name '"+cardName+"' in your storyboard. Type 'hi @ProManBot' or 'hey @ProManBot' to restart the conversation.");
     convo.next();
 }
 
@@ -125,6 +139,13 @@ function getAddChecklistItemHandler(ChecklistID){
     var temp = function(response,convo){
         
         convo.ask("Enter the name of the checklist item you want to add: ",[
+            {
+                pattern: /(^quit$)|(^abort$)/i,
+                callback: function(response,convo){
+                  convo.say("Aborting the conversation.Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
+                  convo.next();
+                }
+            },
             {
                 pattern:".*",
                 callback:AddChecklistItem(ChecklistID)
@@ -161,6 +182,13 @@ function getMarkChecklistItemHandler(cardID, ChecklistID){
     var temp = function(response,convo){
         convo.ask("Enter the name of the checklist item you want to mark: ",[
             {
+                pattern: /(^quit$)|(^abort$)/i,
+                callback: function(response,convo){
+                  convo.say("Aborting the conversation.Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
+                  convo.next();
+                }
+            },
+            {
                 pattern: ".*",
                 callback: markChecklistItem(cardID, ChecklistID)
             }
@@ -175,6 +203,13 @@ function getMarkChecklistItemHandler(cardID, ChecklistID){
 function getRemoveChecklistItemHandler(ChecklistID){
     var temp = function(response,convo){
         convo.ask("Enter the name of the checklist item you want to delete: ",[
+            {
+                pattern: /(^quit$)|(^abort$)/i,
+                callback: function(response,convo){
+                  convo.say("Aborting the conversation.Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
+                  convo.next();
+                }
+            },
             {
                 pattern: ".*",
                 callback:RemoveChecklistItem(ChecklistID)
@@ -194,9 +229,11 @@ function AddChecklistItem(ChecklistID){
         var sendFeedback = function(done){
             if (done == true){
                 convo.say("I have added the checklist item "+ ChecklistItemName);
+                convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation");
             }
             else{
-                convo.say("ERROR occurred while adding the checklist item "+ ChecklistItemName + ". Please try again.");
+                convo.say("ERROR occurred while adding the checklist item "+ ChecklistItemName);
+                convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
             }    
             
         }
@@ -223,9 +260,11 @@ function markChecklistItem(cardID, ChecklistID){
                     var sendFeedback = function(done){
                         if(done == true){
                             convo.say("I have marked the checklist item "+ ChecklistItemName);
+                            convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
                         }
                         else{
-                            convo.say("ERROR occurred while marking the checklist item "+ ChecklistItemName + ". Please try again.");
+                            convo.say("ERROR occurred while marking the checklist item "+ ChecklistItemName);
+                            convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
                         }    
                     }
                     restHelper.markListItem(response.user, cardID, checklistItems[i].id, sendFeedback);
@@ -234,6 +273,7 @@ function markChecklistItem(cardID, ChecklistID){
             //When checklist Item to be marked is not found
             if(findItem == 0){
                 convo.say("Item "+ ChecklistItemName + " is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.");
+                convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
             }
             convo.next();
         });  
@@ -259,9 +299,11 @@ function RemoveChecklistItem(ChecklistID){
                     var sendFeedback = function(done){
                         if(done == true){
                             convo.say("I have deleted the checklist item "+ ChecklistItemName);
+                            convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
                         }
                         else{
-                            convo.say("ERROR occurred while deleting the checklist item "+ ChecklistItemName + ". Please try again.");
+                            convo.say("ERROR occurred while deleting the checklist item "+ ChecklistItemName);
+                            convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
                         }        
                     }
                     restHelper.removeChecklistitem(response.user, ChecklistID, checklistItems[i].id, sendFeedback);
@@ -270,6 +312,7 @@ function RemoveChecklistItem(ChecklistID){
             //When checklist Item to be removed is not found
             if(findItem == 0){
                 convo.say("Item "+ ChecklistItemName + " is not present. Verify that you have entered the correct item name and also verify that the checklist item is present in the specified card.");
+                convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
             }
             convo.next();
         });  
@@ -384,6 +427,7 @@ function generateCardSummary(startDate, endDate){
   return parseCardsAndCreateSummary;
 }
 
+
 // method to handle conversation regarding notification to user about a card
 module.exports.handleNotifyUser = function(response,convo){
     getNotifyCardInput(response,convo);
@@ -391,6 +435,13 @@ module.exports.handleNotifyUser = function(response,convo){
 
 function getNotifyCardInput(response,convo){
     convo.ask("Can you provide the card name?",[
+        {
+            pattern: /(^quit$)|(^abort$)/i,
+            callback: function(response,convo){
+              convo.say("Aborting the conversation.Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
+              convo.next();
+            }
+        },
         {
             pattern: '.*',
             callback:getNotifyMemo
@@ -421,6 +472,7 @@ function getCardNotifyMessage(convo, cardName, cardList){
         }
     }
     convo.say("I couldn't find the card name '"+cardName+"' in your storyboard");
+    convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
     convo.next();
 }
 
@@ -432,8 +484,10 @@ function getCardCommentHandler(cardID){
         var sendFeedback = function(done){
             if(!done){
                 convo.say("I'm sorry as I wasn't able to send your notification.");
+                convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
             }else{
                 convo.say("I have sent your message to all members of this card.");
+                convo.say("Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
             }
             convo.next();
         }
