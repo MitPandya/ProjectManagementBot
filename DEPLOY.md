@@ -34,7 +34,18 @@ Execute the following command on the Config Server VM to run the ansible playboo
 
 ![Deploy Architecture Diagram](https://github.ncsu.edu/dgupta9/ProManBot/blob/DEPLOY/Deploy%20Architecture%20Diagram.png)
 
-**Acceptance test instructions**    
+## Acceptance test instructions  
+**TA user account details for Slack :**  
+*Slack workspace :* seproject-workspace.slack.com  
+*Slack email ID :* csc510promanbot@gmail.com  
+*Slack password :* promanbotCSC510  
+
+**TA user account details for Trello :**  
+*Trello username :* seproject16  
+*Trello email ID :* se.project@mail.com  
+*Trello password :* promanbot  
+
+* Any changes/updates done by the ProManBot on the Trello cards will be reflected inside the 'AgileTeam' Storyboard on Trello
 * The following instructions are to be executed in the `#bots` channel on Slack
 
 | Use Case No.|Scenario No. | Scenario | Test Steps | Expected Outcome |
