@@ -27,9 +27,11 @@ Also, create an `inventory` file in the `deploy` folder of the Config Server VM 
 <Public_DNS_of_NodeVM> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/aws_ec2.pem
 ```
 ***Testing Ansible***   
+The Ansible Playbook is saved by the name `setup.yml`
 Execute the following command on the Config Server VM to run the ansible playbook:  
-    ```ansible-playbook setup.yml -i inventory -s``` 
-    
+    ```ansible-playbook setup.yml -i inventory -s```  
+After executing the ansible playbook, ProManBot will get deployed successfully on Amazon EC2 instance (Node VM)
+
 **Deployment Architecture**
 
 ![Deploy Architecture Diagram](https://github.ncsu.edu/dgupta9/ProManBot/blob/DEPLOY/Deploy%20Architecture%20Diagram.png)
@@ -39,6 +41,7 @@ Execute the following command on the Config Server VM to run the ansible playboo
 *Slack workspace :* seproject-workspace.slack.com  
 *Slack email ID :* csc510promanbot@gmail.com  
 *Slack password :* promanbotCSC510  
+*Display Name on Slack:* CSC510_TA 
 
 **TA user account details for Trello :**  
 *Trello username :* seproject16  
@@ -46,6 +49,7 @@ Execute the following command on the Config Server VM to run the ansible playboo
 *Trello password :* promanbot  
 
 * Any changes/updates done by the ProManBot on the Trello cards will be reflected inside the 'AgileTeam' Storyboard on Trello
+* User 'CSC510_TA' is already linked to the Trello account and has already joined the `#bots` channel on Slack 
 * The following instructions are to be executed in the `#bots` channel on Slack
 
 | Use Case No.|Scenario No. | Scenario | Test Steps | Expected Outcome |
