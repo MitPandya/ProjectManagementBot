@@ -91,7 +91,7 @@
 | Deliverable   | Item/Status   |  Issues/Tasks
 | ------------- | ------------  |  ------------
 | Create Amazon EC2 Account     | Complete              |  Created Amazon EC2 Account which will be used to remotely deploy the bot
-| Setup Two Amazon EC2 instances   |  Complete         | Setting up two Amazon EC2 instances - Ansible Server and Node VM (which will be used to remotely deploy the bot)
+| Setup Two Amazon EC2 instances   |  Complete         | Setting up two Amazon EC2 instances - Ansible Server and Node VM (Slackbot will be deployed remotely on this VM)
 
 
 ##### Week 2
@@ -102,5 +102,5 @@
 | **Use Case 3**     | **Weekly Summary of Cards**              | &nbsp;
 | Edge Case 2-Use Case 3 | Complete    | [#71](https://github.ncsu.edu/dgupta9/ProManBot/issues/71) - Covered the edge case whenever the user enters a date in an incorrect date format
 | Changes in botkit version    | Complete          | [#70](https://github.ncsu.edu/dgupta9/ProManBot/issues/70)
-| Deploy slack bot on Amazon EC2     | In progress              | [#68](https://github.ncsu.edu/dgupta9/ProManBot/issues/68)
+| Deploy slack bot on Amazon EC2 instance (Node VM)  | In progress              | [#68](https://github.ncsu.edu/dgupta9/ProManBot/issues/68)
 | DEPLOY.md | In progress    | 
