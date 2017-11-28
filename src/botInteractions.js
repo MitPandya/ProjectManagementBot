@@ -425,7 +425,7 @@ function generateCardSummary(startDate, endDate){
       }
       due_card_json.attachments = completed_card_data;
       convo.say(completed_card_json);
-      convo.say("Type hi @ProManBot or hey @ProManBot to restart the convo!");
+      convo.say("Type hi @ProManBot or hey @ProManBot to restart the conversation.");
     }
     else {
       convo.say("No cards found for the given date range!");
