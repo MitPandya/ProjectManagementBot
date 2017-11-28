@@ -104,6 +104,9 @@ function startMainThread(bot, message){
                 "type": "button",
               },
             ]
+        },
+        {
+          "text": "Type `quit` or `abort` to close the conversation."
         }
       ]
     },[
@@ -139,7 +142,7 @@ function startMainThread(bot, message){
           }
         }
     ]);
-    convo.say("Type 'quit' or 'abort' to end the conversation.");
+    //convo.say("Type 'quit' or 'abort' to end the conversation.");
     convo.next();
   });
 }
