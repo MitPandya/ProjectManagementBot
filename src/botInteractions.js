@@ -129,7 +129,8 @@ var fetchCardHandler=function(convo, cardName, cardList){
 
         }
     }
-    convo.say("I couldn't find the card name '"+cardName+"' in your storyboard. Type 'hi @ProManBot' or 'hey @ProManBot' to restart the conversation.");
+    convo.say("I couldn't find the card name '"+cardName+"' in your storyboard.");
+    convo.say("Type 'hi @ProManBot' or 'hey @ProManBot' to restart the conversation.");
     convo.next();
 }
 
@@ -167,7 +168,7 @@ function getListChecklistItemsHandler(cardName, checkListID){
       } else {
           var checkListItems = JSON.parse(body);
           for(var i =0; i<checkListItems.length;i++){
-              convo.say(checkListItems[i].name+" | "+checkListItems[i].state+" | "+checkListItems[i].pos);
+              convo.say(checkListItems[i].name+" | "+checkListItems[i].state);
           }
       }
       convo.say("Type hi @ProManBot or hey @ProManBot to restart the conversation.");
@@ -479,7 +480,7 @@ function getCardNotifyMessage(convo, cardName, cardList){
           return;
         }
     }
-    convo.say("I couldn't find the card name '"+cardName+"' in your storyboard");
+    convo.say("I couldn't find the card name '"+cardName+"' in your storyboard\n");
     convo.say("Type hi @ProManBot or hey @ProManBot to restart the conversation.");
     convo.next();
 }
