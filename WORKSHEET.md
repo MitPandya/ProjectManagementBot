@@ -82,3 +82,25 @@
 | Selenium Tests| Complete    | [#64](https://github.ncsu.edu/dgupta9/ProManBot/issues/64)
 | **Use Case 3**     | **Weekly Summary of Cards**              | &nbsp;
 | Selenium Tests| Complete    | [#63](https://github.ncsu.edu/dgupta9/ProManBot/issues/63)  
+
+
+### Milestone: DEPLOY
+
+##### Week 1
+
+| Deliverable   | Item/Status   |  Issues/Tasks
+| ------------- | ------------  |  ------------
+| Create Amazon EC2 Account     | Complete              |  Created Amazon EC2 Account which will be used to remotely deploy the bot
+| Setup Two Amazon EC2 instances   |  Complete         | Setting up two Amazon EC2 instances - Ansible Server and Node VM (which will be used to remotely deploy the bot)
+
+
+##### Week 2
+
+| Deliverable   | Item/Status   |  Issues/Tasks
+| ------------- | ------------  |  ------------
+| Edge Case 1 for all usecases     | Complete              |  [#67](https://github.ncsu.edu/dgupta9/ProManBot/issues/67), [#69](https://github.ncsu.edu/dgupta9/ProManBot/issues/69) - Added the quit/abort option to end user-bot interaction
+| **Use Case 3**     | **Weekly Summary of Cards**              | &nbsp;
+| Edge Case 2-Use Case 3 | Complete    | [#71](https://github.ncsu.edu/dgupta9/ProManBot/issues/71) - Covered the edge case whenever the user enters a date in an incorrect date format
+| Changes in botkit version    | Complete          | [#70](https://github.ncsu.edu/dgupta9/ProManBot/issues/70)
+| Deploy slack bot on Amazon EC2     | In progress              | [#68](https://github.ncsu.edu/dgupta9/ProManBot/issues/68)
+| DEPLOY.md | In progress    | 
