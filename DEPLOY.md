@@ -4,7 +4,7 @@
 
 ### Deployment Steps  
 #### Amazon EC2 Instance Setup    
-* Create an Amazon EC2 instance that will host the bot application remotely. Also, note down the key pair (.pem file) generated during the EC2 instantiation process. This key will be required along with the public DNS of this newly created EC2 instance for accessing the machine remotely.
+Create an Amazon EC2 instance that will host the bot application remotely. Also, note down the key pair (.pem file) generated during the EC2 instantiation process. This key will be required along with the public DNS of this newly created EC2 instance for accessing the machine remotely.
 
 ****Ansible Setup and Configuration****   
 
@@ -48,6 +48,9 @@ Execute the following command on the Config Server VM to run the ansible playboo
 | U2 | MF | User wants to open a card and send notification to all card members | <ul><li>1. Hi @ProManBot </li><li>2. Send notification(Type or click on button) </li><li>3. <Card_Name>(eg. attach preview icon) </li><li>4. <user_message>(Type the notification message) </li></ul> | <ul><li>1. Bot replies with three options: a. Open a card    b. Create weekly summary   c. Send notification  </li><li>2. Bot asks 'Can you provide the card name?' </li><li>3. If card exists in Trello, Bot replies 'Here is the card' and provides card description and asks the user 'Enter the message' </li><li>4. Bot replies, 'I have sent your message to all members of this card' </li><li> In the Trello card <Card_Name>, the message that is sent as a notification to all the card members can be seen under the `Activity` section present inside the card </li></ul> | 
 | U3 | S1 | User wants to view weekly summary of due and completed cards for the default current week date range | <ul><li>1. Hi @ProManBot </li><li>2. Create weekly summary </li><li> 3. no </li></ul> | <ul><li>1. Bot repies with three options </li><li>2. Bot replies 'Creating weekly summary from 11/27/2017 to 12/03/2017 , would you like to change dates?' </li><li>3. If cards exists in Trello for the date range Bot replies 'Here is the summary of complete and incomplete cards for the given period!' and shows complete and incomplete cards, If cards does not exist Bot replies 'No cards found for the given date range' </li></ul> |
 | U3 | S2 | User wants to view weekly summary of due and completed cards for different date range |<li>1. Hi @ProManBot </li><li>2. Create weekly summary</li><li>3. Yes from 08/08/2017 to 12/07/2017</ul> | <ul><li>1. Bot repies with three options </li><li>2. Bot replies 'Creating weekly summary from 11/27/2017 to 12/03/2017 , would you like to change dates?'</li><li>3. If cards exists in Trello for the date range Bot replies 'Here is the summary of complete and incomplete cards for the given period!' and shows complete and incomplete cards, If cards does not exist Bot replies 'No cards found for the given date range'</li></ul> |
+
+### Task Tracking
+To summarize all the issues with weekly progress, we have created a [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/DEPLOY/WORKSHEET.md) file.
 
 ### Screen cast
 The screencast has been uploaded where the configuration management tool 'Ansible' deploys the bot on Amazon AWS : [Link](https://www.youtube.com/watch?v=PU_fi-foZEc)
