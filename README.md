@@ -15,3 +15,4 @@ Team Members:
 1.  Design - [Link](./DESIGN.md)  
 2.  Bot - [Link](./BOT.md)
 3.  Service - [Link](./SERVICE.md)
+4.  Deploy - [Link](./DEPLOY.md)
