@@ -1,16 +1,40 @@
 # Milestone: DEPLOYMENT
 
-### Deployment
+## Deployment  
 
-**Deployment Steps**
-****Amazon EC2 Instance Setup****
+### Deployment Steps  
+#### Amazon EC2 Instance Setup    
 * Create an Amazon EC2 instance that will host the bot application remotely. Also, note down the key pair (.pem file) generated during the EC2 instantiation process. This key will be required along with the public DNS of this newly created EC2 instance for accessing the machine remotely.
 
+****Ansible Setup and Configuration****   
+
+***Ansible Installation***  
+Follow these steps to install Ansible on the configuration server(Config Server VM):
+
+ ```bash
+    ansible-box> $ sudo apt-add-repository ppa:ansible/ansible
+    ansible-box> $ sudo apt-get update
+    ansible-box> $ sudo apt-get install ansible
+ ```
+
+***Setting up the inventory file and ssh keys***  
+Copy the key pair(.pem file) generated during the Node VM Amazon EC2 instance instantiation in the `aws_ec2.pem` file present in the `~/.ssh/` folder of Config Server VM.   
+
+Also, create an `inventory` file in the `deploy` folder of the Config Server VM  with the following contents: 
+
+```ini    
+[production]
+<Public_DNS_of_NodeVM> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/aws_ec2.pem
+```
+***Testing Ansible***   
+Execute the following command on the Config Server VM to run the ansible playbook:  
+    ```ansible-playbook setup.yml -i inventory -s``` 
+    
 **Deployment Architecture**
 
 ![Deploy Architecture Diagram](https://github.ncsu.edu/dgupta9/ProManBot/blob/DEPLOY/Deploy%20Architecture%20Diagram.png)
 
-**Acceptance test instructions**  
+**Acceptance test instructions**    
 * The following instructions are to be executed in the `#bots` channel on Slack
 
 | Use Case No.|Scenario No. | Scenario | Test Steps | Expected Outcome |
