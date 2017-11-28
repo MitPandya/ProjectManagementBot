@@ -53,7 +53,15 @@ controller.hears([/hey/i,/hi/i,/hey promanbot/i],['mention', 'direct_message', '
   // check for user trello account link
   
   // Needed for interaction button
-  controller.storage.teams.save({id: message.team, foo:'bar'}, function(err) { console.log(err) });
+  var dummyBot = {
+    token: process.env.PROMANTOKEN,
+    user_id: message.user,
+    createdBy: message.user,
+    app_token: process.env.PROMANTOKEN,
+    name: 'ProManBot',
+  }; 
+
+  controller.storage.teams.save({id: message.team, foo:'bar', bot: dummyBot}, function(err) { console.log(err) });
 
   if(typeof global.TRELLO_TOKEN_MAP[message.user] != 'undefined'){
     // ALL Good
@@ -127,13 +135,6 @@ function startMainThread(bot, message){
           callback: botInteractions.handleNotifyUser
         },
         {
-          pattern: /(.*quit.*)|(.*stop.*)|(.*end.*)|(.*finish.*)|(.*terminate.*)|(.*close.*)|(.*abort.*)/i,
-          callback: function(response,convo){
-            convo.say("Aborting the conversation.Type 'hi @ProManBot' or 'hey @ProManBot' to restart the conversation.");
-            convo.next();
-          }
-        },
-        {
           pattern: '.*',
           callback: function(response, convo){
             convo.say('I could not understand your response. Can you please repeat?');
@@ -142,7 +143,6 @@ function startMainThread(bot, message){
           }
         }
     ]);
-    //convo.say("Type 'quit' or 'abort' to end the conversation.");
     convo.next();
   });
 }
@@ -175,7 +175,7 @@ function askForSetup(bot, message){
       ]
     },[
       {
-        pattern: /.*Yes.*/i,
+        pattern:"Yes",
         callback: function(response,convo){
           var randNounce = randomstring.generate(5);
           var temp = function(){
@@ -187,17 +187,10 @@ function askForSetup(bot, message){
         }
       },
       {
-        pattern: /.*No.*/i,
+        pattern: "No",
         callback: function(response,convo){
           console.log('Fall back to error message');
           convo.say('Ok, we can do it sometime later. I will have to leave since I can\'t access you trello.');
-          convo.next();
-        }
-      },
-      {
-        pattern: /(.*quit.*)|(.*stop.*)|(.*end.*)|(.*finish.*)|(.*terminate.*)|(.*close.*)|(.*abort.*)/i,
-        callback: function(response,convo){
-          convo.say("Aborting the conversation.Type hi @ProManBot  or hey @ProManBot to restart the conversation.");
           convo.next();
         }
       }
