@@ -6,6 +6,10 @@
 ****Amazon EC2 Instance Setup****
 * Create an Amazon EC2 instance that will host the bot application remotely. Also, note down the key pair (.pem file) generated during the EC2 instantiation process. This key will be required along with the public DNS of this newly created EC2 instance for accessing the machine remotely.
 
+**Deployment Architecture**
+
+![Deploy Architecture Diagram](https://github.ncsu.edu/dgupta9/ProManBot/blob/DEPLOY/Deploy%20Architecture%20Diagram.png)
+
 **Acceptance test instructions**  
 * The following instructions are to be executed in the `#bots` channel on Slack
 
