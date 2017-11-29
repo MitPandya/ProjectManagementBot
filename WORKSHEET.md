@@ -103,5 +103,5 @@
 | Edge Case 2-Use Case 3 | Complete    | [#71](https://github.ncsu.edu/dgupta9/ProManBot/issues/71) - Covered the edge case whenever the user enters a date in an incorrect date format
 | Changes in botkit version    | Complete          | [#70](https://github.ncsu.edu/dgupta9/ProManBot/issues/70)
 | Deploy slack bot on Amazon EC2 instance (Node VM)  | Complete             | [#68](https://github.ncsu.edu/dgupta9/ProManBot/issues/68)
-| Screencast    | Complete          | 
-| DEPLOY.md | Complete    | 
+| Screencast    | Complete          | [Screencast](https://www.youtube.com/watch?v=PU_fi-foZEc)
+| DEPLOY.md | Complete    | [DEPLOY.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/DEPLOY/DEPLOY.md)
