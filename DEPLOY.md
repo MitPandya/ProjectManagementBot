@@ -71,6 +71,7 @@ After executing the ansible playbook, ProManBot will get deployed successfully o
 
 * Any changes/updates done by the ProManBot on the Trello cards will be reflected inside the 'AgileTeam' Storyboard on Trello
 * User 'CSC510_TA' is already linked to the Trello account and has already joined the `#bots` channel on Slack 
+* **Please Note:** Due to one of the limitations mentioned below, sometimes the bot doesn't respond. In case that happens, just restart the entire conversation again (By typing 'Hi @ProManBot')    
 * The following instructions are to be executed in the `#bots` channel on Slack
 
 | Use Case No.|Scenario No. | Scenario | Test Steps | Expected Outcome |
@@ -89,6 +90,7 @@ After executing the ansible playbook, ProManBot will get deployed successfully o
 * Since we are using quit, abort, end etc. keywords to close the conversation with the Bot anytime, we can not use the same keywords as the card or checklist item name.
 * For usecase-3 the date format should be in MM/DD/YYYY format.
 * Trello card names and todo items are case-sensitive.
+* Due to [issue](https://github.com/howdyai/botkit/issues/719), sometimes, the conversation messages are not displayed on the Slack.
 
 ### Task Tracking
 To summarize all the issues with weekly progress, we have created a [WORKSHEET.md](https://github.ncsu.edu/dgupta9/ProManBot/blob/DEPLOY/WORKSHEET.md) file.
