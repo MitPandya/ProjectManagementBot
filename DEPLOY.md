@@ -29,6 +29,24 @@ Also, create an `inventory` file in the `deploy` folder of the Config Server VM 
 [production]
 <Public_DNS_of_NodeVM> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/aws_ec2.pem
 ```
+
+***Setting up the environment variables***  
+Using Ansible, setup the environment variables on the Node VM. All the environment variables are looked up by the Ansible Playbook(setup.yml) from the `bot-config.ini` file present in the same folder as that of the Ansible playbook (`deploy` folder)   
+The `bot-config.ini` file has the following contents:  
+```
+[production]
+PGHOST= <PostGre_DB_Server_IP>
+PGUSER= <PostGre_Database_Username>
+PGDATABASE=<PostGre_Database_name>
+PROMANTOKEN= <Slack_Token>
+SLACK_EMAIL_ID= <Slack_Account_Email_Id>
+SLACK_PASSWORD= <Slack_Account_Password>
+MOCKON= false
+CLIENT_ID= <Slack_Bot_App_ID> 
+CLIENT_SECRET= <Slack_Bot_App_SecretToken>
+HOSTBASEURL= <Public_DNS_Host_Machine>
+PORT_NO= 80
+```
 ***Testing Ansible***   
 The Ansible Playbook is saved by the name `setup.yml`
 Execute the following command on the Config Server VM to run the ansible playbook:  
