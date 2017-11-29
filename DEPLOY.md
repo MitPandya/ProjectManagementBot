@@ -65,7 +65,7 @@ After executing the ansible playbook, ProManBot will get deployed successfully o
 | U3 | S2 | User wants to view weekly summary of due and completed cards for different date range |<li>1. Hi @ProManBot </li><li>2. Create weekly summary</li><li>3. Yes from 08/08/2017 to 12/07/2017</ul> | <ul><li>1. Bot repies with three options </li><li>2. Bot replies 'Creating weekly summary from 11/27/2017 to 12/03/2017 , would you like to change dates?'</li><li>3. If cards exists in Trello for the date range Bot replies 'Here is the summary of complete and incomplete cards for the given period!' and shows complete and incomplete cards, If cards does not exist Bot replies 'No cards found for the given date range'</li></ul> |
 
 ***Limitations***  
-* Since we are using quit, abort, exit etc. keywords to close the conversation with the Bot anytime, we can not use the same keywords as the card or checklist item name.
+* Since we are using quit, abort, end etc. keywords to close the conversation with the Bot anytime, we can not use the same keywords as the card or checklist item name.
 * For usecase-3 the date format should be in MM/DD/YYYY format.
 * Trello card names and todo items are case-sensitive.
 
