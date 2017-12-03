@@ -60,4 +60,10 @@ The bot initializes by asking the first time user to do their Trello account's s
 
 ![Custom week](https://github.ncsu.edu/dgupta9/ProManBot/blob/REPORT/screenshots/UC3_yes.png)  
 
+### Limitations  
+1. Since we are using ‘quit’ and ‘abort’ keywords to close the conversation with the Bot, thus we cannot have Trello card or checklist item which have the same name as these keywords.  
+2. For usecase-3 the date format should be in MM/DD/YYYY format. So, input in any other date format will generate an error.
+Trello card names and todo items are case-sensitive. So, if the input contains same trello card name but it is just in different case, the bot won’t recognize it and generate an error that the card is not present even though that card is actually present in the Trello board.  
+3. Currently, our project is limited to cards present in a single Trello storyboard and it doesn’t deal with cards present in multiple storyboards.  
+4. The user needs to type the name of the card/checklist item manually and hence the user needs to know the Trello card/checklist item name beforehand. Currently there is no drop down menu available which can list all the card/checklist item names.  
 
