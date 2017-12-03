@@ -63,6 +63,10 @@ The bot initializes by asking the first time user to do their Trello account's s
 
 ---
 
+### Demonstration
+
+Presentation video : [Link](https://www.youtube.com/watch?v=nusdcVZknBs)
+
 ### Reflection on the development process and project
 
 The development phase of ProManBot was distributed across 5 milestones where every phase had their own challenges. During the Design process, we encountered the dilemma of choosing either the Repository or Blackboard data centered architecture, and based on various factors such as user interactions and data handling, we selected Repository Architecture. In our 3 uses cases we were able to precisely describe the problem, and it aided in task tracking and test planning. One of the difficult decisions we made was evaluating the platform to deploy the bot and we selected Slack due to its good community support. The bot was developed in **NodeJS** language and this enabled us to learn about event based programming. 
