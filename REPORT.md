@@ -65,5 +65,11 @@ The bot initializes by asking the first time user to do their Trello account's s
 2. For usecase-3 the date format should be in MM/DD/YYYY format. So, input in any other date format will generate an error.
 Trello card names and todo items are case-sensitive. So, if the input contains same trello card name but it is just in different case, the bot won’t recognize it and generate an error that the card is not present even though that card is actually present in the Trello board.  
 3. Currently, our project is limited to cards present in a single Trello storyboard and it doesn’t deal with cards present in multiple storyboards.  
-4. The user needs to type the name of the card/checklist item manually and hence the user needs to know the Trello card/checklist item name beforehand. Currently there is no drop down menu available which can list all the card/checklist item names.  
+4. The user needs to type the name of the card/checklist item manually and hence the user needs to know the Trello card/checklist item name beforehand. Currently there is no drop down menu available which can list all the card/checklist item names.
+
+### Future Work
+1. The User-Bot interaction/conversation can be improved by using advanced Natural Language Processing APIs or Algorithms.
+2. Card names and Checklist/Todo items can be shown in drop-down with search option within the drop-down.
+3. We can further integrate JIRA and GIT APIs for multi platform application.
+4. The application can be also integrated with Alexa or Facebook messenger along with Slack platform.
 
