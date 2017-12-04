@@ -73,15 +73,15 @@ During the development phase, we realised that **botkit** library doesn’t supp
 
 Another challenge was to connect the bot with Trello REST API, which required OAUTH token. To overcome this difficulty, we included the library **client.js** provided by Trello and stored the token securely into the database. 
 
-Finally, when we deployed the bot application on the Amazon EC2 instances, we found that bot wasn’t responding due to default security setting on AWS. To resolve this issue, we had to add new firewall rules in **Security Groups** allowing connections for certain ports and addresses. 
+We chose Amazon EC2 over Heroku and VCL for our Bot deployment as EC2 has 99.99% availability as compared to that of VCL and Heroku on the other hand, has no native support for Ansible. Finally, when we deployed the bot application on the Amazon EC2 instances, we found that bot wasn’t responding due to default security setting on AWS. To resolve this issue, we had to add new firewall rules in **Security Groups** allowing connections for certain ports and addresses. 
 
 Overall, it was a great learning experience and helped us tremendously to hone our skills on NodeJS, AWS, Bot design, Configuration Management, Trello Platform, REST API, and Selenium Testing.
 
 ---
 
 ### Limitations  
-1. Since we are using ‘quit’ and ‘abort’ keywords to end the conversation with the Bot, we cannot have Trello card or checklist item which hold the same name as these keywords.
-2. For usecase-3 the date format should be in MM/DD/YYYY format. So, input in any other date format will generate an error.
+1. Since we are using ‘**quit**’ and ‘**abort**’ keywords to end the conversation with the Bot, we cannot have Trello card or checklist item which hold the same name as these keywords.
+2. For usecase-3 the date format should be in **MM/DD/YYYY** format. So, input in any other date format will generate an error. 
 Also, Trello card names and todo items are case-sensitive, hence, if the input isn't exact in terms of Case sensitivity with the existing trello card name, the Trello REST APIs won’t recognize it and wont return any entry.  
 3. Currently, our project is limited to cards present in a single Trello storyboard and it doesn’t deal with cards across several storyboards simultaneously. 
 4. The user needs to type the name of the card/checklist item manually and hence the user needs to know the Trello card/checklist item name beforehand. Currently there is no drop down menu available which can list all the available card/checklist items.
